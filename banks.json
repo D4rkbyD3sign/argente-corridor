@@ -110,7 +110,8 @@
             "-- ENTRY 124: The Festival of Sword and Coin draws rulers, champions, and traders from every corner of Aneas. Once here, they will not leave unchanged. The city will spread across Aneas — not by conquest, but by design.",
             "-- ENTRY 137: My chains are nearly gone, the 12th hour is near. It is time the world learned what the city already knows — there is no Arbiter without the city, and there is no city without the Arbiter. We are one. We are eternal.",
             "## ADDENDUM — WITNESSED",
-            "The steward's descent ended at the Clocktower's apex. The bearers were present. The construct fell; the souls returned; the city woke. The seat of judgment stands empty."
+            "The steward's descent ended at the Clocktower's apex. The bearers were present. The construct fell; the souls returned; the city woke. The seat of judgment stands empty.",
+            "SEALED: THE ARBITER, Steward of Lolosia — ▌▌ STATUS: DESTROYED — RECORD RETAINED ▌▌ See DISPATCH LOG — MEMORY 003."
           ]
         },
         {
@@ -401,7 +402,7 @@
             "-- ASTERILAK VAASKO — the Locker Room's retired champion, reluctantly seated. The fighters' district calls it the best judgment the Jewel ever made.",
             "SEALED: LYNDIS SARZANA, Master of Diplomatic Relations — ▌▌ STATUS: DECEASED — RECORD RETAINED ▌▌",
             "SEALED: FABI GERSHTACKER, Master of Military — ▌▌ STATUS: DECEASED — RECORD RETAINED ▌▌",
-            "-- THE ARBITER — the fourth seat. WITNESSED: the seat stands empty. The Clocktower fell silent, and the city woke.",
+            "SEALED: THE ARBITER, the fourth seat — ▌▌ STATUS: DESTROYED — RECORD RETAINED ▌▌ WITNESSED: the seat stands empty. The Clocktower fell silent, and the city woke.",
             "-- Of the departed: Lyndis kept the Merchants Respite and the city's quieter handshakes; Fabi, dwarf of honour in gold-etched armour, funded the Three Pointe Watch and the Arena Della Fortuna, and spoke only truth. The banks retain them.",
             "## DISTRICTS & LANDMARKS",
             "Central Markets · Goods Hall · Gardino Delle Quatro, the botanical garden of the Four Families of Old · Mausoleum El Familia · the Historum Arcana, vault of knowledge overseen by The Guild · Rex Armada's Rune Smithy · The Row · Central Docks · Xiao Jin Chun, district of Jin Cheng culture and remembrance · The Block.",
@@ -857,6 +858,44 @@
             "The steward fell at the apex, above a city of sleeping bodies. In its chest, where a heart should be, the bearers found what two hundred and fifty years of whispers had been made of. One of them reached in and took it. The banks do not record what the bearer saw when their fingers closed. Some memories are carried, not banked.",
             "Below, Lolosia woke. Street by street, breath by breath. The Clocktower stands silent now — just a light at the city's heart, marking where judgment used to live.",
             "-- INTEGRITY NOTE: this record runs warm. The banks hold it at 91% and rising, which the machine observes is unusual, and does not explain."
+          ]
+        },
+        {
+          "id": "log-wings",
+          "title": "MEMORY 002 — The Wings",
+          "class": "WITNESS RECORD",
+          "memory": "witnessed",
+          "integrity": 91,
+          "body": [
+            "-- Committed to the banks by the bearers' link. The machine records what was lived.",
+            "In the City of Gold, the pawn was given back what the board had taken. Not his own wings — given. The cut was made by a wingless man who knew its shape because he had made it on himself, and the blade was held by one of the pawn's own party, who did not know what she was doing until she had done it.",
+            "The banks record the hands and the blade. The banks do not record the colour of the feathers, or what the pawn said when he stood.",
+            "SEALED: What it chose is not on file. See THE BEARERS — the Piece Called Ludrimein.",
+            "-- INTEGRITY NOTE: this record runs warm, like MEMORY 003. The bearers committed it at full fidelity and the machine did not ask twice."
+          ]
+        },
+        {
+          "id": "log-guild",
+          "title": "MEMORY 001 — The Guild",
+          "class": "RECOVERED RECORD",
+          "memory": "recovered",
+          "integrity": 74,
+          "body": [
+            "-- Recovered from the world, not witnessed. Common memory, as the banks can assemble it. The Guild does not publish; this is what the realm knows.",
+            "THE MERCHANTS GUILD OF ANEAS — 'the Guild'. For as long as anyone remembers: a consortium of legitimate trade across every corner of the land, and beneath it a black market that thrived on the other side of the law. Hospitals, schools, orphanages — charity as recruiting engine. Whole towns that existed because of Guild coin, where the mayor, the sheriff and the judge all wore the same colours. Where there was war, the Guild sold to every side that could pay.",
+            "## THE CREED",
+            "> Loyalty. Profit. Integrity.",
+            "Loyalty to the Guild and each other. Everyone and everything has a price. All debts must be paid. Children raised in Guild halls graduated owing the Guild for their own childhood — nothing in the Guild is free.",
+            "## THE LEDGER",
+            "A magical accounting kept in every member's mind: what is owed, what is due, net worth — and net worth was standing. Entries lit red for debit, green for credit. Interest accrued monthly, by itself.",
+            "## THE MARK",
+            "A heart inside a coin, over the scales of a moneylender — loyalty, profit, integrity. Every member carries it tattooed somewhere on the body; it is thought the mark is what binds a member to the Ledger. A cant of hand-signs travels with it: two fingers to the heart, a thumb-and-forefinger circle.",
+            "## THE FALL AND THE RESTART",
+            "The One War made the Guild rich. The Dawn of the Red Sun broke it — whatever ran the Ledger was wiped out with the world, and the soft middle of the Guild died with its luxuries. The rumour that outlived them: that the Guild had steered the warring parties toward the cataclysm because it would be good for business.",
+            "Some years ago the Ledger lit again, blank, for those who had kept the Creed and the mark. Interest halved. Nobody below the top knows who turned it back on.",
+            "## TODAY",
+            "Banned in most of the realm; tolerated where a ruler is a member or wants the taxes. Small orphanages are open again. The Guild rebuilds slowly and keeps its head down.",
+            "-- The banks hold a member: see THE BEARERS — the Piece Called Turox. Integrity is bounded at 74% — the Guild's own records are not in the world's memory, and the banks will not pretend otherwise."
           ]
         },
         {
