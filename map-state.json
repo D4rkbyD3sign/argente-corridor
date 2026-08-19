@@ -1,0 +1,392 @@
+{
+  "core_capacity": 23,
+  "tunnels_accessible": 4,
+  "tunnels_total": 17,
+  "layers_unlocked": [
+    "surface_survey"
+  ],
+  "clearance": "PROVISIONAL — ENGINEER LOCK ACTIVE",
+  "plates": {
+    "world": "Draft.jpg",
+    "corridor": "kreuzung.jpg",
+    "city_lolosia": "Lolosia-city-map.jpg",
+    "city_chaepstow": "chaepstow.jpg"
+  },
+  "regions": {
+    "kreuzung": {
+      "name": "Kreuzung",
+      "kind": "region-frame",
+      "confidence": "stone",
+      "memory": "witnessed",
+      "polygon": [
+        [
+          1135,
+          300
+        ],
+        [
+          900,
+          320
+        ],
+        [
+          640,
+          340
+        ],
+        [
+          470,
+          400
+        ],
+        [
+          430,
+          560
+        ],
+        [
+          470,
+          680
+        ],
+        [
+          580,
+          740
+        ],
+        [
+          700,
+          820
+        ],
+        [
+          800,
+          1000
+        ],
+        [
+          880,
+          1120
+        ],
+        [
+          1080,
+          1160
+        ],
+        [
+          1350,
+          1140
+        ],
+        [
+          1600,
+          1090
+        ],
+        [
+          1850,
+          1060
+        ],
+        [
+          1920,
+          920
+        ],
+        [
+          1880,
+          700
+        ],
+        [
+          1830,
+          440
+        ],
+        [
+          1650,
+          330
+        ],
+        [
+          1400,
+          290
+        ]
+      ]
+    },
+    "lolosia": {
+      "name": "Lolosia",
+      "kind": "city",
+      "confidence": "stone",
+      "memory": "witnessed",
+      "point": [
+        991,
+        691
+      ],
+      "superzoom": "city_lolosia"
+    },
+    "chaepstow": {
+      "name": "Chaepstow",
+      "kind": "town",
+      "confidence": "stone",
+      "memory": "witnessed",
+      "point": [
+        1325,
+        939
+      ],
+      "superzoom": "city_chaepstow"
+    },
+    "sendle-point": {
+      "name": "Sendle Point",
+      "kind": "watchtower",
+      "confidence": "stone",
+      "memory": "recovered",
+      "point": [
+        906,
+        1055
+      ]
+    },
+    "sendle-path": {
+      "name": "Sendle Path",
+      "kind": "route",
+      "confidence": "stone",
+      "memory": "witnessed"
+    },
+    "sendle-hills": {
+      "name": "Sendle Hills",
+      "kind": "hills",
+      "confidence": "stone",
+      "memory": "recovered",
+      "polygon": [
+        [
+          956,
+          922
+        ],
+        [
+          1210,
+          973
+        ],
+        [
+          1164,
+          1025
+        ],
+        [
+          968,
+          1002
+        ]
+      ]
+    },
+    "sendle-forest": {
+      "name": "Sendle Forest",
+      "kind": "forest",
+      "confidence": "stone",
+      "memory": "recovered",
+      "polygon": [
+        [
+          991,
+          853
+        ],
+        [
+          1279,
+          870
+        ],
+        [
+          1244,
+          956
+        ],
+        [
+          1025,
+          956
+        ]
+      ]
+    },
+    "sijiados-grove": {
+      "name": "Sijiados Grove",
+      "kind": "grove",
+      "confidence": "stone",
+      "memory": "recovered"
+    },
+    "sabavend": {
+      "name": "Sabavend",
+      "kind": "settlement",
+      "confidence": "stone",
+      "memory": "recovered"
+    },
+    "umbral-woods": {
+      "name": "Umbral Woods",
+      "kind": "forest",
+      "confidence": "stone",
+      "memory": "recovered",
+      "polygon": [
+        [
+          1359,
+          714
+        ],
+        [
+          1636,
+          541
+        ],
+        [
+          1797,
+          806
+        ],
+        [
+          1670,
+          899
+        ],
+        [
+          1463,
+          864
+        ]
+      ]
+    },
+    "tamgamis-spine": {
+      "name": "Tamgami's Spine",
+      "kind": "mountains",
+      "confidence": "stone",
+      "memory": "recovered",
+      "polygon": [
+        [
+          1601,
+          392
+        ],
+        [
+          1728,
+          449
+        ],
+        [
+          1889,
+          899
+        ],
+        [
+          1820,
+          1025
+        ],
+        [
+          1693,
+          749
+        ]
+      ]
+    },
+    "buchlita-slopes": {
+      "name": "Buchlita Slopes",
+      "kind": "hills",
+      "confidence": "stone",
+      "memory": "recovered",
+      "polygon": [
+        [
+          495,
+          392
+        ],
+        [
+          968,
+          346
+        ],
+        [
+          1002,
+          495
+        ],
+        [
+          876,
+          645
+        ],
+        [
+          645,
+          714
+        ],
+        [
+          495,
+          553
+        ]
+      ]
+    },
+    "golden-fields": {
+      "name": "Golden Fields",
+      "kind": "region",
+      "confidence": "stone",
+      "memory": "recovered"
+    },
+    "jin-cheng": {
+      "name": "Jin Cheng",
+      "kind": "settlement",
+      "confidence": "stone",
+      "memory": "recovered"
+    },
+    "borsong": {
+      "name": "Borsong",
+      "kind": "port",
+      "confidence": "stone",
+      "memory": "recovered",
+      "point": [
+        2223,
+        973
+      ]
+    },
+    "everland-pass": {
+      "name": "Everland Pass",
+      "kind": "pass",
+      "confidence": "stone",
+      "memory": "recovered"
+    },
+    "astravia-presence": {
+      "name": "Astravian Empire",
+      "kind": "presence-wash",
+      "confidence": "survey",
+      "memory": "recovered"
+    },
+    "corsolas-crossing": {
+      "name": "Corsola's Crossing",
+      "kind": "bridge",
+      "confidence": "stone",
+      "memory": "recovered",
+      "point": [
+        1135,
+        300
+      ]
+    },
+    "three-pointe-watch": {
+      "name": "Three Pointe Watch",
+      "kind": "watchtower",
+      "confidence": "stone",
+      "memory": "recovered",
+      "point": [
+        1832,
+        1014
+      ]
+    },
+    "minted-mound": {
+      "name": "Minted Mound",
+      "kind": "landmark",
+      "confidence": "stone",
+      "memory": "witnessed",
+      "point": [
+        1175,
+        628
+      ]
+    },
+    "yen-da-strait": {
+      "name": "Yen Da Strait",
+      "kind": "water",
+      "confidence": "stone",
+      "memory": "witnessed",
+      "polyline": [
+        [
+          1135,
+          330
+        ],
+        [
+          1075,
+          430
+        ],
+        [
+          1020,
+          540
+        ],
+        [
+          990,
+          640
+        ],
+        [
+          1000,
+          700
+        ],
+        [
+          950,
+          770
+        ],
+        [
+          850,
+          800
+        ],
+        [
+          730,
+          815
+        ]
+      ]
+    }
+  },
+  "fog_rule": "everything not listed renders as corrupted survey data; the six other landmasses are permanent fog (quarantine canon)"
+}

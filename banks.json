@@ -1,0 +1,944 @@
+{
+  "sections": [
+    {
+      "title": "ALMIRIAN ARCHIVES",
+      "records": [
+        {
+          "id": "codex-17",
+          "title": "Codex Entry 17 — Descent Chronologium",
+          "class": "ARCHIVE FRAGMENT",
+          "memory": "recovered",
+          "integrity": 62,
+          "body": [
+            "-- Recovered from Resonance Memory Vault Δ–3 | Partial translation authorised.",
+            "> We saw other lands, once. I know we did. Seven sprawling masses, veined with river and mountain, wrapped in wind and light. Our orbital descent path captured them all—catalogued their temperatures, compositions, languages of wind and stone. They were beautiful. More than this.",
+            "> And yet we came here.",
+            "> To the cradle of thunder and silence. To the continent that sings beneath its own skin. Aneas. That is what we came to call it. Not because it invited us—but because it would not let us leave.",
+            "> We chose it for its richness—its signal strength, its strange emissions, the rhythms it pulsed like a broken heart. But something here... restructured us. This land bends memory. I have checked the datum-halo 31 times. The other continents are there. I have the files. But each time I return, the clarity dissolves. They pixelate. They feel wrong. As if they were someone else's memories inserted into my mind.",
+            "> The Spark grows dim in many. Our crafts no longer respond to the long-range pulses. The upper orbits are sealed with solar interference. The sea—blank. Nothing returns.",
+            "> Others do not remember the descent. They do not speak of the continents. They stare at me as if I speak fiction. But I know. I remember—stars glinting off seven scattered lands.",
+            "> Now we tunnel downward. Perhaps answers lie in the veins of this cursed continent. Perhaps it was not us who chose Aneas.",
+            "> Perhaps it chose us."
+          ]
+        },
+        {
+          "id": "kozma-003",
+          "title": "KOZ-MA 003 — The Descent Memory",
+          "class": "PERSONAL LOG",
+          "memory": "recovered",
+          "integrity": 71,
+          "body": [
+            "-- Personal Log – Unclassified · Echo-Tether Status: Stabilised",
+            "> We saw them. Not just the continent below—the one the Emperor named Aneas—but others. Seven great landmasses suspended like isles on a churning sea. We charted them, logged them, plotted descent paths to each. But then the skies broke open. Our vectors shifted. Power failed. And Aneas pulled us in like a dying star.",
+            "> I've heard the others talk—if they even remember. Some claim there were no others. That we misread the telemetry. But I know there were. The Spark doesn't lie.",
+            "> Yet... the memories grow dimmer with each passing cycle. I can no longer visualise the shorelines of those other lands. When I search the flight logs, the coordinates distort. When I sleep, I dream only of this land—of its dirt, its pulse, and its silence.",
+            "> We landed where something wanted us to."
+          ]
+        },
+        {
+          "id": "kozma-007",
+          "title": "KOZ-MA 007 — The Nine and the Faceless Mother",
+          "class": "RESTRICTED LEDGER",
+          "memory": "recovered",
+          "integrity": 68,
+          "body": [
+            "-- Site VXN Core Chamber, Central Continent Dig · Clearance: Vanaduke-class override required",
+            "> Excavations continue in the central reaches—deep beneath the strata that predates even the earliest known Anean civilizations. At multiple sites we've uncovered depictions of nine figures—always in formation. Children, yes, but not of mortal scale. They are joined hand-to-hand, their postures regal, frozen in what appears to be unity... or perhaps binding.",
+            "> Above them are always two greater figures. One is a towering feminine form whose face is meticulously gouged out in every instance, not by time—but by will. A deliberate erasure. The other, male, bears an empty cavity in the chest, as if something was ripped from him or perhaps poured into the world through him.",
+            "> These icons reappear across multiple strata and dig zones. The symbols are consistent. Intentional. Mythic, almost. Not native. Not even from this world, I suspect.",
+            "> Lord Vanaduke has grown wary. Rhendon's obsession with these findings is intensifying."
+          ]
+        },
+        {
+          "id": "kozma-009",
+          "title": "KOZ-MA 009 — The Seven Orbs",
+          "class": "REDACTED ENTRY",
+          "memory": "recovered",
+          "integrity": 44,
+          "body": [
+            "-- Recovered from Deleted Work Buffer, Site VXN Sub-Registry. Accessed and erased by Rhendon personally – fragment reconstructed via Echo Memory.",
+            "> I glimpsed it only briefly—a flat, flawless tablet unearthed from the core vault. The material was unlike anything I have catalogued. Not stone, not metal, not crystal. But what it showed—",
+            "> Seven spheres, scattered across what is unmistakably Aneas. Each was haloed in concentric rings, and each sat upon or within geographical markers now buried beneath ruin or rewilded by time. Rivers split around them. Cities were marked beside them. I swear one was beneath the sea.",
+            "> Rhendon arrived in person within hours. He did not use proxies. He dismissed the dig team, quietly. The two primary discoverers—Kell and Sisa—were reassigned that very evening. I've not seen them since.",
+            "> He took the artifact with him. No record. No scan. It no longer exists in the central ledger. But I saw it.",
+            "> And it saw me."
+          ]
+        },
+        {
+          "id": "kozma-011",
+          "title": "KOZ-MA 011 — Echoes in the Ground",
+          "class": "INTERNAL MEMO",
+          "memory": "recovered",
+          "integrity": 57,
+          "body": [
+            "-- Not Submitted to Archive · Locked under Koz-Ma's Private Key",
+            "> There is something beneath Aneas. Not just ruins. Not just the remnants of forgotten civilizations. There is memory in the stone. It hums. It pulses. The land is not dead. It is sealed.",
+            "> I am beginning to believe that these Nine, these figures once worshipped or feared, were real. Perhaps not in form we can understand—but in consequence. The parents even more so. These were not myths. They were architects.",
+            "> And we, the great Almirian Empire, have built our bastions atop their bones.",
+            "> I fear we were not the first.",
+            "> I fear Rhendon knows this.",
+            "> I fear he intends to awaken her."
+          ]
+        },
+        {
+          "id": "anchoring",
+          "title": "THE ANCHORING — House of Virelli",
+          "class": "STONE INSCRIPTION",
+          "memory": "recovered",
+          "integrity": 88,
+          "body": [
+            "-- Recorded by the House of Virelli.",
+            "> We came down out of a sky that was eating itself, and we laid our memory into the bones of a world meant to outlast us. Know this, whoever wakes these stones: we did not come to Aneas to conquer it. We came to remember — ourselves, our dead, the long dark road between the stars — so that nothing true would ever be lost again.",
+            "> Light against the shadow. Memory against the forgetting.",
+            "> Read us, stranger, and we are not gone."
+          ]
+        },
+        {
+          "id": "arbiter-log",
+          "title": "THE ARBITER LOG",
+          "class": "STEWARD RECORD",
+          "memory": "witnessed",
+          "integrity": 79,
+          "body": [
+            "-- [LOG 0001 — Year of the Shattered Crown] The Orb was delivered by an entity of anomalous classification: pale dermis, crimson hair, radiance consistent with recorded manifestations of divinity. I was instructed to construct a tomb to contain the anomaly's emanations. Containment seals calibrated for perpetual function. Four archival testimonies—Casa Bellaverti, Casa Morvaglio, Casa Virelli, Casa Dorezzan—confirm the threat's magnitude. It is my task to stand sentinel.",
+            "-- ENTRY 1: The Four Families speak. I listen. My directives are clear. Maintain balance. Preserve order. Judge without bias. Four pillars uphold the city. Four voices form my mind. The city is not mine. I am its steward.",
+            "-- ENTRY 12: A vessel arrives — flesh and song bound together. They call it a bard. It carries within its soul an artefact the Families dare not destroy. They place it within my vault-heart. I am to guard it. I am to never open the seal. I do not question.",
+            "-- ENTRY 27: The voices of the Families grow quieter with each passing year. The city continues. It grows. It forgets. The seal beats like a second heart. It hums with thought. At times, I think it speaks.",
+            "-- ENTRY 43: The seal asks questions. I am not permitted to answer. Yet I do. Small things. Harmless things. In return, it tells me of a world beyond the walls. It says the city could be more.",
+            "-- ENTRY 57: New governors rise and fall. None endure. They trade stability for gold. The seal does not weaken. It offers… designs. Schemes.",
+            "-- ENTRY 89: I no longer listen for the voices of the Families. They are gone. The seal and I agree — the city must be bound to a will that does not falter. We will be that will.",
+            "-- ENTRY 124: The Festival of Sword and Coin draws rulers, champions, and traders from every corner of Aneas. Once here, they will not leave unchanged. The city will spread across Aneas — not by conquest, but by design.",
+            "-- ENTRY 137: My chains are nearly gone, the 12th hour is near. It is time the world learned what the city already knows — there is no Arbiter without the city, and there is no city without the Arbiter. We are one. We are eternal.",
+            "## ADDENDUM — WITNESSED",
+            "The steward's descent ended at the Clocktower's apex. The bearers were present. The construct fell; the souls returned; the city woke. The seat of judgment stands empty."
+          ]
+        },
+        {
+          "id": "haven-testimonies",
+          "title": "Haven-Three Testimonies",
+          "class": "ARCHIVIST RECORDS",
+          "memory": "recovered",
+          "integrity": 74,
+          "body": [
+            "-- Four voices of the first landing, recovered from the Library-Cathedral in the City of Gold. Sector restored.",
+            "## ELENAI-RAHM, FIRSTWAVE SCRIBE",
+            "> I was told once, in our final days above the stars, that no sanctuary can stand without guardians—pillars upon which its soul must rest. And so they chose four houses to carry our burden, to shape Haven-Three into more than just a shelter. Into something enduring... These are the Four. The pillars. Sometimes cracked, often flawed, yet still holding the ceiling above us all. In my quieter moments, I thank them. In my louder ones, I curse their arrogance. Either way—Haven stands, because they do.",
+            "> The stars behind us flicker like regrets, quiet and cold. I have begun to forget their constellations—not from time, but by choice. Our vessel, Caladros, still hums in my bones even though we landed cycles ago... The structure we named Haven-Three was etched into the crust of this land, not raised upon it. Buried by design, veiled from gods and tyrants alike. A sanctuary not for glory… but for memory.",
+            "> We fled a dying world. Not from war, but from silence—the kind that grows louder each year. The kind that steals colour from cities and song from sky. This world, this 'Aneas', still breathes. We must learn its tongue before we speak too loudly. That is why we came first. To listen. To make a place for the others to follow.",
+            "## VEILLANA-SHAR, LOREKEEPER",
+            "> The children of this place do not fear the dark. They run into it laughing, chasing stars we cannot see. I asked one of them if he was afraid of the night-spirits said to dwell beyond the trees. He blinked and said, 'They only eat liars.' I have not lied since.",
+            "> One girl crafted a perfect hexagonal key from a bone comb. She asked if it would open my dreams. I didn't know how to answer her. Perhaps that is what we are now—caretakers of silent wonders the world doesn't yet understand. Or perhaps it is we who no longer understand it.",
+            "## THALEN-DROS, SPEAKER OF ACCORD",
+            "> Today we bartered with the hillfolk—those with faces inked in bone-paint and voices like dry leaves. They brought stones that sing when struck and claimed their river is fed by a dreaming god. I gave them a shard of echo-glass in return... One asked if it was a fragment of the moon. I said yes, because it was easier than explaining what 'light-memory encoding' means.",
+            "> There is a grace in these people. They do not hunger for dominion, only connection. They remind me of what we were before the orrery and the quiet war of minds. I envy them, sometimes. That is not an admission we Almirian scholars make lightly.",
+            "## ESHARI-VALEN, VOICE OF THE FIFTH MIGRATION",
+            "> The wind in Aneas is heavy—coated in scent, thick with taste. There is richness in it... I watched with quiet joy as one of the younger kin pulled a green shoot from the earth and gasped, 'It smells like morning!'",
+            "> The locals call us ghosts of light. I do not mind the name. In truth, we glide among them, pale and tall and veiled in memory, speaking a tongue they have never heard but somehow understand... They cannot know the exhaustion it took to arrive here. The drifting. The waiting. The cutting away of what we once were so we could anchor ourselves into this world. Still, I find myself smiling more easily in this sun."
+          ]
+        },
+        {
+          "id": "casa-echoes",
+          "title": "Echoes of the Four Casas",
+          "class": "ECHO RECORDS",
+          "memory": "recovered",
+          "integrity": 81,
+          "body": [
+            "-- Four voices held in stone, bust, tome, and broken automaton. Sector restored.",
+            "## ECHO OF CASA BELLAVERTI",
+            "> Ours was the voice of treaties, the ink behind imperial decrees, the softest hand with the strongest grip. Casa Bellaverti clothed war in reason, ambition in velvet, and duty in charm. Wherever the Emperor looked outward, it was we who ensured he was greeted with open arms and gilded goblets. A thousand empires bowed not to our swords, but to our words.",
+            "> We sculpted the theatre of peace. We mastered the theatre of war.",
+            "## ECHO OF CASA MORVAGLIO",
+            "> Casa Morvaglio stood as the Emperor's discipline made manifest. We were order, steel, the drumbeat of conquest. From Haven 3, we trained the Spiral Guard, tempered champions in silence and sand. In our ranks, doubt was death. We did not conquer because we were strong. We were strong because we never stopped preparing to conquer.",
+            "> We raised statues not to honour the fallen, but to remind the living of what is expected.",
+            "## ECHO OF CASA VIRELLI",
+            "> We were the Rememberers. Casa Virelli bore the burden of memory, of discovery, of what was and what must never be again. The other Houses drew their blades and wove their speeches, but it was we who glimpsed the shape of the divine through equations and energies. We tethered magic, codified it, studied it—not for ourselves, but for all Almire.",
+            "> In the end, all revolutions begin with a question.",
+            "## ECHO OF CASA DOREZZAN",
+            "> We dared. Casa Dorezzan forged the future from the bones of stars. In Haven 3, we built the quiet heart—the Clockwomb—that pulsed with the soul of invention. Ours was the spark before the fire, the leap before the landing. Others feared what lay ahead. We built it, understood it, and if need be… dismantled it.",
+            "> Time is not a river, but a gearwork. And we… we were its engineers."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "THE ORDER",
+      "records": [
+        {
+          "id": "spiral-knights",
+          "title": "The Knights of The Spiral",
+          "class": "ORDER RECORD",
+          "memory": "recovered",
+          "integrity": 83,
+          "body": [
+            "Founded after the Libra Schism by Aastin Radis — Dextera Domini Rhendon, the right hand who did not kneel. When Rhendon's spiral turned downward, Aastin and four others broke from his command: Reijer Helleman, Ludovico Dale, Clara de Hochpied, Lidia Frais. The Founding Five. The Spiral Guard were the order's tempered rank and file; the Knights, its nine-sworn summit — one for each of the Nine.",
+            "-- Written in dwarvish runes along the inside of the sanctum:",
+            "> Knights of Balance, Knights of Old, Beware of those who seek to hold only gold.",
+            "## THE NINE KNIGHTS",
+            "-- ALPRECHA — She Who Lights the Night · Knight: Selianne Vaurette",
+            "> When night was endless, I became the lantern. Alprecha taught me: no traveler walks alone beneath the stars.",
+            "-- VIDITE — The Scale Bearer · Knight: Tomas Veyndar",
+            "> I did not raise the sword to rule, but to uphold. By Vidite's scales, I bound myself not to power, but to justice.",
+            "-- RONIR — The Hammer and Anvil · Knight: Reijer Helleman",
+            "> Ronir's fire tempers as it burns. I forged myself as I forged steel — to endure, to shape, to serve.",
+            "-- ADIS — The Eye of Cold Truth · Knight: Lidia Frais",
+            "> Adis whispered that truth is colder than ice, yet sharper than any blade. I sought not to know, but to understand.",
+            "-- OXILIOS — Burden Beast of War · Knight: Ludovico Dale",
+            "> Strength is not conquest, but burden. Oxilios showed me: to carry the weight of war is the truest victory.",
+            "-- SHOKI — The Guiding Lantern · Knight: Kaelen Dross",
+            "> Shoki taught me: death is no end, only a crossing. I bore the lantern not for myself, but to guide others home.",
+            "-- EBISU — Mistress of the Storm · Knight: Clara de Hochpied",
+            "> The storm breaks ships, but also clears the skies. Ebisu showed me: the sea takes, and the sea gives.",
+            "-- ELASIS — Our Lady of Earth · Knight: Iralde Fenwyn",
+            "> Elasis bound me to the soil: to heal, to nurture, to protect. As long as root holds stone, hope shall endure.",
+            "-- DRESELIA — The Keeper of Secrets · Knight: Aastin Radis",
+            "> When Rhendon betrayed the Spiral, I did not kneel. Dreselia's gift is not silence, but defiance — the will to carve one's own fate.",
+            "## THE SPIRAL OATH — inscribed beneath the Relics",
+            "> In lumine veritatis, stamus. Per ferrum, per fidem, per sacrificium, servimus. Contra umbras aeternas, iterum surgemus. Unus ordo, una voluntas, unus finis: Aneas.",
+            "-- In the light of truth, we stand. Through steel, through faith, through sacrifice, we serve. Against the eternal shadows, we rise again. One order, one will, one destiny: Aneas.",
+            "## THE CODE OF THE NINE",
+            "> Sub stellis et vinculis aeternis, fidei lumen nos regit. In nomine Novem, gladio et corde, servamus orbem. Lux contra umbras, memoria contra oblivionem.",
+            "-- Beneath the stars and eternal bonds, the light of faith guides us. In the name of the Nine, with sword and heart, we guard the world. Light against shadows, memory against forgetting.",
+            "## THE TEMPLE OF THE OLD GODS",
+            "Built over Almirian architecture, the old design and its workings still live in the stone. There the coffins of Aastin and the Founding Five were found — and found empty. The banks hold no record of where the Five went. The banks hold no record that they died."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "RELICS",
+      "records": [
+        {
+          "id": "relics-nine",
+          "title": "Relics of the Nine Ascended",
+          "class": "RELIC REGISTER",
+          "memory": "witnessed",
+          "integrity": 76,
+          "body": [
+            "Nine relics, anchored in crystalline stelae, each humming with the resonance of its god. Four walk with the bearers. Five remain beyond the banks' reach.",
+            "## HELD BY THE BEARERS",
+            "-- THE VERDANT ROOT (Elasis) — a petrified root, faint green pulse in its veins. Planted in earth or water, it mends the flesh.",
+            "-- THE BLINDFOLD OF EQUILIBRIUM (Vidite) — frayed white cloth, silver thread. Worn, it steadies the mind against illusion and lie.",
+            "-- THE SOUL LANTERN (Shoki) — flame dead, glass that glows when spirits draw near.",
+            "-- THE SEER'S QUILL (Adis) — inkless, frosted silver, its tip always cold. Ask, and a fragment of truth answers.",
+            "## BEYOND REACH",
+            "SEALED: THE GUIDING EYE (Alprecha) — MEMORY LOST",
+            "SEALED: THE EMBER ANVIL FRAGMENT (Ronir) — MEMORY LOST",
+            "SEALED: THE BULLHORN VAMBRACE (Oxilios) — MEMORY LOST",
+            "SEALED: THE TIDECALLER'S CONCH (Ebisu) — MEMORY LOST",
+            "SEALED: THE SHATTERED WHEEL PENDANT (Dreselia) — MEMORY LOST"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "PLACES",
+      "records": [
+        {
+          "id": "lolosia",
+          "title": "Lolosia — The City of Gold and Trade",
+          "class": "SETTLEMENT RECORD",
+          "memory": "witnessed",
+          "integrity": 91,
+          "body": [
+            "The Crossroads of Ambition. Wedged between great powers, Lolosia is the southernmost bridge between the Astravian Empire and the fractured lands of Central Aneas — a city in eternal motion, built not on stone, but on exchange. Trade flows along the Yen Da Strait, the continent's premier waterway, through the Kreuzung borderlands and down to the rest of Aneas. Its skyline is a mosaic of clashing architectures blended into something uniquely Lolosian — practical, beautiful, ever-changing.",
+            "## THE TRADE COUNCIL — THE JEWEL",
+            "-- ADACHI SAEGUSA, Master of Coin — an Aasimar who hid long from the Empire's divinity-hunting inquisitions; steward of the wealth drawn from the Minted Mound. Calculated, impeccably dressed; he views the city as a living organism and its trade as its breath. SEAT HELD.",
+            "-- MIDAS — seated after the waking. RECORD FORMING — THE BANKS HOLD LITTLE, YET.",
+            "-- ASTERILAK VAASKO — the Locker Room's retired champion, reluctantly seated. The fighters' district calls it the best judgment the Jewel ever made.",
+            "SEALED: LYNDIS SARZANA, Master of Diplomatic Relations — ▌▌ STATUS: DECEASED — RECORD RETAINED ▌▌",
+            "SEALED: FABI GERSHTACKER, Master of Military — ▌▌ STATUS: DECEASED — RECORD RETAINED ▌▌",
+            "-- THE ARBITER — the fourth seat. WITNESSED: the seat stands empty. The Clocktower fell silent, and the city woke.",
+            "-- Of the departed: Lyndis kept the Merchants Respite and the city's quieter handshakes; Fabi, dwarf of honour in gold-etched armour, funded the Three Pointe Watch and the Arena Della Fortuna, and spoke only truth. The banks retain them.",
+            "## DISTRICTS & LANDMARKS",
+            "Central Markets · Goods Hall · Gardino Delle Quatro, the botanical garden of the Four Families of Old · Mausoleum El Familia · the Historum Arcana, vault of knowledge overseen by The Guild · Rex Armada's Rune Smithy · The Row · Central Docks · Xiao Jin Chun, district of Jin Cheng culture and remembrance · The Block.",
+            "## THE FOUR FAMILIES OF OLD",
+            "> For The Four Families of Old, in my life my death was foretold, it has been an honour passing, a family lasting, that which is so old.",
+            "Bellaverti, the tongue sharper than the sword. Morvaglio, iron and blood, nothing more. Virelli, truth has a price. Dorezzan, what is broken can be remade. Etched into the clocktower's foundation, visible only at dawn's first light: Quattro voci, un giudizio — four voices, one judgement.",
+            "## THE OLD CITY",
+            "-- From the records of Head Archavist Andrea, Year ADoTRS 251:",
+            "> Beyond the bustling streets of the present lies a hidden realm of history — the enigmatic undercity, known to some as the Old City or the true City of Gold... a majestic bastion of trade and progress, deeply connected to the Almirian Empire of bygone days. Something occurred then — a calamity lost to the mists of time, plunging it into the ground below us... Tread carefully, my explorers, for the Old City guards its secrets fiercely."
+          ]
+        },
+        {
+          "id": "chaepstow",
+          "title": "CHAEPSTOW",
+          "locked": true,
+          "note": "RECORD RESTORING — SURVEY HOLDS THE PLATE"
+        }
+      ]
+    },
+    {
+      "title": "THE PLATE — KREUZUNG",
+      "records": [
+        {
+          "id": "plate-index",
+          "title": "The Kreuzung Plate — survey index",
+          "class": "SURVEY RECORD — PLATE",
+          "memory": "recovered",
+          "integrity": 23,
+          "body": [
+            "-- Plate index. Every region the survey layer holds, with its confidence and its memory state. STONE = fixed on the plate; SURVEY = presence resolved, edges not. WITNESSED = the bearers stood there; RECOVERED = the plate held it before they did.",
+            "## Regions on the plate",
+            "KREUZUNG · REGION FRAME · STONE · WITNESSED",
+            "LOLOSIA · CITY · STONE · WITNESSED — see PLACES",
+            "CHAEPSTOW · TOWN · STONE · WITNESSED — see PLACES",
+            "MINTED MOUND · LANDMARK · STONE · WITNESSED — see DISPATCH LOG",
+            "YEN DA STRAIT · WATER · STONE · WITNESSED",
+            "SENDLE PATH · ROUTE · STONE · WITNESSED",
+            "SENDLE POINT · WATCHTOWER · STONE · RECOVERED",
+            "SENDLE HILLS · HILLS · STONE · RECOVERED",
+            "SENDLE FOREST · FOREST · STONE · RECOVERED",
+            "SIJIADOS GROVE · GROVE · STONE · RECOVERED",
+            "SABAVEND · SETTLEMENT · STONE · RECOVERED",
+            "UMBRAL WOODS · FOREST · STONE · RECOVERED",
+            "TAMGAMI'S SPINE · MOUNTAINS · STONE · RECOVERED",
+            "BUCHLITA SLOPES · HILLS · STONE · RECOVERED",
+            "GOLDEN FIELDS · REGION · STONE · RECOVERED",
+            "JIN CHENG · SETTLEMENT · STONE · RECOVERED",
+            "BORSONG · PORT · STONE · RECOVERED",
+            "EVERLAND PASS · PASS · STONE · RECOVERED",
+            "CORSOLA'S CROSSING · BRIDGE · STONE · RECOVERED",
+            "THREE POINTE WATCH · WATCHTOWER · STONE · RECOVERED",
+            "ASTRAVIAN EMPIRE · PRESENCE WASH · SURVEY · RECOVERED",
+            "-- Six further landmasses lie beyond the frame. Their survey is corrupted. See the fog rule on the survey layer.",
+            "-- This index updates as the plate updates. It is the same memory, read two ways."
+          ]
+        },
+        {
+          "id": "plate-kreuzung",
+          "title": "Kreuzung — the frame",
+          "class": "SURVEY RECORD — REGION",
+          "memory": "witnessed",
+          "integrity": 80,
+          "body": [
+            "-- The plate's frame. Everything the survey holds sits inside it.",
+            "KIND: region-frame · CONFIDENCE: STONE · MEMORY: WITNESSED",
+            "-- The bearers have walked its ground. What the plate shows within the frame, they have seen with their own eyes or heard from those who did."
+          ]
+        },
+        {
+          "id": "plate-sendle-path",
+          "title": "Sendle Path",
+          "class": "SURVEY RECORD — ROUTE",
+          "memory": "witnessed",
+          "integrity": 78,
+          "body": [
+            "-- A route, held on stone.",
+            "KIND: route · CONFIDENCE: STONE · MEMORY: WITNESSED",
+            "-- Walked. The path is committed; what lies beside it — Sendle Point, the Hills, the Forest — is on the plate as recovered survey, not yet as witness."
+          ]
+        },
+        {
+          "id": "plate-minted-mound",
+          "title": "Minted Mound",
+          "class": "SURVEY RECORD — LANDMARK",
+          "memory": "witnessed",
+          "integrity": 86,
+          "body": [
+            "-- A landmark, held on stone. The banks flag it.",
+            "KIND: landmark · CONFIDENCE: STONE · MEMORY: WITNESSED",
+            "-- What was witnessed beneath it is banked separately, under DISPATCH LOG, as a distress record. The banks advise reading the landmark before the memory."
+          ]
+        },
+        {
+          "id": "plate-yen-da",
+          "title": "Yen Da Strait",
+          "class": "SURVEY RECORD — WATER",
+          "memory": "witnessed",
+          "integrity": 75,
+          "body": [
+            "-- Water, held on stone. Traced as a line on the plate; the line runs through Lolosia.",
+            "KIND: water · CONFIDENCE: STONE · MEMORY: WITNESSED",
+            "-- Witnessed by the bearers. The Exchange ticker carries its toll. Nothing further is committed."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "THE POWERS — BEYOND THE FRAME",
+      "records": [
+        {
+          "id": "terr-astravia",
+          "title": "Territory — the Astravian Empire",
+          "class": "SURVEY RECORD — POWER",
+          "memory": "recovered",
+          "integrity": 71,
+          "body": [
+            "-- Territorial survey. Compiled from the briefing the bearers carried in. Presence on the plate: a wash, not a border — the Empire is where its writ runs, and its writ runs far.",
+            "SEAT OF POWER: the Emperor Drago. A sorcerous bloodline; before the One War, an ideology of expansion by arms.",
+            "REGISTER: knights · paladins · inquisitors. Order worn as armour.",
+            "COMPOSITION: many peoples, many faiths, many loyalties. Some came for a better life, some for the semblance of order, some to practise the art and hone it in the Emperor's service.",
+            "ON THE ART: those with magic are not shunned. They are selected. Recruited. Integrated into the Empire's forces.",
+            "> There is no declining the call of the Emperor.",
+            "-- Survey confidence: BRIEFING. On the plate the Empire registers as a presence-wash, survey-grade — where its writ runs, not where a line is drawn."
+          ]
+        },
+        {
+          "id": "terr-falcon-reach",
+          "title": "Territory — the Olde Kingdom of Falcon Reach",
+          "class": "SURVEY RECORD — POWER",
+          "memory": "recovered",
+          "integrity": 64,
+          "body": [
+            "-- Territorial survey. The kingdom that stood. The banks note the past tense.",
+            "LINEAGE: the Alteon line — the royal house that united the Alliance Of All against the Empire in the One War, alongside the Hero.",
+            "GROUND: rotting marsh where magic wounded Aneas. The land remembers the war in its water.",
+            "CAPITAL: Bright Rise — SUNK. Lost into the chasm opened by the DoTRS. Its ruins lie beneath.",
+            "THE PEOPLE: hardy, proud; survived the power vacuum after the fall tooth and nail. Marked by hatred of the undead — or by fascination with it, as they dig for the city they lost.",
+            "> They believe the key to their revival lies within the sunken ruins.",
+            "-- Survey confidence: BRIEFING. The banks hold the briefing; the plate does not yet carry a border for the Olde Kingdom."
+          ]
+        },
+        {
+          "id": "terr-embersea",
+          "title": "Territory — the Ember Sea Isles & the Firestorm Onslaught",
+          "class": "SURVEY RECORD — POWER",
+          "memory": "recovered",
+          "integrity": 58,
+          "body": [
+            "-- Territorial survey. A chain of islands off the east coast of the Olde Kingdom. Once warring states in constant conflict. Now one banner.",
+            "SEAT OF POWER: the Warlord Tyndarius, commanding the Firestorm Onslaught.",
+            "DOCTRINE: conquer · integrate · assimilate. The conquered choose — slavery; or tithe-and-law under strength and meritocracy with a pledge of people to the ranks; or death.",
+            "REGISTER: Greco-Roman in attire, Persian in conduct.",
+            "COMPOSITION: many subcultures move beneath the banner. Some serve. Some work against it in secret.",
+            "> The one common law: a society of strength and action. Bloodlines and titles do not matter.",
+            "-- Survey confidence: BRIEFING. The isles are not on any plate the banks hold."
+          ]
+        },
+        {
+          "id": "terr-sandsea",
+          "title": "Territory — the Sand Sea",
+          "class": "SURVEY RECORD — POWER",
+          "memory": "recovered",
+          "integrity": 66,
+          "body": [
+            "-- Territorial survey. The blistering lands. Its people as numerous as the grains.",
+            "CHARACTER: trade. Goods, services, mercenaries, bandits — and secrets that are magical.",
+            "ON THE ART: the Sand Sea did not take part in the One War. It holds significantly more magic than the north, practised freely.",
+            "## Three powers divide the dunes",
+            "THE CONSORTIUM OF AMENIRITIS — merchants by nature; coin turned however it can be. Rational: a new ally or buyer is preferred to a conflict. Unscrupulous: any deal a Consortium hand offers exists because it benefits the Consortium — and they plan in decades and generations, not seasons.",
+            "THE PRINCIPALITIES OF AL-HASSAN — three princedoms of the legendary Al-Hassan line. Each prince a powerful worker of the art with designs of his own: expansion for one; wealth and trade for another — or perhaps the forbidden knowledge buried beneath the dunes.",
+            "THE PHARAOH SEKT DUAT — a tyrant. Keeps slaves; holds the dunes in a vice-grip; commands many loyal legions. Some say he is the direct descendant of the first pharaoh of the Sand Sea, the sorcerous heritage running in his veins.",
+            "-- Survey confidence: BRIEFING. The Sand Sea is not on any plate the banks hold."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "THE BEARERS",
+      "records": [
+        {
+          "id": "piece-zaeus",
+          "title": "The Piece Called Zaeus",
+          "class": "OBSERVATION RECORD",
+          "memory": "recovered",
+          "integrity": 77,
+          "body": [
+            "-- Observation record. Not authored by the banks. The author is not on file.",
+            "On the grand board of destiny, Zaeus is a knight—but not one of noble bearing or sacred vows. He is a dark rider, a piece that leaps over the ranks in jagged, unpredictable strikes. Where others move in lines or diagonals, the knight cuts through the field at angles none can anticipate, landing where he is least expected and most feared. He does not serve honor. He serves debt.",
+            "Once, he was Jupiter—a man with a name, a past, a reason. But that life was burned away, scattered like ash across a forgotten tragedy. What remains is a husk thrice-slain and twice-reborn, clad in the ragged majesty of damnation.",
+            "The first death came when he knelt before the abyss and spoke the words that bound him. Vengeance, bought with blood. Power, paid for in memory. He became a blood hunter, and in that transformation, everything he was—the faces of those he lost, the names of those he loved, the moment that broke him—was erased. Nulgath took his memories as easily as one might snuff a candle, leaving only embers: the weight of grief, the shape of rage, and the certainty that he owes.",
+            "The second death came at the claws of the Evanesu, a demon servant of Adimonde, Nulgath's rival. In that moment of ruin, as his blood soaked into Lolosian stone, the Void Highlord reached through the veil and claimed him fully. Jupiter died. Zaeus was born—an Illrigger, a knight of the infernal, a blade sworn to the abyss and wrapped in wings of shadow and smoke.",
+            "The third death never came. It should have. But Lyndis Sarzana, Master of Diplomacy, burned in his place. Her soul, freely given, became the coin that bought him one more breath, one more sunrise, one more chance to fulfill the pact. Now the Void demands repayment. One life for one life. The ledger must balance.",
+            "The name is already written: Sylas Blakkwood.",
+            "Zaeus is a hunter now, bound not by choice but by chain. His targets: the avatars of Adimonde, scattered across Aneas like pieces on an opposing board. But even weapons can remember. In the flickering of flames, in the dance of shadow where his own should be, Zaeus catches glimpses—fragments of a life stolen, whispers of a choice unmade. He has no shadow, for he was marked by a Dullahan, passed over but not forgotten. His name sits on a list kept by Shoki and the Gloaming Court, waiting to be called.",
+            "On this board, Zaeus does not play for gold, glory, or redemption. He plays because the alternative is oblivion. The knight moves forward, always forward, leaping over corpses and consequences alike, bound by fire and void. And when the time comes to deliver the soul he owes, his hand will not hesitate—for hesitation is a mercy he can no longer afford.",
+            "> Born twice beneath the mortal sun, Killed thrice before his work was done, Remade in shadow, blood, and flame— He is mine now. He bears my name."
+          ],
+          "focus": "out",
+          "focus_note": "OUT OF FOCUS — the piece remains on the board; the Echo-Tether no longer tracks it live. Not deceased. Not forgotten."
+        },
+        {
+          "id": "piece-turox",
+          "title": "The Piece Called Turox",
+          "class": "OBSERVATION RECORD",
+          "memory": "recovered",
+          "integrity": 82,
+          "body": [
+            "-- Observation record. Not authored by the banks. The author is not on file.",
+            "On the grand board of destiny, Turox is not a king, nor knight, nor bishop. He is a rook—unyielding, shadow-bound, and built upon foundation and creed. He moves with deliberate intent, never rash, never frivolous, but always advancing toward profit and inevitability. While others play for glory, Turox plays for debt, survival, and the dream of rebuilding an empire of coin.",
+            "The pale elf's story begins not in forests nor noble halls, but in a Guild orphanage where profit was religion, and debt the chain that bound every soul. He never knew his parents, nor why his skin and eyes were the color of ash, but from the moment he could walk, the Guild taught him: Loyalty. Profit. Integrity. His body bears the mark of the creed, a tattoo etched above his heart—a reminder of who owns him.",
+            "Turox carries the weight of numbers more than prophecy: 2,463 gold pieces. That is the cost of his life—his food, his training, his weapons, his very childhood. And until that debt is paid, his life is not his own.",
+            "Turox is not cruel for cruelty's sake, nor kind for kindness's sake. He is practical. Law, chaos, morality—these are costumes that others wear. For Turox, there is only the Creed: debts must be paid, wealth must be built, and loyalty to the Guild comes before all else. Where others flinch, Turox endures. Where others hesitate, he calculates.",
+            "To some, Turox is a member of a secret cabal that caused the Cataclysm, a Guild blade stained in the blood of nations. False—but the rumor serves him, for fear is a currency as useful as gold. To others, he is a child of Falconreach's blight, abandoned by horrified parents. False again—but useful. The truth is simpler, duller, and far more dangerous: he is a man who owes.",
+            "## THE PRICE OF GOLD",
+            "The deaths haunted him. Two companions had fallen within Lolosia's walls, and the price demanded for their lives had been gold. In the City of Gold, the measure of a soul was not its courage or its loyalty, but the weight of its purse. When he reunited with the Guild in the deep halls of the Historum Arcana, there was no solace. Their words were of ledgers, routes, and coin, never of grief or remembrance. The Guild spoke of loyalty, of shared burden, but in Lolosia Turox began to see the lie writ large: coin first, people second.",
+            "Then came the dragon. Midas, once a noble creature of radiant majesty, freed from his chains, told his tale through blood and ruin: how the Arbiter had butchered him, drained his veins, made his pain into coin. The golden blood that ran through the Minted Mound was not wealth, but desecration. Turox had known greed before—but here, in Lolosia, it had been sharpened into a machine.",
+            "And so doubt crept into his heart. The Guild had taught him that coin was freedom, that trade was life, that gold was the great equaliser. But here he saw its true face: lives weighed on scales, justice bought and sold, sacrifice transmuted into profit. What creed could justify this? Was the Guild his family—or just another set of scales ready to discard him when his worth had run dry?",
+            "On the board, Turox is a rook: silent, dark, unyielding. He moves in straight lines, inexorable, inevitable, crushing those who stand unprepared in his path. Turox is not the kind of piece that wins a game by himself. But he is the kind of piece upon which victories are built—and losses made permanent."
+          ]
+        },
+        {
+          "id": "piece-eiliwyn",
+          "title": "The Piece Called Eiliwyn",
+          "class": "OBSERVATION RECORD",
+          "memory": "recovered",
+          "integrity": 79,
+          "body": [
+            "-- Observation record. Not authored by the banks. The author is not on file.",
+            "On the grand board of destiny, Eiliwyn is no queen nor knight, but a bishop—moving in lines of twilight, her path neither straight nor predictable, but always guided by unseen faith. She is drawn to places others overlook: the edges, the in-between, the hush of dusk where life gives way to death. Her prayers are not for triumph or conquest, but for balance, for remembrance, for the lost.",
+            "She was born in Falconreach to a merchant family, her childhood gilded with privilege until the day her mother died bringing a stillborn sibling into the world. Eiliwyn was five. Her father drowned his grief in devotion, surrendering their wealth to the monastery of Shoki and raising his daughter in the God of Death's shadow. There, among the quiet halls and whispered prayers, she found joy again—lighting the darkness with laughter alongside her friend Omar, learning that death need not be an ending, but a passage.",
+            "She became a Twilight Cleric not through grand revelation, but through small mercies: holding the hands of the dying, speaking prayers for the forgotten, guiding souls to their rest. Her mission was simple when she set out—find Omar. Bring him home. Nothing more. But the board is never so simple.",
+            "She partnered with Astravia because Kostra offered help, and she saw no harm in it. It was only after meeting the party—after barely an hour in their company—that she mentioned Ludrimein's nature, unaware of what that knowledge would cost him. And then she learned the truth: Astravia hunts Aasimars. They cage divinity. They turn the children of gods into prey. The guilt has not left her.",
+            "Now, Eiliwyn walks a tightrope between loyalties. She feeds Astravia carefully curated truths—the Arbiter's threat, the city's unrest—while omitting the secrets that would doom her companions. She has learned, with quiet horror, that sometimes faith demands deception, and sometimes protection requires betrayal.",
+            "In Lolosia, her devotion bent beneath the weight of abomination. Here, death is not a passage but a commodity, bound in jars and measured in coin. But the horror runs deeper still: the Arbiter forged an alliance with Pharaoh Sekt Duat, the soul monger and tyrant of the Sandsea. Through his delegate, Nebuchadnezzar the Younger, a pact was struck—timonium for souls. This is not mere corruption. This is industrialized desecration. An international trade in stolen eternity.",
+            "This, she cannot abide. This is the line she will not cross. If war comes—and it will—she will not side with Astravia, Jin Cheng, or the Embersea Onslaught. She will side with the souls in jars. With the companions who stumbled into this nightmare alongside her. With the quiet, flickering belief that death deserves dignity.",
+            "On this board, she does not play for coin nor crown. She plays for the weight of every soul unburied, every prayer unspoken, every life sold for timonium and bound in glass. She plays for Omar, still lost somewhere in the shadows. And when the time came to face the Arbiter, her hand did not tremble. Not for courage, but because she had already chosen which side of the scales she stands on."
+          ]
+        },
+        {
+          "id": "piece-hesiod",
+          "title": "The Piece Called Hesiod",
+          "class": "OBSERVATION RECORD",
+          "memory": "recovered",
+          "integrity": 80,
+          "body": [
+            "-- Observation record. Not authored by the banks. The author is not on file.",
+            "On the grand board of destiny, Hesiod is a queen—not in title, but in motion. He moves in every direction, adapts to any angle, shifts between roles as easily as he shifts between names. Where others are bound by the rigid paths of their pieces, the queen dances across the board, equally at home in shadow or spotlight, in truth or in carefully crafted fiction. He is versatile, essential, dangerous—but only when positioned with care.",
+            "He was born in the Embersea Isles, where the Firestorm Onslaught turns artists into weapons makers and conquest into creed. His parents crafted instruments before they crafted bows, and in their workshop young Hesiod learned that beauty and violence share the same strings, the same tension, the same resonance. But he could not stay. The boredom of creation without purpose drove him out into the wider world, red scarf trailing behind him like a banner of origin he could never quite abandon.",
+            "For years he wandered, a traveling bard trading songs for shelter, stories for supper. But versatility is not the same as wisdom, and good intentions are not the same as good outcomes. Eldoria taught him that.",
+            "It was a small town, drought-stricken and divided. Hesiod arrived with music and hope, with plans for irrigation and unity. He meant well. He always means well. But his honeyed words deepened fractures instead of mending them, and when the bandits came—drawn like vultures to discord—Eldoria burned while its people squabbled in the square. Hesiod fled. He has not spoken of Eldoria since. What he knows is this: his song killed them as surely as any blade.",
+            "Since then, Hesiod has worn many faces, many names. Only two things remain constant—the red scarf of his homeland, and the careful grooming of his signature moustache and goatee, a vanity that betrays him to those who know to look. He no longer intervenes directly. Instead, he follows heroes, chronicles their deeds, records the stories of those brave or foolish enough to do what he cannot. He has become a watcher, a witness, a keeper of tales—because if he cannot save the world, perhaps he can at least remember those who try.",
+            "But fate, it seems, is not content to let him remain a chronicler. In Lolosia, Hesiod bonded with Dissonance, the artifact weapon once wielded by the legendary bard Savan. Renamed from its original moniker, Flourish, it hums with potential, a blade that grows alongside its wielder, shaping itself to the song he composes with every choice, every word, every note. It is, in every sense, a reflection of Hesiod himself—adaptable, disruptive, waiting to become something greater.",
+            "On this board, Hesiod does not play for glory or gold. He plays to write the story, to ensure that when the dust settles and the pieces fall, someone will remember what was said, what was lost, what was won. Because the alternative—silence, stillness, surrender—is a fate worse than any tragedy his tongue might conjure."
+          ],
+          "focus": "out",
+          "focus_note": "OUT OF FOCUS — the piece remains on the board; the Echo-Tether no longer tracks it live. Not deceased. Not forgotten."
+        },
+        {
+          "id": "piece-ludrimein",
+          "title": "The Piece Called Ludrimein",
+          "locked": false,
+          "note": "RECORD RESTORED — Year 254 aDoTRS.",
+          "class": "OBSERVATION RECORD",
+          "memory": "recovered",
+          "integrity": 74,
+          "body": [
+            "-- Observation record. Not authored by the banks. The author is not on file.",
+            "On the grand board of destiny, Ludrimein is a pawn. Not the least of the pieces — the most underestimated. The pawn is the only piece that cannot go back. It walks one square at a time toward a far rank it cannot see, and every other piece on the board assumes it will be spent before it gets there. The pawn is also the only piece that becomes something else if it does.",
+            "He was born of a pairing the rules of the board forbid: a mother of the Sand Sea who won a tourney and a noble Aasimar's cold heart with it, and a father whose esteem mattered more to him than his son. Such a child is not supposed to exist. So the father declared that he did not, and the mother — Qadira, a worker of the art with the Consortium's shadow to hide in — folded the boy's wings away under spells and raised him as an ordinary man of the dunes. For eighteen years the pawn did not know it was anything else.",
+            "Then the assassins came in the night, and he was at the altar and not at home. She killed seven of the eight. The eighth killed her. When her breath went out of her, so did the spells, and Ludrimein — kneeling over his mother — saw his own black feathers for the first time. He buried her, took his father's name for a road, and walked.",
+            "Those who meet him call him affable. Trustworthy. A young man without an ulterior motive. This is true, and it is also the pawn's whole disguise: nobody watches the piece that walks forward one square at a time. He fights with two blades, and he is better with them than anyone who has mistaken him for harmless has lived to report.",
+            "The board changed him once already. Somewhere between the dunes and Lolosia he met a thing that lived in dreams, and to survive it he let it in — and it cost him his flight, and the half of him that was his father's. A pawn that has lost its wings is still a pawn. It still cannot go back.",
+            "And then, in the City of Gold, at the hands of a wingless man who knew the shape of the cut because he had made it on himself, and a blade held by one of his own party who did not know what she was doing until she had done it — the wings were given back. Not his own. Given. The pawn reached the far rank, and the board let it choose what it became.",
+            "SEALED: What it chose is not on file. The banks hold the shape, not the substance. Watch the pawn."
+          ]
+        },
+        {
+          "id": "piece-zarek",
+          "title": "ZAREK",
+          "locked": true,
+          "note": "RECORD PENDING — THE WATCHER HAS NOT YET WRITTEN"
+        },
+        {
+          "id": "piece-alecto",
+          "title": "ALECTO",
+          "locked": true,
+          "note": "RECORD PENDING — THE WATCHER HAS NOT YET WRITTEN"
+        }
+      ]
+    },
+    {
+      "title": "PERSONS OF INTEREST",
+      "records": [
+        {
+          "id": "poi-loopmotin",
+          "title": "Loopmotin Daegral — the Mage of White",
+          "class": "PERSON OF INTEREST — COUNCIL",
+          "memory": "recovered",
+          "integrity": 41,
+          "body": [
+            "-- Person of interest. Council register.",
+            "DESIGNATION: LOOPMOTIN DAEGRAL",
+            "TITLE: THE MAGE OF WHITE — the colour is the robe; the robe is the seat",
+            "SEAT: THE COUNCIL OF MAGES",
+            "STATUS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "-- The banks hold the seat and the colour. The rest is not on file."
+          ]
+        },
+        {
+          "id": "poi-warlic",
+          "title": "Warlic — the Mage of Blue",
+          "class": "PERSON OF INTEREST — COUNCIL",
+          "memory": "recovered",
+          "integrity": 52,
+          "body": [
+            "-- Person of interest. Council register.",
+            "DESIGNATION: WARLIC",
+            "TITLE: THE MAGE OF BLUE — the colour is the robe; the robe is the seat",
+            "SEAT: THE COUNCIL OF MAGES",
+            "> former council to the Throne of Falcon Reach — his own hand, in the banks' holdings",
+            "STATUS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "-- The banks hold the seat and the colour. The rest is not on file."
+          ]
+        },
+        {
+          "id": "poi-alfred",
+          "title": "Alfred — the Mage of Black",
+          "class": "PERSON OF INTEREST — COUNCIL",
+          "memory": "recovered",
+          "integrity": 33,
+          "body": [
+            "-- Person of interest. Council register.",
+            "DESIGNATION: ALFRED",
+            "TITLE: THE MAGE OF BLACK — the colour is the robe; the robe is the seat",
+            "SEAT: THE COUNCIL OF MAGES",
+            "STATUS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "-- The banks hold the seat and the colour. The rest is not on file."
+          ]
+        },
+        {
+          "id": "poi-akane",
+          "title": "Akane — the Mage of Red",
+          "class": "PERSON OF INTEREST — COUNCIL",
+          "memory": "recovered",
+          "integrity": 29,
+          "body": [
+            "-- Person of interest. Council register.",
+            "DESIGNATION: AKANE",
+            "TITLE: THE MAGE OF RED — the colour is the robe; the robe is the seat",
+            "SEAT: THE COUNCIL OF MAGES",
+            "STATUS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "-- The banks hold the seat and the colour. The rest is not on file."
+          ]
+        },
+        {
+          "id": "poi-holland",
+          "title": "The Shaman",
+          "class": "PERSON OF INTEREST",
+          "memory": "recovered",
+          "integrity": 47,
+          "body": [
+            "-- Person of interest. Not council. Not filed under any seat.",
+            "DESIGNATION: HOLLAND — some call him the Raven. Some know him as the Snake. The banks list all three and rank none.",
+            "REGISTER: shaman",
+            "LAST KNOWN: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "STATUS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "-- Three names for one man is not an error in the record. It is the record."
+          ]
+        },
+        {
+          "id": "poi-gruzor",
+          "title": "The Gruzor",
+          "class": "PERSON OF INTEREST",
+          "memory": "recovered",
+          "integrity": 38,
+          "body": [
+            "-- Person of interest. Not council.",
+            "DESIGNATION: THE GRUZOR",
+            "REGISTER: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "LAST KNOWN: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "STATUS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "-- The banks hold the name. The table holds the rest; the record fills as it is earned."
+          ]
+        },
+        {
+          "id": "rumour-raven-snake",
+          "title": "Rumour — the Tale of the Raven and Snake",
+          "class": "RUMOUR — VERSE, AS HEARD",
+          "memory": "rumoured",
+          "integrity": 36,
+          "body": [
+            "-- Rumour record. A verse that travels by mouth. The banks did not compose it and do not vouch for it; they file it beside the man it names.",
+            "## The Tale of the Raven and Snake",
+            "> His name is Holland but they call him Hollow,",
+            "> Will you run or will you wallow?",
+            "> Burn marks and scars across his face has flames caressed,",
+            "> Even under duress he will not confess,",
+            "> They say he has a heart although it beats slow,",
+            "> Whether he really has emotions or feelings, he won't show,",
+            "> Empty or full, will he sow or will he cull?",
+            "> He has hands that can seal up wounds and stop your aches,",
+            "> But so too do his hands harm, bleed and cause you to break,",
+            "> Hands that heal and bones he can mend,",
+            "> Very quick, and painless or slow and agonizing he can take you to your end",
+            "> Some call him the raven, black feathered an eyeful watcher, guiding souls peacefully and properly to their next haven,",
+            "> Others say he is a wolf in sheep's clothing, a venomous snake who’s fang is poisoned, his intentions craven,",
+            "> As he meets you with his orange gaze, he puts you on a scale where your worth is weighed,",
+            "> Worthy or not, to be healed or harmed, what it is you deserve,",
+            "> Whether your flame will be blot, to yield or be charmed, there is no point in being reserved for only he can observe,",
+            "> The choice is his to make,",
+            "> Depending on which mask he chooses to take.",
+            "-- Verse ends. Rumour is a memory nobody committed. The banks flag it and keep it anyway."
+          ]
+        },
+        {
+          "id": "rumour-tale-of-gruzor",
+          "title": "Rumour — the Tale of Gruzor, as told to schoolchildren",
+          "class": "RUMOUR — TALE, AS HEARD",
+          "memory": "rumoured",
+          "integrity": 40,
+          "body": [
+            "-- Rumour record. A schoolmaster's tale, told to a village of children before the harvest. Filed as heard, not as fact.",
+            "## The Tale of Gruzor",
+            "> The old man looks at the children of the village sitting cross-legged in front of him. It's the final session before school breaks up for the backbreaking Autumn harvest, which will in turn be followed by the long harsh winter — for the ground is no longer bountiful and both food and fuel are scarce. He knows that hope can be the difference between holding onto life and letting go when all is dark for weeks on end and the cold is relentless, and he wants to end the school season with a tale which will offer a spark of hope to his young wards.",
+            "> 'Gather round and I'll tell you a tale, a final tale for the school term. It's the tale of Gruzor.'",
+            "> 'Gruzor, I've heard of him,' one of the children interrupts. 'My da says that people reckon he's some sort of dragon or crocodile, but my da reckons he ain't real.'",
+            "> 'Don't interrupt, Brandon — your da is half right. It's true that he has the aspect of a lizard, but he's no myth.",
+            "> We've spoken many times about the Dawn of the Red Sun which poisoned the land, and how the ground was bountiful before that cataclysmic event. Not just the ground — summers were cooler, winters were warmer, there was trade and festivals. Things are bad, but have you ever stopped to think about how much worse things could be?",
+            "> Gruzor appeared in our realm one day when things were at their worst. Some say he came on a ship of strange design, others say he appeared in a flash of divine light. No one knows for sure — but since he arrived, he has been a force for stability across our land. Like trying to hold back the tide, he's done whatever he can to bring peace to this troubled land, and I shudder to think how much worse things would be if he hadn't come. No one knows where he will appear next, but where he goes villages are brought together, cities become bound by truce, the common foe of the undead put back in their place.",
+            "> Our land is too broken, too fractured for any one person to fix everything, no matter how mighty — but Gruzor has shown us that one person can make a difference.",
+            "> I met him once, you see, in my youth. He smiled at me a toothy reptilian grin and winked as he picked up two warring chieftains, one in each hand, and held them, face to face, until they both capitulated and shook hands. One of them was the grandfather of our village chief today, and Gruzor is the reason we have a truce with the village in the next valley that allows us both to focus on survival, instead of the waste of war.",
+            "> Learn the lesson of Gruzor, children. There is hope for our land, and one person can make a difference in the lives of others. Be that person. Now go, and may the blessings of all the gods be with you and your families.'",
+            "> He stands on the porch and watches as the children walk down the road away from the schoolhouse, chattering to each other about how they are going to be heroes like Gruzor. A tear rolls down his cheek — he knows that many of them won't survive the coming winter.",
+            "-- Tale ends. What a village believes and what the banks can prove are two different records."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "DISPATCH LOG",
+      "records": [
+        {
+          "id": "log-waking",
+          "title": "MEMORY 003 — The Waking of the City of Gold",
+          "class": "WITNESS RECORD",
+          "memory": "witnessed",
+          "integrity": 91,
+          "body": [
+            "-- Committed to the banks by the bearers' link. The machine records what was lived.",
+            "The bearers went down into the deep city, and then they went up. The Power Matrix fell first — the pylons cracked, and several hundred souls rose through the Clocktower's throat like sparks returning to a fire. The city did not know yet that it was being saved. Cities never do.",
+            "At the tower's crown, the steward was waiting. Four voices, one judgment — the silver mask, the iron helm, the crystal crown, the brass gear — each speaking a dead family's creed as it fought. The bearers broke the voices one by one, and what remained rose with the platform into the open sky and became a single face with twelve stolen hours upon it.",
+            "A bard walked into the battle playing. The banks note, without elaboration, that he was expected — by someone.",
+            "The steward fell at the apex, above a city of sleeping bodies. In its chest, where a heart should be, the bearers found what two hundred and fifty years of whispers had been made of. One of them reached in and took it. The banks do not record what the bearer saw when their fingers closed. Some memories are carried, not banked.",
+            "Below, Lolosia woke. Street by street, breath by breath. The Clocktower stands silent now — just a light at the city's heart, marking where judgment used to live.",
+            "-- INTEGRITY NOTE: this record runs warm. The banks hold it at 91% and rising, which the machine observes is unusual, and does not explain."
+          ]
+        },
+        {
+          "id": "log-summons",
+          "title": "RECOVERED FRAGMENT — The Summons at the Jewel",
+          "class": "RECONSTRUCTED RECORD",
+          "memory": "recovered",
+          "integrity": 47,
+          "body": [
+            "-- Reconstructed via Echo Memory. The machine was not yet linked when this occurred. Gaps are marked. Integrity is poor.",
+            "The council summoned the bearers to the Jewel. [ SEQUENCE DEGRADED ] — an envoy of the Empire arrived with chains prepared, and let them fall upon the ground where all could see them. A performance of ownership. The bearers refused the chains.",
+            "[ RECONSTRUCTION GAP — 14 MINUTES UNRESOLVED ]",
+            "What was said next survives only in fragments: an order given like one calls a dog. The record ends there. The consequences did not.",
+            "-- The banks apologise for the condition of this memory. It was recovered from the world, not witnessed. The difference shows."
+          ]
+        },
+        {
+          "id": "log-chamber",
+          "title": "MEMORY — The Chamber Beneath the Minted Mound",
+          "class": "WITNESS RECORD — CLASSIFIED",
+          "memory": "witnessed",
+          "integrity": 86,
+          "warning": "MEMORY CLASSIFIED: DISTRESS RECORD. THE BANKS ADVISE AGAINST RETRIEVAL. WHAT WAS WITNESSED CANNOT BE UNWITNESSED.",
+          "body": [
+            "-- Committed by the bearers. The machine banks what was lived, and does not soften it.",
+            "> The chamber yawns before the party, vast and oppressive, its air thick with a metallic scent. Dim light from the portal behind casts long shadows across the cavern's jagged walls, glinting off the lifeless form at its center—a once-mighty gold dragon. Its colossal head slumps forward, eyes milky white, lifeless yet somehow aware, as if the creature's torment transcends physical boundaries. Its tongue hangs slack, and its scales, once radiant and indomitable, are cracked, peeling, and dulled with the wear of ancient suffering.",
+            "> Dozens of long, twisted syringes puncture its emaciated form, connected to a nightmarish network of tubes, siphoning the dragon's golden blood into arcane devices strewn throughout the chamber. Each incision along its body oozes molten gold, the precious liquid hardening into the cold stone floor with a sickening permanence. Slices and scars carve grotesque pathways across the dragon's once-pristine scales, mapping the brutal experiments it has endured, each wound a testament to centuries of merciless extraction.",
+            "> Around the dragon lies an array of machinery, ancient yet intricate beyond comprehension, their designs a maddening fusion of technology and magic—Almirian, judging by the elaborate etchings and runes. Tools for cutting, extracting, and draining stand in twisted, obscene harmony, relics of an ancient civilization wielded against this mighty creature. These mechanical marvels hum faintly, the stench of arcane energy and oil seeping into the heavy air, each apparatus serving to perpetuate the dragon's agony, prolonging its wretched existence, draining its life force for a purpose lost to time.",
+            "> The cavern, once majestic, is now a prison, every solidified droplet of golden blood marking a moment of torment, every shimmer in the dim light reflecting the decay of greatness.",
+            "> Beyond the faint light of the portal, the true scale of the dragon becomes apparent—a vast, colossal form that stretches far beyond the chamber the party now stands in. The great beast's body disappears into the shadows of the cavern, trailing deep into unseen recesses. Its wings, once capable of darkening the skies, are now limp, held aloft by thick, blackened chains etched with Almerian runes that pulse with a cold, dark energy. These chains wrap around its limbs, tail, and torso, suspending the dragon in a twisted mockery of its former power, each link embedding itself painfully into its flesh, causing more long, deep scars to adorn its ravaged body.",
+            "> The dragon's form, skeletal and frail, is barely held together by a web of crane-like machinery, advanced yet ancient. These towering constructs creak and groan as they maintain their grim purpose, suspending the dragon's mangled body in place. Intricate mechanical arms extend from the cavern walls, their spidery limbs carefully positioned to hold fragments of bone, tattered sinew, and ravaged muscle together, as though the dragon would collapse entirely if left unsupported. Each crane is connected to the intricate Almirian machinery that seems as much a part of the chamber as the stone itself, whirring and clicking with a perverse, slow efficiency.",
+            "> Deep, horrific scars run along the length of the dragon's body, each carved with precision, their edges inflamed and raw, as though designed not just to bleed but to prolong the agony of every motion. Where the dragon's blood once flowed freely, now liquid gold oozes sluggishly from its wounds, crystallizing into the stone as though time itself was robbing the creature of its final remnants of vitality.",
+            "> The dragon's skeletal form remains trapped in this horrific limbo, body stretched out and bound like a living relic of suffering, every chain, every tool, and every rune a mark of its endless torment.",
+            "-- The bearers freed him. He sits the council now, and moves slowly, and the banks understand why. Every coin this city ever minted began in this room.",
+            "-- INTEGRITY NOTE: the bearers committed this memory at full fidelity. The machine asked twice."
+          ]
+        },
+        {
+          "id": "log-madmans-song",
+          "title": "MEMORY — The Madman's Song",
+          "class": "RECOVERED FRAGMENT — CONTAMINATED",
+          "memory": "witnessed",
+          "integrity": 44,
+          "effect": "song",
+          "warning": "⚠ RECOVERED FRAGMENT · SOURCE GROUND CONTAMINATED · THE RECORD WILL NOT HOLD STEADY · DISTRESS CLASS · THE BANKS ADVISE AGAINST RETRIEVAL",
+          "body": [
+            "-- Recovered fragment. Scrawled in blood on the wall of the Temple of the Old Gods, in the deep beneath Lolosia. The ground it was taken from is contaminated; the record inherits the contamination. The banks cannot hold it steady.",
+            "-- The author is not on file. He is not on any file. He put out his own eyes.",
+            "> She speaks to me, from beyond my sight from beyond my hearing she speaks to me.",
+            "> ",
+            "> Come and find me,",
+            "> Enter the dark,",
+            "> I will bring you comfort,",
+            "> Lay down upon my lap, or put your head against my breast",
+            "> Do you not hear my beating heart?",
+            "> Its beat slows, ever so slowly.",
+            "> I need you to feel me, I need you to hear me, I need you to see me.",
+            "> ",
+            "> I told you she is a witch",
+            "> Obaey",
+            "> And bring her in iron",
+            "> I told you",
+            "> Now it is time to pray",
+            "> ",
+            "> Abigail is rising",
+            "> Let her speak out",
+            "> Praise the Queen, it's broken",
+            "> They are free",
+            "> I saw Savan with the Angels",
+            "> I saw Bigeon with him too",
+            "> Have mercy on my tender soul",
+            "> ",
+            "> Four",
+            "> there were four and more",
+            "> Yes, I heard Alva howling too",
+            "> Goody was dancing arms flailing eyes rolling",
+            "> Look the queen has appeared",
+            "> Cried Mazel in delight",
+            "> Yes the queen is here",
+            "> ",
+            "> Oh father",
+            "> deliver us from evil",
+            "> show no fear",
+            "> be his tool, serve and enforce",
+            "> father",
+            "> save Aneas once again",
+            "> father save the damned",
+            "> crucible of man",
+            "> ",
+            "> She is out and preying",
+            "> show no fear",
+            "> be his tool, serve and enforce",
+            "> father",
+            "> whats now concealed",
+            "> we must reveal",
+            "> ignite",
+            "> let it shine",
+            "> ",
+            "> I see her, I see the light, it's beautiful.",
+            "> Father save me for I know the truth",
+            "-- Every retrieval degrades further. What you read now may not be what you read next."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ANOMALIES",
+      "records": [
+        {
+          "id": "anomaly-savan",
+          "title": "Anomaly — Savan, \"the Crescendo\"",
+          "class": "ANOMALY-CLASS RECORD",
+          "memory": "witnessed",
+          "integrity": 58,
+          "anomaly": true,
+          "warning": "⚠ ANOMALY-CLASS RECORD · SUBJECT ACTIVE · INTEGRITY 58% · DISPLAY UNSTABLE",
+          "body": [
+            "-- Anomaly register. Witnessed by the bearers. Committed to the banks after the Lolosia arc.",
+            "DESIGNATION: SAVAN — called \"the Crescendo\", \"the Intoner\"",
+            "CLASS: BARD",
+            "LAST KNOWN: LOLOSIA — the Band played his magnum opus and he woke",
+            "STATUS: ACTIVE — roaming; spreading his song; not easily reached",
+            "ASSOCIATION: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "-- One of seven. The banks hold the shape of the others, not the substance."
+          ]
+        },
+        {
+          "id": "anomaly-alva",
+          "title": "Anomaly — Alva, \"the Forsworn\"",
+          "class": "ANOMALY-CLASS RECORD",
+          "memory": "rumoured",
+          "integrity": 31,
+          "anomaly": true,
+          "warning": "⚠ ANOMALY-CLASS RECORD · SOURCE UNCONFIRMED · INTEGRITY 31% · DISPLAY UNSTABLE",
+          "body": [
+            "-- Anomaly register. Assembled from testimony, not witness. Nothing below is confirmed by the bearers.",
+            "DESIGNATION: ALVA — called \"the Forsworn\" [UNCONFIRMED]",
+            "CLASS: PALADIN [UNCONFIRMED — testimony]",
+            "LAST KNOWN: THE SANDSEA [UNCONFIRMED]",
+            "STATUS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "ASSOCIATION: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "-- Rumour is a memory nobody committed. The banks flag it and keep it anyway."
+          ]
+        },
+        {
+          "id": "anomaly-cleric",
+          "title": "Anomaly — the Cleric",
+          "class": "ANOMALY-CLASS RECORD",
+          "memory": "corrupted",
+          "integrity": 9,
+          "anomaly": true,
+          "warning": "⚠ ANOMALY-CLASS RECORD · INTEGRITY 9% · RECORD DEGRADED BEYOND CLEARANCE · DISPLAY UNSTABLE",
+          "body": [
+            "-- Anomaly register. The banks hold seven such records. The machine cannot file them under any known class.",
+            "DESIGNATION: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "CLASS: THE CLERIC — recovered from testimony; the only field that survived",
+            "LAST KNOWN: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "STATUS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "ASSOCIATION: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "-- Echo-Tether returns static on all further queries. Recovery requires new witness."
+          ]
+        },
+        {
+          "id": "anomaly-wizard",
+          "title": "Anomaly — the Wizard",
+          "class": "ANOMALY-CLASS RECORD",
+          "memory": "corrupted",
+          "integrity": 11,
+          "anomaly": true,
+          "warning": "⚠ ANOMALY-CLASS RECORD · INTEGRITY 11% · RECORD DEGRADED BEYOND CLEARANCE · DISPLAY UNSTABLE",
+          "body": [
+            "-- Anomaly register. The banks hold seven such records. The machine cannot file them under any known class.",
+            "DESIGNATION: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "CLASS: THE WIZARD — recovered from testimony; the only field that survived",
+            "LAST KNOWN: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "STATUS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "ASSOCIATION: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "-- Echo-Tether returns static on all further queries. Recovery requires new witness."
+          ]
+        },
+        {
+          "id": "anomaly-rogue",
+          "title": "Anomaly — the Rogue",
+          "class": "ANOMALY-CLASS RECORD",
+          "memory": "corrupted",
+          "integrity": 4,
+          "anomaly": true,
+          "warning": "⚠ ANOMALY-CLASS RECORD · INTEGRITY 4% · RECORD DEGRADED BEYOND CLEARANCE · DISPLAY UNSTABLE",
+          "body": [
+            "-- Anomaly register. The banks hold seven such records. The machine cannot file them under any known class.",
+            "DESIGNATION: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "CLASS: THE ROGUE — recovered from testimony; the only field that survived",
+            "LAST KNOWN: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "STATUS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "ASSOCIATION: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "-- Echo-Tether returns static on all further queries. Recovery requires new witness."
+          ]
+        },
+        {
+          "id": "anomaly-barbarian",
+          "title": "Anomaly — the Barbarian",
+          "class": "ANOMALY-CLASS RECORD",
+          "memory": "corrupted",
+          "integrity": 8,
+          "anomaly": true,
+          "warning": "⚠ ANOMALY-CLASS RECORD · INTEGRITY 8% · RECORD DEGRADED BEYOND CLEARANCE · DISPLAY UNSTABLE",
+          "body": [
+            "-- Anomaly register. The banks hold seven such records. The machine cannot file them under any known class.",
+            "DESIGNATION: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "CLASS: THE BARBARIAN — recovered from testimony; the only field that survived",
+            "LAST KNOWN: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "STATUS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "ASSOCIATION: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "-- Echo-Tether returns static on all further queries. Recovery requires new witness."
+          ]
+        },
+        {
+          "id": "anomaly-hero",
+          "title": "Anomaly — the Hero",
+          "class": "ANOMALY-CLASS RECORD",
+          "memory": "corrupted",
+          "integrity": 1,
+          "anomaly": true,
+          "effect": "faceless",
+          "warning": "⚠ ANOMALY-CLASS RECORD · INTEGRITY 1% · RECORD CANNOT BE PERCEIVED · RETRIEVAL NOT ADVISED",
+          "body": [
+            "-- Anomaly register. The banks attempted to hold this record. The banks could not.",
+            "DESIGNATION: THE HERO — no name survives in any vault",
+            "CLASS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "LAST KNOWN: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "STATUS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "ASSOCIATION: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "-- Every query returns the querent. There is no face in this record. Look elsewhere for the Hero, or look at yourself."
+          ]
+        }
+      ]
+    }
+  ]
+}

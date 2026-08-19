@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARGENTE CORRIDORE — Command Sphere</title>
+<style>
+  :root {
+    --ground: #17181c; --panel: #1e2025; --line: #3a3428;
+    --bronze: #b08d57; --bronze-dim: #7a6239; --bronze-deep: #4a3c25;
+    --crystal: #7fd4e0; --text: #cfc6b8; --dim: #8a8272;
+    --witnessed: #d4af5f; --recovered: #9aa3ad; --corrupted: #a05c50; --rumoured: #b8a27a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--ground); color: var(--text); font-family: Consolas, 'Courier New', monospace; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+  /* ===== BOOT ===== */
+  #boot { position: fixed; inset: 0; background: #0d0e11; z-index: 50; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+  #boot pre { color: var(--bronze); font-size: 0.95rem; line-height: 1.9; text-shadow: 0 0 12px rgba(176,141,87,0.4); }
+  #boot .rune { color: var(--crystal); opacity: 0.7; }
+  #boot .skip { position: absolute; bottom: 2rem; color: var(--dim); font-size: 0.7rem; letter-spacing: 0.2em; }
+
+  /* ===== GATE ===== */
+  #gate { position: fixed; inset: 0; background: #0d0e11; z-index: 40; display: none; align-items: center; justify-content: center; flex-direction: column; gap: 1.1rem; }
+  #gate.show { display: flex; }
+  #gate .rune { color: var(--crystal); opacity: 0.6; font-size: 0.85rem; letter-spacing: 0.3em; }
+  #gate .ask { color: var(--bronze); font-size: 1.05rem; letter-spacing: 0.35em; text-shadow: 0 0 14px rgba(176,141,87,0.45); text-align: center; }
+  #gate.opened .ask { color: var(--witnessed); text-shadow: 0 0 18px rgba(212,175,95,0.6); }
+  #gate .fail { color: var(--corrupted); font-size: 0.72rem; letter-spacing: 0.2em; min-height: 1.2em; text-align: center; }
+  #gate input { background: #101114; border: 1px solid var(--bronze-deep); color: var(--crystal); font: inherit; font-size: 0.9rem; letter-spacing: 0.15em; padding: 0.55rem 0.9rem; width: min(430px, 82vw); text-align: center; outline: none; }
+  #gate input:focus { border-color: var(--bronze); box-shadow: 0 0 10px rgba(176,141,87,0.25); }
+  #gate .hint { color: var(--dim); font-size: 0.64rem; letter-spacing: 0.28em; }
+
+  /* ===== MEMORY BANKS ===== */
+  #banks { flex: 1; display: none; grid-template-columns: 300px 1fr; min-height: 0; }
+  #banks.show { display: grid; }
+  main.hidden { display: none; }
+  .bank-list { background: var(--panel); border-right: 1px solid var(--bronze-deep); padding: 0.8rem; overflow-y: auto; }
+  .bank-list h2 { font-size: 0.66rem; letter-spacing: 0.25em; color: var(--bronze); font-weight: normal; margin: 1rem 0 0.4rem; border-bottom: 1px dashed var(--bronze-deep); padding-bottom: 0.35rem; }
+  .bank-list h2:first-child { margin-top: 0; }
+  .bank-item { display: block; width: 100%; text-align: left; background: none; border: none; border-bottom: 1px dashed #26221a; color: var(--dim); font: inherit; font-size: 0.7rem; letter-spacing: 0.06em; padding: 0.45rem 0.2rem; cursor: pointer; }
+  .bank-item:hover { color: var(--bronze); }
+  .bank-item.active { color: var(--bronze); }
+  .bank-item.locked { color: #55503f; }
+  .bank-view { overflow-y: auto; padding: 1.4rem 2rem; background: #101114; }
+  .rec-head { border: 1px solid var(--bronze-deep); padding: 0.8rem 1rem; margin-bottom: 1.3rem; background: var(--panel); }
+  .rec-title { color: var(--bronze); font-size: 0.95rem; letter-spacing: 0.15em; }
+  .rec-kv { color: var(--dim); font-size: 0.68rem; letter-spacing: 0.12em; margin-top: 0.45rem; line-height: 1.8; }
+  .rec-body p { color: var(--text); font-size: 0.8rem; line-height: 1.75; margin-bottom: 0.9rem; max-width: 74ch; }
+  .rec-body .q { color: var(--recovered); border-left: 2px solid var(--bronze-deep); padding-left: 1rem; font-style: italic; }
+  .rec-body .dimline { color: var(--dim); }
+  .rec-body h3 { color: var(--bronze); font-size: 0.72rem; letter-spacing: 0.3em; margin: 1.5rem 0 0.8rem; font-weight: normal; }
+  .rec-body .sealedline { color: #55503f; letter-spacing: 0.15em; font-size: 0.72rem; margin-bottom: 0.5rem; }
+  .rec-warning { border: 1px solid var(--corrupted); background: rgba(160,92,80,0.06); padding: 2.2rem; margin-top: 2rem; text-align: center; max-width: 74ch; }
+  .rec-warning .deny-line { color: var(--corrupted); font-size: 0.82rem; letter-spacing: 0.25em; line-height: 2.1; margin-bottom: 1.6rem; text-shadow: 0 0 14px rgba(160,92,80,0.4); animation: warnpulse 2.2s ease-in-out infinite; }
+  @keyframes warnpulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+  @media (prefers-reduced-motion: reduce) { .rec-warning .deny-line { animation: none; } }
+  .rec-warning button { background: #101114; border: 1px solid var(--corrupted); color: var(--corrupted); font: inherit; font-size: 0.7rem; letter-spacing: 0.25em; padding: 0.6rem 1.6rem; cursor: pointer; }
+  .rec-warning button:hover { background: rgba(160,92,80,0.15); color: var(--text); }
+
+  /* ===== CHROME ===== */
+  header { border-bottom: 2px solid var(--bronze-deep); background: linear-gradient(180deg, #26221a, var(--panel)); padding: 0.55rem 1.2rem; display: flex; align-items: baseline; gap: 1.5rem; }
+  header h1 { font-size: 0.95rem; letter-spacing: 0.35em; color: var(--bronze); font-weight: normal; white-space: nowrap; }
+  header .sub { color: var(--dim); font-size: 0.68rem; letter-spacing: 0.15em; }
+  header .clearance { margin-left: auto; color: var(--corrupted); font-size: 0.7rem; letter-spacing: 0.12em; }
+
+  nav { display: flex; border-bottom: 1px solid var(--bronze-deep); background: var(--panel); }
+  nav button { background: none; border: none; border-right: 1px solid var(--bronze-deep); color: var(--dim); font: inherit; font-size: 0.72rem; letter-spacing: 0.22em; padding: 0.5rem 1.4rem; cursor: pointer; }
+  nav button.active { color: var(--bronze); background: #26221a; box-shadow: inset 0 -2px 0 var(--bronze); }
+  nav button.locked { color: #55503f; }
+
+  main { flex: 1; display: grid; grid-template-columns: 240px 1fr 250px; min-height: 0; }
+  .rail { background: var(--panel); border-right: 1px solid var(--bronze-deep); padding: 0.8rem; overflow-y: auto; font-size: 0.72rem; }
+  .rail.right { border-right: none; border-left: 1px solid var(--bronze-deep); }
+  .rail h2 { font-size: 0.68rem; letter-spacing: 0.25em; color: var(--bronze); font-weight: normal; margin-bottom: 0.7rem; border-bottom: 1px dashed var(--bronze-deep); padding-bottom: 0.4rem; }
+  .dispatch { color: var(--dim); margin-bottom: 0.8rem; line-height: 1.5; }
+  .dispatch b { color: var(--text); font-weight: normal; }
+
+  /* core meter */
+  .core-num { font-size: 2rem; color: var(--bronze); text-shadow: 0 0 14px rgba(176,141,87,0.5); }
+  .core-bar { height: 8px; background: #101114; border: 1px solid var(--bronze-deep); margin: 0.4rem 0 0.2rem; }
+  .core-bar i { display: block; height: 100%; width: 23%; background: linear-gradient(90deg, var(--bronze-dim), var(--bronze)); }
+  .core-cap { color: var(--dim); font-size: 0.65rem; letter-spacing: 0.1em; }
+  .readout { margin-top: 1.1rem; border: 1px solid var(--bronze-deep); padding: 0.6rem; min-height: 9rem; }
+  .readout .name { color: var(--bronze); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 0.3rem; }
+  .readout .kv { color: var(--dim); line-height: 1.7; }
+  .badge { display: inline-block; padding: 0 0.45em; border: 1px solid; font-size: 0.62rem; letter-spacing: 0.15em; }
+  .badge.witnessed { color: var(--witnessed); border-color: var(--witnessed); }
+  .badge.recovered { color: var(--recovered); border-color: var(--recovered); }
+  .badge.corrupted { color: var(--corrupted); border-color: var(--corrupted); }
+  .badge.outfocus { color: var(--recovered); border-color: var(--recovered); border-style: dotted; opacity: 0.85; }
+  .bank-item.outfocus { opacity: 0.55; }
+  .rec-body .focusline { color: var(--recovered); font-size: 0.78rem; letter-spacing: 0.12em; opacity: 0.85; margin-top: 1.4rem; }
+  .badge.rumoured { color: var(--rumoured); border-color: var(--rumoured); border-style: dashed; }
+  /* anomaly-class records: the display itself is unstable */
+  @keyframes anomaly-flicker { 0%,100%{opacity:1} 7%{opacity:.35} 9%{opacity:1} 41%{opacity:.8} 43%{opacity:.2} 45%{opacity:1} 78%{opacity:.6} 80%{opacity:1} }
+  .rec-title.anomaly { animation: anomaly-flicker 4.2s infinite steps(1,end); text-shadow: 0 0 10px rgba(160,92,80,0.55); }
+  .rec-body .corrupt { color: var(--corrupted); letter-spacing: 0.08em; }
+  @media (prefers-reduced-motion: reduce) { .rec-title.anomaly { animation: none; } }
+  /* the faceless record: a black mirror takes the page. it shows the querent, never the Hero. */
+  #faceless { position: fixed; inset: 0; z-index: 9000; background: #050506; display: none; overflow: hidden; pointer-events: all; }
+  #faceless.show { display: block; }
+  #faceless .glass { position: absolute; inset: 0; background: linear-gradient(115deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0) 38%, rgba(255,255,255,0.03) 62%, rgba(255,255,255,0) 100%); }
+  #faceless .mirror { position: absolute; left: 0; right: 0; top: 18%; transform: scaleX(-1); color: rgba(212,175,95,0.55); font-size: 1.15rem; letter-spacing: 0.35em; text-align: center; white-space: pre-line; line-height: 2.2; filter: blur(0.3px); }
+  #faceless .band { position: absolute; left: 0; right: 0; height: 3px; background: rgba(160,92,80,0.55); mix-blend-mode: screen; }
+  #faceless .tear { position: absolute; left: 0; right: 0; background: #050506; box-shadow: 0 0 0 1px rgba(160,92,80,0.35); }
+  #faceless .line { position: absolute; left: 0; right: 0; top: 52%; text-align: center; color: var(--corrupted); font-size: 0.8rem; letter-spacing: 0.3em; opacity: 0; text-shadow: 0 0 14px rgba(160,92,80,0.6); }
+  #faceless .line.on { opacity: 1; transition: opacity 0.6s; }
+  @keyframes faceless-jitter { 0%{transform:scaleX(-1) translateX(0)} 20%{transform:scaleX(-1) translateX(-14px)} 22%{transform:scaleX(-1) translateX(9px)} 55%{transform:scaleX(-1) translateX(0)} 70%{transform:scaleX(-1) translateX(22px)} 72%{transform:scaleX(-1) translateX(-6px)} 100%{transform:scaleX(-1) translateX(0)} }
+  #faceless.show .mirror { animation: faceless-jitter 0.9s infinite steps(2,end); }
+  /* scrollbars wear the console, not the OS */
+  * { scrollbar-width: thin; scrollbar-color: rgba(120,90,50,0.55) #0c0d10; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: #0c0d10; }
+  ::-webkit-scrollbar-thumb { background: rgba(120,90,50,0.55); border-radius: 0; border: 1px solid #0c0d10; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(212,175,95,0.6); }
+  ::-webkit-scrollbar-corner { background: #0c0d10; }
+  /* the contaminated fragment: the letters will not hold */
+  .rec-body.sick .q { transition: color 0.4s; }
+  .rec-body.sick .q.rot { color: var(--corrupted); text-shadow: 0 0 8px rgba(160,92,80,0.5); }
+  @media (prefers-reduced-motion: reduce) { #faceless.show .mirror { animation: none; } }
+
+  /* viewport */
+  .viewport { position: relative; overflow: hidden; background: #101114; }
+  .viewport svg { width: 100%; height: 100%; display: block; }
+  .fog { position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse 75% 70% at 50% 48%, transparent 55%, rgba(13,14,17,0.88) 100%); }
+  .fog-lbl { position: absolute; color: #55503f; font-size: 0.62rem; letter-spacing: 0.3em; pointer-events: none; }
+  .region-shape { fill: rgba(176,141,87,0.05); stroke: rgba(176,141,87,0.45); stroke-width: 2.5; cursor: pointer; transition: fill 0.2s; }
+  .region-shape:hover { fill: rgba(176,141,87,0.28); stroke: var(--bronze); }
+  .frame-shape { fill: none; stroke: rgba(176,141,87,0.35); stroke-width: 4; stroke-dasharray: 16 12; pointer-events: none; }
+  .poi-dot { fill: var(--bronze); stroke: #0d0e11; stroke-width: 2.5; cursor: pointer; }
+  .poi-dot:hover { fill: var(--crystal); }
+  .water-line { fill: none; stroke: rgba(127,212,224,0.55); stroke-width: 6; stroke-dasharray: 2 12; stroke-linecap: round; pointer-events: stroke; cursor: pointer; }
+
+  /* denial + zoom overlays */
+  .overlay-msg { position: absolute; inset: 0; background: rgba(13,14,17,0.85); display: none; align-items: center; justify-content: center; flex-direction: column; gap: 0.8rem; z-index: 10; cursor: pointer; }
+  .overlay-msg.show { display: flex; }
+  .overlay-msg .deny { color: var(--corrupted); font-size: 1rem; letter-spacing: 0.3em; text-shadow: 0 0 16px rgba(160,92,80,0.5); }
+  .overlay-msg .rune { color: var(--crystal); opacity: 0.5; font-size: 0.8rem; }
+  #zoom img { max-width: 92%; max-height: 86%; border: 2px solid var(--bronze-deep); }
+  #zoom .cap { color: var(--bronze); font-size: 0.7rem; letter-spacing: 0.25em; }
+
+  footer { border-top: 2px solid var(--bronze-deep); background: var(--panel); overflow: hidden; white-space: nowrap; }
+  footer .tick { display: inline-block; padding: 0.35rem 0; color: var(--dim); font-size: 0.68rem; letter-spacing: 0.1em; animation: tick 40s linear infinite; }
+  @keyframes tick { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
+  @media (prefers-reduced-motion: reduce) { footer .tick { animation: none; padding-left: 1rem; } }
+
+  body.lumen-glow::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 60;
+    background: radial-gradient(ellipse at 50% 50%, rgba(212,175,95,0.22), transparent 65%); animation: glowfade 3s ease-out forwards; }
+  @keyframes glowfade { from { opacity: 1; } to { opacity: 0; } }
+</style>
+</head>
+<body>
+<div id="faceless" aria-hidden="true"><div class="glass"></div><div class="mirror"></div><div class="line">THERE IS NO FACE IN THIS RECORD.<br>THE BANKS RETURN THE QUERENT.</div></div>
+
+<div id="boot"><pre id="bootlines"></pre><div class="skip">[ ANY KEY TO SKIP HANDSHAKE ]</div></div>
+
+<div id="gate">
+  <div class="rune">ᛗᛖᛗᛟᚱᛁᚨ ᚲᛟᚾᛏᚱᚨ ᛟᛒᛚᛁᚢᛁᛟᚾᛖᛗ</div>
+  <div class="ask" id="gateask">IDENTITY NOT HELD IN MEMORY.<br>PROVE YOU REMEMBER.</div>
+  <div class="fail" id="gatefail"></div>
+  <input id="gatein" type="text" autocomplete="off" spellcheck="false" aria-label="prove you remember">
+  <div class="hint">[ SPEAK AS THE ORDER SPOKE ]</div>
+</div>
+
+<header>
+  <h1>ARGENTE CORRIDORE</h1>
+  <span class="sub">COMMAND SPHERE · REMOTE LINK · HAVEN 3 RELAY</span>
+  <span class="clearance" id="clearance"></span>
+</header>
+
+<nav>
+  <button class="active" id="tab-survey">SURFACE SURVEY</button>
+  <button id="tab-banks">MEMORY BANKS</button>
+  <button class="locked" onclick="deny()">RAIL NETWORK</button>
+  <button class="locked" onclick="deny()">▓▓▓▓▓▓</button>
+</nav>
+
+<main>
+  <aside class="rail">
+    <h2>DISPATCHES</h2>
+    <div class="dispatch"><b>MEMORY 003 — BANKED</b><br>the lolosia arc · integrity 91% · WITNESSED</div>
+    <div class="dispatch"><b>MEMORY 002 — BANKED</b><br>the wings · integrity 91% · WITNESSED</div>
+    <div class="dispatch"><b>MEMORY 001 — BANKED</b><br>the-guild · integrity 74% · RECOVERED</div>
+    <div class="dispatch">AWAITING NARRATOR RELAY…<br>further entries bank when What Was Chosen speaks.</div>
+  </aside>
+
+  <div class="viewport" id="vp">
+    <svg id="map" viewBox="0 0 2304 1313" preserveAspectRatio="xMidYMid meet">
+      <image href="kreuzung.jpg" x="0" y="0" width="2304" height="1313" opacity="0.92"/>
+      <g id="shapes"></g>
+    </svg>
+    <div class="fog"></div>
+    <div class="fog-lbl" style="top:6%; left:38%;">ASTRAVIA — PRESENCE WASH · SURVEY ONLY</div>
+    <div class="fog-lbl" style="bottom:5%; right:4%;">SURVEY CORRUPTED BEYOND FRAME</div>
+    <div class="overlay-msg" id="denial" onclick="this.classList.remove('show')">
+      <div class="rune">ᚠᚢᚦᚨᚱᚲ ᛒᛚᚨᚲᚴ ᚱᚢᚾᛖ</div>
+      <div class="deny">ACCESS DENIED — AWAITING ENGINEER CLEARANCE</div>
+      <div class="rune">[ LINK RETAINED — SURFACE SURVEY ONLY ]</div>
+    </div>
+    <div class="overlay-msg" id="zoom" onclick="this.classList.remove('show')">
+      <div class="cap" id="zoomcap"></div>
+      <img id="zoomimg" src="" alt="high-fidelity memory">
+      <div class="rune">[ TAP TO RETURN TO SURVEY ]</div>
+    </div>
+  </div>
+
+  <aside class="rail right">
+    <h2>MEMORY CORE</h2>
+    <div class="core-num">23%</div>
+    <div class="core-bar"><i></i></div>
+    <div class="core-cap">CAPACITY — BANKS DEGRADED<br>RAIL: 4/17 TUNNELS</div>
+    <div class="readout" id="readout">
+      <div class="name">— NO TARGET —</div>
+      <div class="kv">sweep the survey.<br>the core renders what<br>its bearers have earned.</div>
+    </div>
+  </aside>
+</main>
+
+<div id="banks">
+  <aside class="rail bank-list" id="banklist"></aside>
+  <div class="bank-view" id="bankview">
+    <div class="rec-head"><div class="rec-title">MEMORY BANKS</div>
+    <div class="rec-kv">select a record. the banks render what their bearers have earned.</div></div>
+  </div>
+</div>
+
+<footer><div class="tick">LOLOSIA EXCHANGE: saffron ↑ 3gp/dr · dye-lots holding · GUILD NOTICE: caravan escort tenders close moonday · YEN DA TOLL: unchanged · RUMOUR (UNVERIFIED): lights over the Umbral canopy · BUCHLITA ROAD: open, watch posted · THE ROW: two tables free at the Rusty Spoon</div></footer>
+
+<script>
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ===== boot ===== */
+const LINES = [
+  ['rune', '▓▒░  ᚨᚱᚷᛖᚾᛏᛖ  ᚲᛟᚱᚱᛁᛞᛟᚱᛖ  ░▒▓'],
+  ['', 'LINK ESTABLISHED — HAVEN 3 RELAY'],
+  ['', 'ARGENTE CORRIDORE · COMMAND SPHERE v0.2'],
+  ['', 'LUMEN CORE ARRAY — Light Utility for Memory, Evidence & Navigation'],
+  ['', 'CORE: 23% CAPACITY — MEMORY BANKS DEGRADED'],
+  ['', 'RAIL NETWORK: 4/17 TUNNELS ACCESSIBLE'],
+  ['', 'CLEARANCE: PROVISIONAL — ENGINEER LOCK ACTIVE'],
+];
+const boot = document.getElementById('boot');
+function endBoot(){ boot.style.display='none'; sessionStorage.setItem('corridore-booted','1');
+  if (!sessionStorage.getItem('corridore-keyed')) { const g = document.getElementById('gate'); g.classList.add('show'); setTimeout(()=>document.getElementById('gatein').focus(), 50); } }
+if (sessionStorage.getItem('corridore-booted') || REDUCED) { endBoot(); }
+else {
+  const pre = document.getElementById('bootlines');
+  let i = 0;
+  const t = setInterval(() => {
+    if (i >= LINES.length) { clearInterval(t); setTimeout(endBoot, 700); return; }
+    const [cls, txt] = LINES[i++];
+    pre.innerHTML += (cls ? `<span class="${cls}">${txt}</span>` : txt) + '\n';
+  }, 320);
+  boot.addEventListener('click', () => { clearInterval(t); endBoot(); });
+  addEventListener('keydown', () => { if (boot.style.display!=='none'){ clearInterval(t); endBoot(); } }, { once:false });
+}
+
+/* ===== state-driven map ===== */
+const readout = document.getElementById('readout');
+function show(r){
+  readout.innerHTML = `<div class="name">${r.name.toUpperCase()}</div>
+    <div class="kv">designation: ${r.kind}<br>
+    survey: ${r.confidence.toUpperCase()}<br>
+    memory: <span class="badge ${r.memory}">${r.memory.toUpperCase()}</span><br>
+    ${r.superzoom ? '<br>[ CLICK TARGET FOR HIGH-FIDELITY MEMORY ]' : ''}</div>`;
+}
+fetch('map-state.json').then(x=>x.json()).then(st => {
+  document.getElementById('clearance').textContent = 'CLEARANCE: ' + st.clearance;
+  const g = document.getElementById('shapes');
+  const NS = 'http://www.w3.org/2000/svg';
+  for (const [id, r] of Object.entries(st.regions)) {
+    let el = null;
+    if (r.polygon) {
+      el = document.createElementNS(NS, 'polygon');
+      el.setAttribute('points', r.polygon.map(p=>p.join(',')).join(' '));
+      el.setAttribute('class', r.kind === 'region-frame' ? 'frame-shape' : 'region-shape');
+    } else if (r.polyline) {
+      el = document.createElementNS(NS, 'polyline');
+      el.setAttribute('points', r.polyline.map(p=>p.join(',')).join(' '));
+      el.setAttribute('class', 'water-line');
+    } else if (r.point) {
+      el = document.createElementNS(NS, 'circle');
+      el.setAttribute('cx', r.point[0]); el.setAttribute('cy', r.point[1]); el.setAttribute('r', 15);
+      el.setAttribute('class', 'poi-dot');
+    }
+    if (!el) continue;
+    el.addEventListener('mouseenter', () => show(r));
+    el.addEventListener('click', () => { show(r); if (r.superzoom && st.plates[r.superzoom]) {
+      document.getElementById('zoomcap').textContent = r.name.toUpperCase() + ' — HIGH-FIDELITY MEMORY';
+      document.getElementById('zoomimg').src = st.plates[r.superzoom];
+      document.getElementById('zoom').classList.add('show'); } });
+    g.appendChild(el);
+  }
+});
+
+/* ===== locked layers ===== */
+function deny(){ document.getElementById('denial').classList.add('show'); }
+
+/* ===== the gate — PROVE YOU REMEMBER (hashes only; the key never rides the page) ===== */
+const KEY_HASHES = [
+  '6e83e4fbeb101b6d682bc7fc40d934f6f6a685b0d26d873c8b55f18be02a1c1f',
+  '7b8aec39d88ff913218bdcd4fa7f3373fe9e7adabe2ee0c96b4b0dd514e74f41',
+  'cc482cf72e593da660f7f272c94449b233c1855b1438461bccfbbe9770d877fe'
+];
+const FAIL_LINES = [
+  'IDENTITY NOT HELD IN MEMORY.',
+  'THE BANKS DO NOT KNOW YOU.',
+  'MEMORY REJECTS WHAT IT CANNOT FIND. THE MACHINE GROWS WARY.',
+  'THE CORRIDORE IS PATIENT. REMEMBER.'
+];
+let gateFails = 0;
+const gateEl = document.getElementById('gate');
+const gateIn = document.getElementById('gatein');
+async function sha256hex(s){
+  const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+  return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+}
+function normKey(s){ return (s.toLowerCase().match(/[a-z0-9]/g)||[]).join(''); }
+gateIn.addEventListener('keydown', async e => {
+  if (e.key !== 'Enter') return;
+  const guess = normKey(gateIn.value);
+  gateIn.value = '';
+  if (!guess) return;
+  if (!crypto.subtle) { document.getElementById('gatefail').textContent = '[ RELAY INSECURE — KEY BYPASSED ]';
+    setTimeout(()=>{ gateEl.classList.remove('show'); sessionStorage.setItem('corridore-keyed','1'); }, 900); return; }
+  const h = await sha256hex(guess);
+  if (KEY_HASHES.includes(h)) {
+    gateEl.classList.add('opened');
+    document.getElementById('gatefail').textContent = '';
+    document.getElementById('gateask').innerHTML = 'MEMORIA CONTRA OBLIVIONEM.<br>THE BANKS REMEMBER YOU.';
+    document.body.classList.remove('lumen-glow'); void document.body.offsetWidth; document.body.classList.add('lumen-glow');
+    setTimeout(()=>{ gateEl.classList.remove('show'); sessionStorage.setItem('corridore-keyed','1'); }, 1800);
+  } else {
+    document.getElementById('gatefail').textContent = FAIL_LINES[Math.min(gateFails++, FAIL_LINES.length-1)];
+  }
+});
+
+/* ===== memory banks — rendered from banks.json, same law as the map ===== */
+const mainEl = document.querySelector('main');
+const banksEl = document.getElementById('banks');
+const tabSurvey = document.getElementById('tab-survey');
+const tabBanks = document.getElementById('tab-banks');
+tabSurvey.addEventListener('click', () => { mainEl.classList.remove('hidden'); banksEl.classList.remove('show');
+  tabSurvey.classList.add('active'); tabBanks.classList.remove('active'); });
+tabBanks.addEventListener('click', () => { mainEl.classList.add('hidden'); banksEl.classList.add('show');
+  tabBanks.classList.add('active'); tabSurvey.classList.remove('active'); });
+fetch('banks.json').then(x=>x.json()).then(d => {
+  const list = document.getElementById('banklist');
+  for (const sec of d.sections) {
+    const h = document.createElement('h2'); h.textContent = sec.title; list.appendChild(h);
+    for (const r of sec.records) {
+      const b = document.createElement('button');
+      b.className = 'bank-item' + (r.locked ? ' locked' : '') + (r.focus === 'out' ? ' outfocus' : '');
+      b.textContent = (r.locked ? '▓ ' : '· ') + r.title.toUpperCase();
+      b.addEventListener('click', () => r.locked ? showSealed(r) : showRecord(r, b));
+      list.appendChild(b);
+    }
+  }
+});
+function showSealed(r){
+  document.querySelectorAll('.bank-item').forEach(x=>x.classList.remove('active'));
+  document.getElementById('bankview').innerHTML =
+    `<div class="rec-head"><div class="rec-title">${r.title.toUpperCase()}</div>
+     <div class="rec-kv">memory: <span class="badge corrupted">SEALED</span><br>${r.note}</div></div>
+     <p class="sealedline">▓ RECORD SEALED — THE BANKS HOLD THE SHAPE, NOT THE SUBSTANCE.</p>`;
+}
+let warnedRecord = null;
+function retrieveAnyway(){ if (warnedRecord) { const r = warnedRecord; warnedRecord = null;
+  if (r.effect === 'faceless') { facelessGlitch(() => showRecord(r, null, true)); } else { showRecord(r, null, true); } } }
+/* the faceless record — the page becomes a black mirror; the console reflects itself and shows the querent nothing */
+function facelessGlitch(done){
+  const f = document.getElementById('faceless');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const src = [...document.querySelectorAll('header h1, header .sub, .rec-title')].map(e => e.textContent.trim()).filter(Boolean).join('\n');
+  f.querySelector('.mirror').textContent = src || 'ARGENTE CORRIDORE';
+  f.querySelectorAll('.band,.tear').forEach(e => e.remove());
+  const line = f.querySelector('.line'); line.classList.remove('on');
+  f.classList.add('show');
+  let ticks = 0;
+  const tearer = setInterval(() => {
+    f.querySelectorAll('.band,.tear').forEach(e => e.remove());
+    for (let i = 0; i < 6; i++) { const b = document.createElement('div'); b.className = Math.random() < 0.5 ? 'band' : 'tear';
+      b.style.top = (Math.random()*100) + '%'; if (b.className === 'tear') b.style.height = (4 + Math.random()*40) + 'px'; f.appendChild(b); }
+    if (++ticks === 8) line.classList.add('on');
+  }, reduced ? 400 : 110);
+  setTimeout(() => { clearInterval(tearer); f.classList.remove('show'); f.querySelectorAll('.band,.tear').forEach(e => e.remove()); done(); }, reduced ? 1600 : 3400);
+}
+function showRecord(r, btn, force){
+  document.querySelectorAll('.bank-item').forEach(x=>x.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  if (r.warning && !force) {
+    warnedRecord = r;
+    document.getElementById('bankview').innerHTML =
+      `<div class="rec-head"><div class="rec-title${r.anomaly?' anomaly':''}">${r.title.toUpperCase()}</div>
+       <div class="rec-kv">designation: ${r.class} · memory: <span class="badge ${r.memory}">${r.memory.toUpperCase()}</span> · integrity ${r.integrity}%</div></div>
+       <div class="rec-warning"><div class="deny-line">${r.warning}</div>
+       <button onclick="retrieveAnyway()">[ RETRIEVE ANYWAY ]</button></div>`;
+    return;
+  }
+  let html = `<div class="rec-head"><div class="rec-title${r.anomaly?' anomaly':''}">${r.title.toUpperCase()}</div>
+    <div class="rec-kv">designation: ${r.class} · memory: <span class="badge ${r.memory}">${r.memory.toUpperCase()}</span> · integrity ${r.integrity}%${r.focus === 'out' ? ' · <span class="badge outfocus">OUT OF FOCUS</span>' : ''}</div></div><div class="rec-body">`;
+  for (const line of r.body) {
+    if (line.startsWith('## ')) html += `<h3>${line.slice(3)}</h3>`;
+    else if (line.startsWith('> ')) html += `<p class="q">${line.slice(2)}</p>`;
+    else if (line.startsWith('-- ')) html += `<p class="dimline">${line.slice(3)}</p>`;
+    else if (line.startsWith('SEALED: ')) html += `<p class="sealedline">▓ ${line.slice(8)}</p>`;
+    else if (line.includes('[CORRUPTED]')) html += `<p class="corrupt">${line}</p>`;
+    else html += `<p>${line}</p>`;
+  }
+  if (r.focus === 'out' && r.focus_note) html += `<p class="focusline">-- ${r.focus_note}</p>`;
+  document.getElementById('bankview').innerHTML = html + '</div>';
+  if (songTimer) { clearInterval(songTimer); songTimer = null; }
+  if (r.effect === 'song') songRot();
+}
+/* the song: a fragment recovered from contaminated ground. the banks re-read it and the letters rot in and out. */
+let songTimer = null;
+const ROT = '▓▒░ᚠᚱᚲᛗᛟ';
+function songRot(){
+  const body = document.querySelector('#bankview .rec-body'); if (!body) return;
+  body.classList.add('sick');
+  const qs = [...body.querySelectorAll('.q')].filter(q => q.textContent.trim());
+  qs.forEach(q => q.dataset.true = q.textContent);
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  songTimer = setInterval(() => {
+    qs.forEach(q => { q.textContent = q.dataset.true; q.classList.remove('rot'); });
+    const n = 1 + Math.floor(Math.random()*3);
+    for (let i = 0; i < n; i++) {
+      const q = qs[Math.floor(Math.random()*qs.length)]; if (!q) continue;
+      const t = q.dataset.true.split(''); const k = 1 + Math.floor(Math.random()*4);
+      for (let j = 0; j < k; j++) { const at = Math.floor(Math.random()*t.length); if (t[at] !== ' ') t[at] = ROT[Math.floor(Math.random()*ROT.length)]; }
+      q.textContent = t.join(''); q.classList.add('rot');
+    }
+  }, reduced ? 2400 : 700);
+}
+
+/* ===== the light answers her name ===== */
+let buf = '';
+addEventListener('keydown', e => {
+  buf = (buf + e.key.toLowerCase()).slice(-5);
+  if (buf === 'lumen') { document.body.classList.remove('lumen-glow'); void document.body.offsetWidth; document.body.classList.add('lumen-glow'); }
+});
+</script>
+</body>
+</html>
