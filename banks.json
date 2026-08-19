@@ -161,6 +161,160 @@
       ]
     },
     {
+      "title": "THE ASCENDED",
+      "records": [
+        {
+          "id": "ascended-register",
+          "title": "The Nine — register of the Ascended",
+          "class": "PANTHEON REGISTER",
+          "memory": "recovered",
+          "integrity": 77,
+          "body": [
+            "-- Pantheon register. Compiled from the world's common memory: what the well-read recognise and the common folk half-remember. The banks hold the names; the banks do not hold the gods.",
+            "Religion is not what it was. It is a bleak world — order waning, chaos rising — and people swing to extremes: zealous worship or fervent denial. Some cities keep shrines, temples or whole orders to a god; some serve only one. The superstitions outlast the reverence, which has diminished since the One War and the Dawn of the Red Sun.",
+            "> Magic confirms the gods are real. Nothing confirms they are listening.",
+            "## THE NINE",
+            "ALPRECHA · stars and the guiding lights of the night",
+            "VIDITE · law, order and civility",
+            "RONIR · fire, iron and the forge",
+            "ADIS · knowledge, foresight, insight and ice",
+            "OXILIOS · warfare, strategy and strength",
+            "SHOKI · the waning moon, night, and the ushering of souls",
+            "EBISU · the sea, storms and crashing waves",
+            "ELASIS · the earth, nature and compassion",
+            "DRESELIA · secrets, cunning and self-determination",
+            "-- Nine gods, nine knights, nine relics. The Order swore one knight to each; see THE ORDER. Four relics walk with the bearers; see RELICS."
+          ]
+        },
+        {
+          "id": "god-alprecha",
+          "title": "Alprecha — Goddess of the Stars and the Guiding Lights of the Night",
+          "class": "ASCENDED RECORD",
+          "memory": "recovered",
+          "integrity": 81,
+          "body": [
+            "-- Ascended record. As the world remembers her.",
+            "DESIGNATION: ALPRECHA — the Grand Star · Shepherd of the Stars · She Who Lights the Night · Light's Guide · Traveller's Lone Companion · Beacon of Sailors",
+            "DOMAINS: LIGHT · STARS · LIFE",
+            "SIGNIFIER: an eye with four stars in the pupil",
+            "-- Sworn knight of the Spiral: Selianne Vaurette. Relic: THE GUIDING EYE — SEALED."
+          ]
+        },
+        {
+          "id": "god-vidite",
+          "title": "Vidite — Goddess of Law, Order and Civility",
+          "class": "ASCENDED RECORD",
+          "memory": "recovered",
+          "integrity": 84,
+          "body": [
+            "-- Ascended record. As the world remembers her.",
+            "DESIGNATION: VIDITE — the Scale Bearer · She Who Casts Judgement · She With Open Hand and Sword · the Shield of Mandates",
+            "DOMAINS: ORDER · CROWN · PEACE · DEVOTION",
+            "SIGNIFIERS: scale · shield · crown · blindfolded visage · sword and open hand",
+            "-- Sworn knight of the Spiral: Tomas Veyndar. Relic: THE BLINDFOLD OF EQUILIBRIUM — held by the bearers."
+          ]
+        },
+        {
+          "id": "god-ronir",
+          "title": "Ronir — God of Fire, Iron and the Forge",
+          "class": "ASCENDED RECORD",
+          "memory": "recovered",
+          "integrity": 83,
+          "body": [
+            "-- Ascended record. As the world remembers him.",
+            "DESIGNATION: RONIR — the Hammer and Anvil · Smithslord · Furnace Breather · Hearth Lighter · Melder of Metals · the Great Builder",
+            "DOMAINS: FORGE · WAR",
+            "SIGNIFIER: hammer, anvil and mace behind a furnace of fire",
+            "-- Sworn knight of the Spiral: Reijer Helleman. Relic: THE EMBER ANVIL FRAGMENT — SEALED."
+          ]
+        },
+        {
+          "id": "god-adis",
+          "title": "Adis — God of Knowledge, Foresight, Insight and Ice",
+          "class": "ASCENDED RECORD",
+          "memory": "recovered",
+          "integrity": 79,
+          "body": [
+            "-- Ascended record. As the world remembers him.",
+            "DESIGNATION: ADIS — He Who Knows · the Seer · Eye of Cold Truth · the Librarian",
+            "DOMAINS: KNOWLEDGE · ORDER · ARCANA",
+            "SIGNIFIERS: a tome with three eyes · a quill within a triangle · an open front-facing hand, three fingers extended and two closed",
+            "-- Sworn knight of the Spiral: Lidia Frais. Relic: THE SEER'S QUILL — held by the bearers."
+          ]
+        },
+        {
+          "id": "god-oxilios",
+          "title": "Oxilios — God of Warfare, Strategy and Strength",
+          "class": "ASCENDED RECORD",
+          "memory": "recovered",
+          "integrity": 80,
+          "body": [
+            "-- Ascended record. As the world remembers him.",
+            "DESIGNATION: OXILIOS — Burden Beast of War · He Who Tramples Under Hoof · Horns of Conquest · Of Blood and Bone · Of Vigour and Power · He Who Bestows Courage · Bringer of Glory",
+            "DOMAINS: WAR · CONQUEST · GLORY · VENGEANCE",
+            "SIGNIFIERS: a bull's head before crossed swords and shield · a hoof at the centre of a double-headed axe-head",
+            "-- Sworn knight of the Spiral: Ludovico Dale. Relic: THE BULLHORN VAMBRACE — SEALED."
+          ]
+        },
+        {
+          "id": "god-shoki",
+          "title": "Shoki — God of the Waning Moon, Night and Usherer of Souls",
+          "class": "ASCENDED RECORD",
+          "memory": "recovered",
+          "integrity": 82,
+          "body": [
+            "-- Ascended record. As the world remembers him.",
+            "DESIGNATION: SHOKI — Hood · Dusk Weaver · the Guiding Lantern",
+            "DOMAINS: DEATH · GRAVE · TWILIGHT",
+            "SIGNIFIERS: a hooded lantern · a sickle or scythe before a waxing-or-waning moon · a circle with a small black dot ringed by white lines",
+            "-- Sworn knight of the Spiral: Kaelen Dross. Relic: THE SOUL LANTERN — held by the bearers. One of the bearers is his; see THE BEARERS."
+          ]
+        },
+        {
+          "id": "god-ebisu",
+          "title": "Ebisu — Goddess of the Sea, Storms and Crashing Waves",
+          "class": "ASCENDED RECORD",
+          "memory": "recovered",
+          "integrity": 78,
+          "body": [
+            "-- Ascended record. As the world remembers her.",
+            "DESIGNATION: EBISU — Tide Caller · Mistress of the Storm · Sovereign of All Sailors",
+            "DOMAINS: TEMPEST · STORMS · VENGEANCE",
+            "SIGNIFIERS: a bident · a lightning bolt before a crashing wave",
+            "-- Sworn knight of the Spiral: Clara de Hochpied. Relic: THE TIDECALLER'S CONCH — SEALED."
+          ]
+        },
+        {
+          "id": "god-elasis",
+          "title": "Elasis — Goddess of the Earth, Nature and Compassion",
+          "class": "ASCENDED RECORD",
+          "memory": "recovered",
+          "integrity": 85,
+          "body": [
+            "-- Ascended record. As the world remembers her.",
+            "DESIGNATION: ELASIS — Our Lady of Earth · the Green Maiden · She Who Brings Life",
+            "DOMAINS: LIFE · NATURE · GRAVE · ANCIENTS",
+            "SIGNIFIER: a tree with three branches behind a semi-circle halo",
+            "-- Sworn knight of the Spiral: Iralde Fenwyn. Relic: THE VERDANT ROOT — held by the bearers."
+          ]
+        },
+        {
+          "id": "god-dreselia",
+          "title": "Dreselia — Goddess of Secrets, Cunning and Self-Determination",
+          "class": "ASCENDED RECORD",
+          "memory": "recovered",
+          "integrity": 61,
+          "body": [
+            "-- Ascended record. As the world remembers her — which is less than the others, by her design.",
+            "DESIGNATION: DRESELIA — the Keeper of the Hidden · She Who Bestows Secrets · the Mistress of Silence · the Defier of Fate · Queen of Thieves",
+            "DOMAINS: TRICKERY · VENGEANCE · TREACHERY · KNOWLEDGE",
+            "SIGNIFIERS: a closed mouth with a dagger to either side · a broken or cracked wheel with a blade through the centre",
+            "-- Sworn knight of the Spiral: Aastin Radis, who did not kneel. Relic: THE SHATTERED WHEEL PENDANT — SEALED."
+          ]
+        }
+      ]
+    },
+    {
       "title": "THE ORDER",
       "records": [
         {
