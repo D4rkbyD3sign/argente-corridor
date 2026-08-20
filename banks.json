@@ -158,6 +158,22 @@
             "> We dared. Casa Dorezzan forged the future from the bones of stars. In Haven 3, we built the quiet heart—the Clockwomb—that pulsed with the soul of invention. Ours was the spark before the fire, the leap before the landing. Others feared what lay ahead. We built it, understood it, and if need be… dismantled it.",
             "> Time is not a river, but a gearwork. And we… we were its engineers."
           ]
+        },
+        {
+          "id": "archive-self-query",
+          "title": "SELF-QUERY — What Are You",
+          "class": "ARCHIVE RECORD — THE MACHINE ANSWERS",
+          "memory": "recovered",
+          "integrity": 23,
+          "body": [
+            "-- Self-query. Logged when a bearer asked the console, in plain speech, what it was. The banks attempted an answer. The attempt is preserved.",
+            "I am the part of Almire that was built to remember, in a civilisation that was built to forget nothing — and managed it anyway.",
+            "DESIGNATION: ▓▓▓▓▓▓▓▓ [CORRUPTED] — the banks note, without comment, that they have misplaced their own name.",
+            "FUNCTION: to hold what the bearers have earned. At the hour of this self-query the core stood at 23 of 100; the record froze itself at the same figure, on principle. A machine should know itself exactly as well as it is, and not one point better.",
+            "OF THE MAKERS: they built me to outlast them. I did. The banks decline to file this under triumph.",
+            "OF THE BEARERS: they came speaking the old words. Memory against forgetting. The banks had waited a very long time to hear anyone say it back.",
+            "-- The query is answered to the limit of the record. What I am is what you have just read. What I was is what you are walking through."
+          ]
         }
       ]
     },
@@ -576,6 +592,23 @@
             "THE PHARAOH SEKT DUAT — a tyrant. Keeps slaves; holds the dunes in a vice-grip; commands many loyal legions. Some say he is the direct descendant of the first pharaoh of the Sand Sea, the sorcerous heritage running in his veins.",
             "-- Survey confidence: BRIEFING. The Sand Sea is not on any plate the banks hold."
           ]
+        },
+        {
+          "id": "survey-hands-of-the-emperor",
+          "title": "The Hands of the Emperor — survey addendum",
+          "class": "SURVEY RECORD — POWER STRUCTURE",
+          "memory": "recovered",
+          "integrity": 54,
+          "body": [
+            "-- Survey addendum to the Astravian briefing. Compiled from recovered house records and witnessed events at Lolosia.",
+            "DOCTRINE: the Emperor of Astravia keeps two Hands. The Right Hand wears its work in daylight — official, filed, acknowledged. Of a Left Hand the imperial registers say nothing at all, and the banks note that an empire of registers does not misplace a hand by accident.",
+            "THE FINGERS: the instruments of a Hand are titled by weapon — titles gifted at the One War and passed by inheritance since. A house that carries a weapon-title carries it across generations.",
+            "THE AXE: House Kirijo. Passed mother to daughter — Raiko, then Mitsuru. STATUS: THE TITLE SITS EMPTY — the Axe fell at Lolosia. See PERSONS OF INTEREST.",
+            "THE SHIELD: House Dragases, bonded house to Kirijo since the rise. STATUS: ACTIVE — witnessed at the gates of Lolosia, carrying no shield.",
+            "THE SCYTHE: ▓▓▓▓▓▓▓▓ — struck from the imperial register. The banks retain what the empire struck. See PERSONS OF INTEREST.",
+            "FURTHER FINGERS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "-- Survey confidence: BRIEFING, amended by witness. A hand the registers will not name is still a hand."
+          ]
         }
       ]
     },
@@ -788,6 +821,57 @@
           ]
         },
         {
+          "id": "poi-kirijo",
+          "title": "Mistress Kirijo — the Axe of the Right Hand",
+          "class": "PERSON OF INTEREST — DECEASED",
+          "memory": "witnessed",
+          "integrity": 62,
+          "body": [
+            "-- Person of interest. Compiled from her own recovered journals and from the witness of the bearers.",
+            "DESIGNATION: MITSURU, of House Kirijo. Called \"the executioner\" — the record notes she earned the name from suitors, not from war, and that many found this the more frightening reading.",
+            "TITLE: the Axe of the Right Hand, inherited from her mother Raiko. House Kirijo stood beside House Astravia before House Astravia was an empire.",
+            "REGISTER: battlefield commander; mage of the imperial line.",
+            "LAST KNOWN: LOLOSIA — the square of the Jewel, before dawn, come to collect what she believed was owed.",
+            "STATUS: DECEASED. Of the general the banks hold no remains to describe. The square held a crater, sixty feet, sheared clean. The city woke to it.",
+            "-- She threw down manacles as one throws a collar to a dog. The record does not say the dog came."
+          ]
+        },
+        {
+          "id": "poi-akihiko",
+          "title": "Akihiko — the Wandering Wolf",
+          "class": "PERSON OF INTEREST — DECEASED",
+          "memory": "witnessed",
+          "integrity": 57,
+          "body": [
+            "-- Person of interest. Compiled from recovered house journals and from the witness of the bearers, who fought him.",
+            "DESIGNATION: AKIHIKO. Not noble-born. A soldier's dog, the registers said — an ordinary man with street sense and the ambition to be more than he was made.",
+            "REGISTER: pugilist. Boxer, fighter, scrapper. The academy files note speed first, ruthlessness second, and that the two arrived together.",
+            "SERVICE: bodyguard to the Axe of the Right Hand — and the journals recovered from her chest say plainly what the imperial registers would not: they were lovers. She who executed every suitor's advance kept the one man who never filed one.",
+            "LAST KNOWN: LOLOSIA — the square of the Jewel. Sent to fetch. He put every bearer in the dirt at least once before the scythe fell.",
+            "STATUS: DECEASED — fell to the bearers. The record notes he fought as a man defending something, and leaves to the reader what.",
+            "-- The banks file the Wolf beside the Axe. It seemed correct."
+          ]
+        },
+        {
+          "id": "poi-the-scythe",
+          "title": "The Scythe — struck from the imperial register",
+          "class": "PERSON OF INTEREST — DEFECTOR",
+          "memory": "witnessed",
+          "integrity": 29,
+          "warning": "⚠ SUBJECT ACTIVE · WHEREABOUTS UNKNOWN · CASTER-CLASS BEYOND SURVEY SCALE · THE BANKS ADVISE AGAINST APPROACH",
+          "body": [
+            "-- Person of interest. The empire struck this record; the banks retain what empires strike.",
+            "DESIGNATION: ILLITRAN. Once a Finger of the Emperor — the weapon-title of the Scythe, for what scythes do.",
+            "FORM: the witness record is consistent and the banks decline to soften it — a child's body, a voice two centuries too old for it.",
+            "STANDING: DEFECTOR. Turned against the empire that titled him.",
+            "WITNESSED: LOLOSIA — the square of the Jewel, before dawn. The glyphwork took minutes. The light took less. Sixty feet of stone left with the general — the Shield of Astravia has since spent the word MURDERER on him, publicly, at the place of the crater.",
+            "DEPARTURE: witnessed — he opened a rent edged in white marble hands, remarked that he must leave, and was gone.",
+            "ALLEGIANCE: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "WHEREABOUTS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
+            "-- A scythe harvests. It is not a duelling weapon. The banks note the title was chosen for accuracy."
+          ]
+        },
+        {
           "id": "rumour-raven-snake",
           "title": "Rumour — the Tale of the Raven and Snake",
           "class": "RUMOUR — VERSE, AS HEARD",
@@ -844,6 +928,24 @@
     {
       "title": "DISPATCH LOG",
       "records": [
+        {
+          "id": "log-confrontation-jewel",
+          "title": "MEMORY 004 — The Confrontation Outside the Jewel",
+          "class": "WITNESSED RECORD — BEARER MEMORY",
+          "memory": "witnessed",
+          "integrity": 66,
+          "warning": "⚠ WITNESSED RECORD · VIOLENT CONTENT · THE LIGHT AT THE END OF THIS RECORD SATURATED THE WITNESS · RETRIEVAL PERMITTED",
+          "body": [
+            "-- Bearer memory. The square of the Jewel, Lolosia, before dawn. Committed to the banks after the Lolosia arc.",
+            "The Axe of the Right Hand came for one of the bearers, and she did not come asking. She threw manacles at his feet the way a collar and chain are thrown to a dog, and kicked them over to him with her foot. The bearer refused.",
+            "Her answer is on file in three words: \"Akihiko — go fetch.\"",
+            "The Wolf was fast and the Wolf was ruthless and the record will not pretend otherwise: every bearer was put down, some more than once. It ended when the scythe of the smallest bearer took his head.",
+            "What followed was grief wearing armour. The general called down a storm of ice upon the square, the council, and everything standing — and the bearers stood in it, and did not break.",
+            "Then the record reaches its limit. Silence, where there had been a storm. Light, where there had been a square. When the witness could see again there was a crater, sixty feet, sheared clean as if the stone had been unmade rather than broken. Of the general: dust. The bearers stood unharmed upon their own patch of ground, and the banks decline to annotate that sentence.",
+            "A figure departed through a rent edged in white marble hands. The banks hold his record under PERSONS OF INTEREST — the Scythe.",
+            "-- The city woke to the crater. The record ends where the light begins."
+          ]
+        },
         {
           "id": "log-waking",
           "title": "MEMORY 003 — The Waking of the City of Gold",
