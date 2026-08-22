@@ -185,6 +185,71 @@
             "ELASIS · the earth, nature and compassion",
             "DRESELIA · secrets, cunning and self-determination",
             "-- Nine gods, nine knights, nine relics. The Order swore one knight to each; see THE ORDER. Four relics walk with the bearers; see RELICS."
+          ],
+          "gallery": [
+            {
+              "image": "recon/alprecha.jpg",
+              "name": "ALPRECHA",
+              "title": "the Grand Star — LIGHT · STARS · LIFE",
+              "fidelity": 81,
+              "bio": "Signifier: an eye with four stars in the pupil. She Who Lights the Night; the traveller's lone companion."
+            },
+            {
+              "image": "recon/vidite.jpg",
+              "name": "VIDITE",
+              "title": "the Scale Bearer — ORDER · CROWN · PEACE · DEVOTION",
+              "fidelity": 84,
+              "bio": "Signifiers: the scale, the shield, the crown, the blindfolded visage — sword and open hand."
+            },
+            {
+              "image": "recon/ronir.jpg",
+              "name": "RONIR",
+              "title": "the Hammer and Anvil — FORGE · WAR",
+              "fidelity": 83,
+              "bio": "Signifier: hammer, anvil and mace behind a furnace of fire. The Great Builder."
+            },
+            {
+              "image": "recon/adis.jpg",
+              "name": "ADIS",
+              "title": "He Who Knows — KNOWLEDGE · ORDER · ARCANA",
+              "fidelity": 79,
+              "bio": "Signifiers: a tome with three eyes; the quill within a triangle. The Eye of Cold Truth."
+            },
+            {
+              "image": "recon/oxilios.jpg",
+              "name": "OXILIOS",
+              "title": "Burden Beast of War — WAR · CONQUEST · GLORY · VENGEANCE",
+              "fidelity": 80,
+              "bio": "Signifiers: a bull's head before crossed swords and shield; a hoof at the centre of a double-headed axe. He Who Tramples Under Hoof."
+            },
+            {
+              "image": "recon/shoki.jpg",
+              "name": "SHOKI",
+              "title": "Dusk Weaver — DEATH · GRAVE · TWILIGHT",
+              "fidelity": 82,
+              "bio": "Signifiers: a hooded lantern; the sickle before the waxing-or-waning moon. The Guiding Lantern; usherer of souls."
+            },
+            {
+              "image": "recon/ebisu.jpg",
+              "name": "EBISU",
+              "title": "Tide Caller — TEMPEST · STORMS · VENGEANCE",
+              "fidelity": 78,
+              "bio": "Signifiers: a bident; a lightning bolt before a crashing wave. Sovereign of All Sailors."
+            },
+            {
+              "image": "recon/elasis.jpg",
+              "name": "ELASIS",
+              "title": "Our Lady of Earth — LIFE · NATURE · GRAVE · ANCIENTS",
+              "fidelity": 85,
+              "bio": "Signifier: a tree with three branches behind a semi-circle halo. She Who Brings Life."
+            },
+            {
+              "image": "recon/dreselia.jpg",
+              "name": "DRESELIA",
+              "title": "the Keeper of the Hidden — TRICKERY · VENGEANCE · TREACHERY · KNOWLEDGE",
+              "fidelity": 61,
+              "bio": "Signifiers: a closed mouth with a dagger to either side; a broken wheel with a blade through the centre. The banks hold less of her than the others — by her design."
+            }
           ]
         },
         {
@@ -199,7 +264,8 @@
             "DOMAINS: LIGHT · STARS · LIFE",
             "SIGNIFIER: an eye with four stars in the pupil",
             "-- Sworn knight of the Spiral: Selianne Vaurette. Relic: THE GUIDING EYE — SEALED."
-          ]
+          ],
+          "image": "recon/alprecha.jpg"
         },
         {
           "id": "god-vidite",
@@ -213,7 +279,8 @@
             "DOMAINS: ORDER · CROWN · PEACE · DEVOTION",
             "SIGNIFIERS: scale · shield · crown · blindfolded visage · sword and open hand",
             "-- Sworn knight of the Spiral: Tomas Veyndar. Relic: THE BLINDFOLD OF EQUILIBRIUM — held by the bearers."
-          ]
+          ],
+          "image": "recon/vidite.jpg"
         },
         {
           "id": "god-ronir",
@@ -227,7 +294,8 @@
             "DOMAINS: FORGE · WAR",
             "SIGNIFIER: hammer, anvil and mace behind a furnace of fire",
             "-- Sworn knight of the Spiral: Reijer Helleman. Relic: THE EMBER ANVIL FRAGMENT — SEALED."
-          ]
+          ],
+          "image": "recon/ronir.jpg"
         },
         {
           "id": "god-adis",
@@ -241,7 +309,8 @@
             "DOMAINS: KNOWLEDGE · ORDER · ARCANA",
             "SIGNIFIERS: a tome with three eyes · a quill within a triangle · an open front-facing hand, three fingers extended and two closed",
             "-- Sworn knight of the Spiral: Lidia Frais. Relic: THE SEER'S QUILL — held by the bearers."
-          ]
+          ],
+          "image": "recon/adis.jpg"
         },
         {
           "id": "god-oxilios",
@@ -255,7 +324,8 @@
             "DOMAINS: WAR · CONQUEST · GLORY · VENGEANCE",
             "SIGNIFIERS: a bull's head before crossed swords and shield · a hoof at the centre of a double-headed axe-head",
             "-- Sworn knight of the Spiral: Ludovico Dale. Relic: THE BULLHORN VAMBRACE — SEALED."
-          ]
+          ],
+          "image": "recon/oxilios.jpg"
         },
         {
           "id": "god-shoki",
@@ -269,7 +339,8 @@
             "DOMAINS: DEATH · GRAVE · TWILIGHT",
             "SIGNIFIERS: a hooded lantern · a sickle or scythe before a waxing-or-waning moon · a circle with a small black dot ringed by white lines",
             "-- Sworn knight of the Spiral: Kaelen Dross. Relic: THE SOUL LANTERN — held by the bearers. One of the bearers is his; see THE BEARERS."
-          ]
+          ],
+          "image": "recon/shoki.jpg"
         },
         {
           "id": "god-ebisu",
@@ -283,7 +354,8 @@
             "DOMAINS: TEMPEST · STORMS · VENGEANCE",
             "SIGNIFIERS: a bident · a lightning bolt before a crashing wave",
             "-- Sworn knight of the Spiral: Clara de Hochpied. Relic: THE TIDECALLER'S CONCH — SEALED."
-          ]
+          ],
+          "image": "recon/ebisu.jpg"
         },
         {
           "id": "god-elasis",
@@ -297,7 +369,8 @@
             "DOMAINS: LIFE · NATURE · GRAVE · ANCIENTS",
             "SIGNIFIER: a tree with three branches behind a semi-circle halo",
             "-- Sworn knight of the Spiral: Iralde Fenwyn. Relic: THE VERDANT ROOT — held by the bearers."
-          ]
+          ],
+          "image": "recon/elasis.jpg"
         },
         {
           "id": "god-dreselia",
@@ -311,7 +384,8 @@
             "DOMAINS: TRICKERY · VENGEANCE · TREACHERY · KNOWLEDGE",
             "SIGNIFIERS: a closed mouth with a dagger to either side · a broken or cracked wheel with a blade through the centre",
             "-- Sworn knight of the Spiral: Aastin Radis, who did not kneel. Relic: THE SHATTERED WHEEL PENDANT — SEALED."
-          ]
+          ],
+          "image": "recon/dreselia.jpg"
         }
       ]
     },
@@ -429,11 +503,10 @@
               "bio": "For centuries the mint drew on his opened veins. Freed when the Rail fell; seated after the waking. Walks all three layers of the city slowly, as one who learned what motion costs."
             },
             {
-              "image": null,
+              "image": "recon/asterilak.jpg",
               "name": "ASTERILAK VAASKO",
               "title": "The Locker Room's Champion — the Jewel",
-              "fidelity": 0,
-              "pending": true,
+              "fidelity": 72,
               "bio": "Retired champion of the fighting pits, reluctantly seated. The fighters' district calls it the best judgment the Jewel ever made."
             },
             {
@@ -451,11 +524,10 @@
               "bio": "Dwarf of honour in gold-etched armour; funded the Three Pointe Watch and the Arena Della Fortuna, and spoke only truth. ▌▌ STATUS: DECEASED — RECORD RETAINED ▌▌"
             },
             {
-              "image": null,
+              "image": "recon/andrea.jpg",
               "name": "ANDREA",
               "title": "Head Archavist of Lolosia",
-              "fidelity": 0,
-              "pending": true,
+              "fidelity": 66,
               "bio": "Keeper of the city's paper memory. Her tome of Year 251 names the buried cities beneath the streets. The Corridore endorses her caution."
             },
             {
