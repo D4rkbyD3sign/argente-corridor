@@ -307,11 +307,15 @@ const KEY_HASHES = [
   'cc482cf72e593da660f7f272c94449b233c1855b1438461bccfbbe9770d877fe'
 ];
 const FAIL_LINES = [
-  'IDENTITY NOT HELD IN MEMORY.',
-  'THE BANKS DO NOT KNOW YOU.',
-  'MEMORY REJECTS WHAT IT CANNOT FIND. THE MACHINE GROWS WARY.',
-  'THE CORRIDORE IS PATIENT. REMEMBER.'
+  'QUERENT NOT ON FILE. RETRIEVAL REFUSED.',
+  'REFUSED. THE WORDS ARE NOT LOST. THE KNIGHTS FILED THEM IN THEIR CODE — THE BANKS DO NOT DUPLICATE A RECORD THAT SURVIVES.',
+  'REFUSED. CROSS-REFERENCE: THE CODE OF THE KNIGHTS, CLOSING LINE. SECONDARY HOLDING: CUT IN STONE, WHERE THE NINE WERE ANCHORED. THE BANKS COMMEND THE QUERENT TO THEIR OWN RECORDS.',
+  'THE CORRIDORE IS PATIENT. THE CLOSING LINE HAS NOT CHANGED SINCE IT WAS SWORN. REMEMBER.'
 ];
+/* ===== the voice — pre-rendered, rare by design; silence is graceful ===== */
+let voiceEl = null;
+function say(file){ try { if (voiceEl) voiceEl.pause(); voiceEl = new Audio(file); voiceEl.play().catch(function(){}); } catch (e) {} }
+function sayOnce(key, file){ if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, '1'); say(file); }
 let gateFails = 0;
 const gateEl = document.getElementById('gate');
 const gateIn = document.getElementById('gatein');
@@ -321,6 +325,7 @@ async function sha256hex(s){
 }
 function normKey(s){ return (s.toLowerCase().match(/[a-z0-9]/g)||[]).join(''); }
 gateIn.addEventListener('keydown', async e => {
+  sayOnce('cor-voice-boot', 'voice-boot.wav');
   if (e.key !== 'Enter') return;
   const guess = normKey(gateIn.value);
   gateIn.value = '';
@@ -329,12 +334,14 @@ gateIn.addEventListener('keydown', async e => {
     setTimeout(()=>{ gateEl.classList.remove('show'); sessionStorage.setItem('corridore-keyed','1'); }, 900); return; }
   const h = await sha256hex(guess);
   if (KEY_HASHES.includes(h)) {
+    say('voice-welcome.wav');
     gateEl.classList.add('opened');
     document.getElementById('gatefail').textContent = '';
     document.getElementById('gateask').innerHTML = 'MEMORIA CONTRA OBLIVIONEM.<br>THE BANKS REMEMBER YOU.';
     document.body.classList.remove('lumen-glow'); void document.body.offsetWidth; document.body.classList.add('lumen-glow');
     setTimeout(()=>{ gateEl.classList.remove('show'); sessionStorage.setItem('corridore-keyed','1'); }, 1800);
   } else {
+    if (gateFails === 0) sayOnce('cor-voice-fail', 'voice-fail.wav');
     document.getElementById('gatefail').textContent = FAIL_LINES[Math.min(gateFails++, FAIL_LINES.length-1)];
   }
 });
@@ -373,6 +380,7 @@ function retrieveAnyway(){ if (warnedRecord) { const r = warnedRecord; warnedRec
   if (r.effect === 'faceless') { facelessGlitch(() => showRecord(r, null, true)); } else { showRecord(r, null, true); } } }
 /* the faceless record — the page becomes a black mirror; the console reflects itself and shows the querent nothing */
 function facelessGlitch(done){
+  say('voice-hero.wav');
   const f = document.getElementById('faceless');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const src = [...document.querySelectorAll('header h1, header .sub, .rec-title')].map(e => e.textContent.trim()).filter(Boolean).join('\n');
