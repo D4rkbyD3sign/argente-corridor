@@ -580,30 +580,168 @@
           "body": [
             "-- Plate index. Every region the survey layer holds, with its confidence and its memory state. STONE = fixed on the plate; SURVEY = presence resolved, edges not. WITNESSED = the bearers stood there; RECOVERED = the plate held it before they did.",
             "## Regions on the plate",
-            "KREUZUNG · REGION FRAME · STONE · WITNESSED",
-            "LOLOSIA · CITY · STONE · WITNESSED — see PLACES",
-            "CHAEPSTOW · TOWN · STONE · WITNESSED — see PLACES",
-            "MINTED MOUND · LANDMARK · STONE · WITNESSED — see DISPATCH LOG",
-            "YEN DA STRAIT · WATER · STONE · WITNESSED",
-            "SENDLE PATH · ROUTE · STONE · WITNESSED",
-            "SENDLE POINT · WATCHTOWER · STONE · RECOVERED",
-            "SENDLE HILLS · HILLS · STONE · RECOVERED",
-            "SENDLE FOREST · FOREST · STONE · RECOVERED",
-            "SIJIADOS GROVE · GROVE · STONE · RECOVERED",
-            "SABAVEND · SETTLEMENT · STONE · RECOVERED",
-            "UMBRAL WOODS · FOREST · STONE · RECOVERED",
-            "TAMGAMI'S SPINE · MOUNTAINS · STONE · RECOVERED",
-            "BUCHLITA SLOPES · HILLS · STONE · RECOVERED",
-            "GOLDEN FIELDS · REGION · STONE · RECOVERED",
-            "JIN CHENG · SETTLEMENT · STONE · RECOVERED",
-            "BORSONG · PORT · STONE · RECOVERED",
-            "EVERLAND PASS · PASS · STONE · RECOVERED",
-            "CORSOLA'S CROSSING · BRIDGE · STONE · RECOVERED",
-            "THREE POINTE WATCH · WATCHTOWER · STONE · RECOVERED",
-            "ASTRAVIAN EMPIRE · PRESENCE WASH · SURVEY · RECOVERED",
+            "{{TABLE}}",
             "-- Six further landmasses lie beyond the frame. Their survey is corrupted. See the fog rule on the survey layer.",
             "-- This index updates as the plate updates. It is the same memory, read two ways."
-          ]
+          ],
+          "table": {
+            "head": [
+              "REGION",
+              "CLASS",
+              "CONFIDENCE",
+              "MEMORY",
+              "CROSS-REF"
+            ],
+            "rows": [
+              [
+                "KREUZUNG",
+                "REGION FRAME",
+                "STONE",
+                "WITNESSED",
+                "—"
+              ],
+              [
+                "LOLOSIA",
+                "CITY",
+                "STONE",
+                "WITNESSED",
+                "see PLACES"
+              ],
+              [
+                "CHAEPSTOW",
+                "TOWN",
+                "STONE",
+                "WITNESSED",
+                "see PLACES"
+              ],
+              [
+                "MINTED MOUND",
+                "LANDMARK",
+                "STONE",
+                "WITNESSED",
+                "see DISPATCH LOG"
+              ],
+              [
+                "YEN DA STRAIT",
+                "WATER",
+                "STONE",
+                "WITNESSED",
+                "—"
+              ],
+              [
+                "SENDLE PATH",
+                "ROUTE",
+                "STONE",
+                "WITNESSED",
+                "—"
+              ],
+              [
+                "SENDLE POINT",
+                "WATCHTOWER",
+                "STONE",
+                "RECOVERED",
+                "—"
+              ],
+              [
+                "SENDLE HILLS",
+                "HILLS",
+                "STONE",
+                "RECOVERED",
+                "—"
+              ],
+              [
+                "SENDLE FOREST",
+                "FOREST",
+                "STONE",
+                "RECOVERED",
+                "—"
+              ],
+              [
+                "SIJIADOS GROVE",
+                "GROVE",
+                "STONE",
+                "RECOVERED",
+                "—"
+              ],
+              [
+                "SABAVEND",
+                "SETTLEMENT",
+                "STONE",
+                "RECOVERED",
+                "—"
+              ],
+              [
+                "UMBRAL WOODS",
+                "FOREST",
+                "STONE",
+                "RECOVERED",
+                "—"
+              ],
+              [
+                "TAMGAMI'S SPINE",
+                "MOUNTAINS",
+                "STONE",
+                "RECOVERED",
+                "—"
+              ],
+              [
+                "BUCHLITA SLOPES",
+                "HILLS",
+                "STONE",
+                "RECOVERED",
+                "—"
+              ],
+              [
+                "GOLDEN FIELDS",
+                "REGION",
+                "STONE",
+                "RECOVERED",
+                "—"
+              ],
+              [
+                "JIN CHENG",
+                "SETTLEMENT",
+                "STONE",
+                "RECOVERED",
+                "—"
+              ],
+              [
+                "BORSONG",
+                "PORT",
+                "STONE",
+                "RECOVERED",
+                "—"
+              ],
+              [
+                "EVERLAND PASS",
+                "PASS",
+                "STONE",
+                "RECOVERED",
+                "—"
+              ],
+              [
+                "CORSOLA'S CROSSING",
+                "BRIDGE",
+                "STONE",
+                "RECOVERED",
+                "—"
+              ],
+              [
+                "THREE POINTE WATCH",
+                "WATCHTOWER",
+                "STONE",
+                "RECOVERED",
+                "—"
+              ],
+              [
+                "ASTRAVIAN EMPIRE",
+                "PRESENCE WASH",
+                "SURVEY",
+                "RECOVERED",
+                "—"
+              ]
+            ]
+          }
         },
         {
           "id": "plate-kreuzung",
