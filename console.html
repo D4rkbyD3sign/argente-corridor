@@ -137,7 +137,9 @@
   .optic-wrap .sweep { position: absolute; left: 0; right: 0; height: 18%; top: -20%; pointer-events: none; background: linear-gradient(180deg, transparent, rgba(127,212,224,0.12), transparent); }
   .optic-wrap.live .sweep { animation: beamroll 7s linear infinite; }
   /* the eye opens as an iris — a pupil dilating from centre, not a shutter (reviewer note, 22 Aug) */
-  .optic-view { clip-path: circle(0.6% at 50% 50%); transition: clip-path 1.7s cubic-bezier(0.7, 0, 0.3, 1); }
+  /* the frame holds one 16:9 aspect regardless of the scene's own shape — centre-cropped, so blinks never resize the eye (reviewer note 2) */
+  .optic-view { clip-path: circle(0.6% at 50% 50%); transition: clip-path 1.7s cubic-bezier(0.7, 0, 0.3, 1); aspect-ratio: 16 / 9; }
+  .optic-view img { width: 100%; height: 100%; object-fit: cover; }
   .optic-wrap.open .optic-view { clip-path: circle(75% at 50% 50%); transition-duration: 3.4s; }
   .optic-wrap.waking img { animation: opticflicker 1.1s steps(1,end) 2; }
   @keyframes opticflicker { 0%,100% { opacity: 1; } 25% { opacity: 0.15; } 40% { opacity: 0.9; } 65% { opacity: 0.35; } 80% { opacity: 1; } }
