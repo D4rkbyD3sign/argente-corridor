@@ -303,7 +303,8 @@
       "point": [
         2223,
         973
-      ]
+      ],
+      "label_side": "w"
     },
     "everland-pass": {
       "name": "Everland Pass",
@@ -335,7 +336,8 @@
       "point": [
         1832,
         1014
-      ]
+      ],
+      "label_side": "w"
     },
     "minted-mound": {
       "name": "Minted Mound",
