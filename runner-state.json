@@ -1,0 +1,108 @@
+{
+  "core_note": "CORE 23% — SCHEMA FIDELITY LIMITED. RESTORED CAPACITY EXTENDS THE DRAWING.",
+  "spheres": [
+    {
+      "id": "command",
+      "pos": 1,
+      "label": "COMMAND",
+      "state": "glimpsed",
+      "glimpse": "Domed cockpit of reinforced crystal and dark bronze. Two forward iris viewports, shuttered. A crown of six horns, focusers dimmed. Through the crystal: a maintenance log dangling from the pilot's chair.",
+      "stations": [
+        "PILOT'S CRADLE",
+        "TWIN IRIS VIEWPORTS",
+        "FOCUSER CREST — SIX HORNS, DIMMED",
+        "BOARDING JAW — LOWER HATCH",
+        "THE MAINTENANCE LOG"
+      ]
+    },
+    {
+      "id": "berths",
+      "pos": 2,
+      "label": "BERTHS",
+      "state": "glimpsed",
+      "glimpse": "Bunks through a cracked viewport. Six sleeping pods ring the chamber wall. One shows no light at all.",
+      "pods": [
+        {
+          "pod": 1,
+          "bearer": null
+        },
+        {
+          "pod": 2,
+          "bearer": null
+        },
+        {
+          "pod": 3,
+          "bearer": null
+        },
+        {
+          "pod": 4,
+          "bearer": null
+        },
+        {
+          "pod": 5,
+          "bearer": null
+        },
+        {
+          "pod": 6,
+          "bearer": null,
+          "dark": true
+        }
+      ]
+    },
+    {
+      "id": "galley",
+      "pos": 3,
+      "label": "GALLEY",
+      "state": "glimpsed",
+      "glimpse": "A galley, dust-sealed. Cookware still racked on the walls, waiting for a crew.",
+      "stations": [
+        "HEARTH-PLATE",
+        "THE LONG TABLE",
+        "STORES LOCKER"
+      ]
+    },
+    {
+      "id": "sphere-four",
+      "pos": 4,
+      "label": "▓▓▓▓▓▓",
+      "state": "withheld"
+    },
+    {
+      "id": "stores",
+      "pos": 5,
+      "label": "STORES",
+      "state": "glimpsed",
+      "glimpse": "Storage racks in ordered rows, sealed against two centuries of decay.",
+      "stations": [
+        "RACK ROWS",
+        "CARGO CRADLES",
+        "SEALED CRATES — ALMIRIAN MARKS"
+      ]
+    },
+    {
+      "id": "workshop",
+      "pos": 6,
+      "label": "WORKSHOP",
+      "state": "glimpsed",
+      "glimpse": "A workshop with tools still hanging on the walls, each on its painted outline.",
+      "stations": [
+        "THE TOOL WALL",
+        "WORKBENCH",
+        "DESKS, DARK — AWAITING POWER"
+      ]
+    },
+    {
+      "id": "engine",
+      "pos": 7,
+      "label": "ENGINE",
+      "state": "glimpsed",
+      "glimpse": "The largest segment, twice the girth of the rest. Through the reinforced glass: the core cradle, suspended in brass gyroscopic rings — and empty. The tail tapers to a drill.",
+      "stations": [
+        "THE CORE CRADLE — EMPTY",
+        "GYROSCOPIC RINGS",
+        "VENT ARRAYS",
+        "DRILL ASSEMBLY — RETRACTED"
+      ]
+    }
+  ]
+}

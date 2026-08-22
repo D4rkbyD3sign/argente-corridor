@@ -147,6 +147,39 @@
   .optic-cap .live-dot { color: var(--witnessed); }
   @media (prefers-reduced-motion: reduce) { .optic-view { transition: none; } .optic-wrap.waking img, .optic-wrap.live .sweep { animation: none; } }
 
+  /* ===== HULL SCHEMA — the runner's self-schema (blueprint register) ===== */
+  #hull { flex: 1; display: none; overflow-y: auto; background: #07090d; }
+  #hull.show { display: block; }
+  .hull-inner { max-width: 1150px; margin: 1.6rem auto; padding: 0 1.2rem 2.5rem; }
+  .hull-frame { position: relative; border: 2px solid var(--bronze-deep); background:
+    linear-gradient(rgba(127,212,224,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(127,212,224,0.045) 1px, transparent 1px), #05070c;
+    background-size: 28px 28px; }
+  .hull-frame svg { width: 100%; display: block; }
+  .hull-block { position: absolute; right: 10px; top: 10px; max-width: 21rem; border: 1px solid rgba(127,212,224,0.35); color: rgba(127,212,224,0.7);
+    font-size: 0.56rem; letter-spacing: 0.2em; padding: 0.45rem 0.75rem; line-height: 1.9; text-align: right; background: rgba(5,7,12,0.75); }
+  .hs-sphere { fill: rgba(127,212,224,0.04); stroke: rgba(127,212,224,0.75); stroke-width: 2.5; cursor: pointer; transition: fill 0.2s; }
+  .hs-sphere:hover { fill: rgba(127,212,224,0.16); }
+  .hs-sphere.withheld { stroke-dasharray: 7 7; stroke: rgba(160,92,80,0.8); }
+  .hs-sphere.active { fill: rgba(127,212,224,0.2); }
+  .hs-line { stroke: rgba(127,212,224,0.5); stroke-width: 2; fill: none; pointer-events: none; }
+  .hs-dim { stroke: rgba(127,212,224,0.3); stroke-width: 1.2; fill: none; pointer-events: none; }
+  .hs-dimtext { fill: rgba(127,212,224,0.55); font-size: 15px; letter-spacing: 3px; pointer-events: none; font-family: 'Cascadia Mono','Consolas',monospace; }
+  .hs-name { fill: rgba(127,212,224,0.85); font-size: 17px; letter-spacing: 4px; text-anchor: middle; pointer-events: none; font-family: 'Cascadia Mono','Consolas',monospace; }
+  .hs-name.withheld { fill: rgba(160,92,80,0.85); }
+  #hull-detail { border: 1px solid var(--bronze-deep); margin-top: 1rem; padding: 1.1rem 1.3rem; min-height: 6rem; }
+  .hs-hint { color: #55503f; font-size: 0.64rem; letter-spacing: 0.28em; text-align: center; padding: 1.4rem 0; }
+  .hs-dtitle { color: var(--crystal); font-size: 0.8rem; letter-spacing: 0.3em; margin-bottom: 0.5rem; }
+  .hs-dstate { color: var(--dim); font-size: 0.62rem; letter-spacing: 0.22em; margin-bottom: 0.8rem; }
+  .hs-glimpse { color: #8d8672; font-size: 0.74rem; line-height: 1.9; max-width: 70ch; }
+  .hs-stations { list-style: none; padding: 0; margin: 0.4rem 0 0; }
+  .hs-stations li { color: var(--dim); font-size: 0.68rem; letter-spacing: 0.18em; padding: 0.3rem 0; border-bottom: 1px dashed rgba(122,94,58,0.25); }
+  .hs-refusal { border: 1px solid var(--corrupted); background: rgba(160,92,80,0.06); padding: 1.1rem; color: var(--corrupted); font-size: 0.72rem; letter-spacing: 0.24em; text-align: center; line-height: 2; }
+  .hs-pods { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.6rem; margin-top: 0.8rem; }
+  .hs-pod { border: 1px solid var(--bronze-deep); padding: 0.7rem 0.8rem; font-size: 0.64rem; letter-spacing: 0.2em; color: var(--bronze); }
+  .hs-pod .who { color: var(--crystal); display: block; margin-top: 0.35rem; }
+  .hs-pod.darkpod { border-style: dashed; color: #55503f; }
+  .hs-pod.darkpod .who { color: #55503f; }
+
   /* ===== QUERY THE MACHINE — the ghost dial (anchored to SELF-QUERY) ===== */
   .qt { border-top: 1px dashed var(--bronze-deep); margin-top: 2rem; padding-top: 1.2rem; max-width: 74ch; }
   .qt-prompt { color: var(--crystal); font-size: 0.7rem; letter-spacing: 0.3em; margin-bottom: 0.9rem; opacity: 0.8; }
@@ -307,6 +340,7 @@
   <button class="active" id="tab-survey">SURFACE SURVEY</button>
   <button id="tab-banks">MEMORY BANKS</button>
   <button id="tab-optic">EXTERNAL OPTIC</button>
+  <button id="tab-hull">HULL SCHEMA</button>
   <button class="locked" onclick="deny('ACCESS DENIED — AWAITING ENGINEER CLEARANCE')">RAIL NETWORK</button>
   <button class="locked" onclick="deny('THE LOG ROOM IS DARK. RESTORE CORE CAPACITY AND THE BANKS WILL LIGHT IT.')">THE LOG ROOM</button>
   <button class="locked" id="tab-commit" onclick="deny('INTAKE OFFLINE. THE BANKS WILL SOON ACCEPT WHAT BEARERS CARRY. PREPARE WHAT YOU DO NOT WISH TO LOSE.')">COMMIT A MEMORY</button>
@@ -362,6 +396,18 @@
       </div>
     </div></div>
     <div class="optic-cap"><span id="optic-desig">…</span><span class="live-dot" id="optic-cond">OPTIC DARK</span></div>
+  </div>
+</div>
+
+<div id="hull">
+  <div class="hull-inner">
+    <div class="rec-head"><div class="rec-title">HULL SCHEMA</div>
+    <div class="rec-kv">the runner remembers its own body. the schema renders what the machine grants.</div></div>
+    <div class="hull-frame">
+      <svg id="hullmap" viewBox="0 0 1400 430" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="hull-block">CASA DOREZZAN · HULL SCHEMA<br>THE ARGENTE CORRIDORE<br><span id="hull-core"></span></div>
+    </div>
+    <div id="hull-detail"><div class="hs-hint">SELECT A SEGMENT — THE MACHINE WILL SAY WHAT IT REMEMBERS.</div></div>
   </div>
 </div>
 
@@ -468,6 +514,80 @@ fetch('map-state.json').then(x=>x.json()).then(st => {
   }
 });
 
+/* ===== HULL SCHEMA — the runner's self-schema; the hull state file is the keeper's dial ===== */
+const hullEl = document.getElementById('hull');
+const tabHull = document.getElementById('tab-hull');
+tabHull.addEventListener('click', () => showTab('hull'));
+let HULL = null;
+fetch('runner-state.json').then(x=>x.json()).then(d => { HULL = d; drawHull(); });
+function drawHull(){
+  const svg = document.getElementById('hullmap'); if (!svg || !HULL) return;
+  document.getElementById('hull-core').textContent = HULL.core_note || '';
+  const NS = 'http://www.w3.org/2000/svg';
+  const mk = (t, at) => { const e = document.createElementNS(NS, t); for (const k in at) e.setAttribute(k, at[k]); return e; };
+  svg.innerHTML = '';
+  const baseY = 205, sp = HULL.spheres.slice().sort((a,b) => a.pos - b.pos);
+  const R = {1:56, 7:70}, xs = [110, 300, 470, 640, 810, 980, 1185];
+  const wob = [0, -16, 10, -6, 12, -14, 4];
+  /* accordion couplings between segments, drawn beneath the spheres */
+  for (let i = 0; i < sp.length - 1; i++){
+    const y1 = baseY + wob[i], y2 = baseY + wob[i+1], mx = (xs[i] + xs[i+1]) / 2, my = (y1 + y2) / 2;
+    for (let j = -1; j <= 1; j++) svg.appendChild(mk('line', {x1: mx + j*9, y1: my - 26, x2: mx + j*9, y2: my + 26, class: 'hs-line'}));
+  }
+  sp.forEach((s, i) => {
+    const r = R[s.pos] || 48, cx = xs[i], cy = baseY + wob[i];
+    /* two leg pairs per segment — three-jointed, clawed */
+    [-0.45, 0.45].forEach(dx => { [1, -1].forEach(side => {
+      const lx = cx + dx*r, ly = cy + Math.sqrt(Math.max(r*r - (dx*r)*(dx*r), 0));
+      svg.appendChild(mk('polyline', {points: `${lx},${ly} ${lx + 8*side},${ly + 22} ${lx - 4*side},${ly + 44}`, class: 'hs-line'}));
+    }); });
+    if (s.pos === 1){ /* the head: a crest of six horns sweeping back along the crown, iris viewports edge-on at the leading rim, the boarding-jaw seam */
+      for (let h = 0; h < 6; h++){
+        const a = -2.55 + h*0.22, sx = cx + Math.cos(a)*r, sy = cy + Math.sin(a)*r;
+        const len = 34 + h*5;
+        svg.appendChild(mk('path', {d: `M ${sx} ${sy} q ${len*0.35} ${-len*0.45} ${len} ${-len*0.15}`, class: 'hs-line'}));
+      }
+      [-0.35, 0.25].forEach(dy => {
+        const vy = cy + dy*r, vx = cx - Math.sqrt(Math.max(r*r - (dy*r)*(dy*r), 0));
+        svg.appendChild(mk('path', {d: `M ${vx + 7} ${vy - 14} a 16 16 0 0 0 0 28`, class: 'hs-line'}));
+        svg.appendChild(mk('line', {x1: vx + 2, y1: vy - 7, x2: vx + 2, y2: vy + 7, class: 'hs-dim'}));
+      });
+      svg.appendChild(mk('path', {d: `M ${cx - r*0.92} ${cy + r*0.35} Q ${cx} ${cy + r*0.78} ${cx + r*0.55} ${cy + r*0.8}`, class: 'hs-dim'}));
+    }
+    if (s.pos === 7){ /* the tail: drill assembly, retracted */
+      svg.appendChild(mk('polygon', {points: `${cx+r},${cy-18} ${cx+r+58},${cy} ${cx+r},${cy+18}`, class: 'hs-line'}));
+      for (let dd = 1; dd < 4; dd++) svg.appendChild(mk('line', {x1: cx + r + dd*14, y1: cy - 14 + dd*3, x2: cx + r + dd*14, y2: cy + 14 - dd*3, class: 'hs-dim'}));
+    }
+    const c = mk('circle', {cx, cy, r, class: 'hs-sphere' + (s.state === 'withheld' ? ' withheld' : ''), id: 'hs-' + s.id});
+    c.addEventListener('click', () => hullDetail(s, c));
+    svg.appendChild(c);
+    const nm = mk('text', {x: cx, y: cy + r + 62, class: 'hs-name' + (s.state === 'withheld' ? ' withheld' : '')});
+    nm.textContent = s.label; svg.appendChild(nm);
+  });
+  /* one dimension callout */
+  const dx2 = xs[1], dy2 = baseY + wob[1] - 48 - 18;
+  svg.appendChild(mk('line', {x1: dx2 - 48, y1: dy2, x2: dx2 + 48, y2: dy2, class: 'hs-dim'}));
+  const dt = mk('text', {x: dx2 - 44, y: dy2 - 8, class: 'hs-dimtext'}); dt.textContent = 'Ø 15 FT EA'; svg.appendChild(dt);
+}
+function hullDetail(s, el){
+  document.querySelectorAll('.hs-sphere').forEach(x => x.classList.remove('active'));
+  if (el) el.classList.add('active');
+  const d = document.getElementById('hull-detail');
+  if (s.state === 'withheld'){ d.innerHTML = '<div class="hs-refusal">DESIGNATION WITHHELD<br>AWAITING ENGINEER CLEARANCE</div>'; return; }
+  let h = `<div class="hs-dtitle">SEGMENT ${String(s.pos).padStart(2,'0')} — ${s.label}</div>`;
+  if (s.state === 'sealed'){ d.innerHTML = h + '<div class="hs-glimpse">THE MACHINE DOES NOT YET REMEMBER THIS CHAMBER.</div>'; return; }
+  if (s.state === 'glimpsed'){
+    d.innerHTML = h + `<div class="hs-dstate">GLIMPSED — THROUGH CRACKED VIEWPORT · INTERIOR UNWALKED</div><div class="hs-glimpse">${s.glimpse || ''}</div>`;
+    return;
+  }
+  h += `<div class="hs-dstate">WALKED — THE MACHINE REMEMBERS</div>`;
+  if (s.glimpse) h += `<div class="hs-glimpse">${s.glimpse}</div>`;
+  if (s.pods) h += '<div class="hs-pods">' + s.pods.map(p =>
+    `<div class="hs-pod${p.dark ? ' darkpod' : ''}">POD ${String(p.pod).padStart(2,'0')}${p.dark ? ' — UNPOWERED · COLD' : ''}<span class="who">${p.bearer ? p.bearer.toUpperCase() : (p.dark ? '—' : 'UNCLAIMED')}</span></div>`).join('') + '</div>';
+  if (s.stations) h += '<ul class="hs-stations">' + s.stations.map(x => `<li>${x}</li>`).join('') + '</ul>';
+  d.innerHTML = h;
+}
+
 /* ===== the survey pans in the hand — drag moves the viewBox window, clamped to the plate ===== */
 (function(){
   const svg = document.getElementById('map');
@@ -566,10 +686,12 @@ function showTab(which){
   banksEl.classList.toggle('show', which === 'banks');
   commitEl.classList.toggle('show', which === 'commit');
   opticEl.classList.toggle('show', which === 'optic');
+  hullEl.classList.toggle('show', which === 'hull');
   tabSurvey.classList.toggle('active', which === 'survey');
   tabBanks.classList.toggle('active', which === 'banks');
   tabCommit.classList.toggle('active', which === 'commit');
   tabOptic.classList.toggle('active', which === 'optic');
+  tabHull.classList.toggle('active', which === 'hull');
 }
 tabSurvey.addEventListener('click', () => showTab('survey'));
 tabBanks.addEventListener('click', () => showTab('banks'));
