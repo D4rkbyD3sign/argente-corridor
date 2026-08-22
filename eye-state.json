@@ -1,5 +1,20 @@
 {
-  "image": "optic/railway-tunnel.jpg",
-  "designation": "RAIL BORE — OUTBOUND OF LOLOSIA",
-  "condition": "FEED LIVE · MOTION STEADY · AIR STALE · LIGHT: THE RUNNER'S OWN"
+  "current": "rail",
+  "scenes": {
+    "rail": {
+      "image": "optic/railway-tunnel.jpg",
+      "designation": "RAIL BORE — OUTBOUND OF LOLOSIA",
+      "condition": "FEED LIVE · MOTION STEADY · AIR STALE · LIGHT: THE RUNNER'S OWN"
+    },
+    "river": {
+      "image": "optic/yen-da-strait.jpg",
+      "designation": "TUNNEL BORE — TOWARD THE YEN DA STRAIT",
+      "condition": "FEED LIVE · WATER IN THE AIR · THE BANKS TASTE SALT"
+    },
+    "land": {
+      "image": "optic/grassland-exit.jpg",
+      "designation": "SURFACE EXIT — THE MINTED MOUND GRASSLANDS",
+      "condition": "FEED LIVE · OPEN SKY · LIGHT: NOT THE RUNNER'S OWN"
+    }
+  }
 }

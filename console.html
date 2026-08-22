@@ -518,12 +518,26 @@ const tabOptic = document.getElementById('tab-optic');
 let EYE = null;
 fetch('eye-state.json').then(x=>x.json()).then(d => { EYE = d; }).catch(function(){});
 tabOptic.addEventListener('click', () => { showTab('optic'); openEye(); });
+function eyeScene(){ return (EYE && EYE.scenes) ? EYE.scenes[EYE.current] : null; }
+function paintEye(sc){
+  document.getElementById('opticimg').src = sc.image;
+  document.getElementById('optic-desig').textContent = sc.designation || '';
+  document.getElementById('optic-cond').textContent = sc.condition || 'FEED LIVE';
+}
+/* the runner hears its bearers: with the optic on screen, a spoken destination steers the eye */
+function blinkTo(key){
+  const sc = EYE && EYE.scenes && EYE.scenes[key];
+  if (!sc || EYE.current === key) return;
+  EYE.current = key;
+  const w = document.getElementById('opticwrap');
+  w.classList.remove('open');
+  setTimeout(() => { paintEye(sc); w.classList.add('open'); }, 950);
+}
 function openEye(){
   const cond = document.getElementById('optic-cond');
-  if (!EYE || !EYE.image) { cond.textContent = 'OPTIC DARK — NO FEED'; return; }
-  document.getElementById('opticimg').src = EYE.image;
-  document.getElementById('optic-desig').textContent = EYE.designation || '';
-  cond.textContent = EYE.condition || 'FEED LIVE';
+  const sc = eyeScene();
+  if (!sc) { cond.textContent = 'OPTIC DARK — NO FEED'; return; }
+  paintEye(sc);
   const w = document.getElementById('opticwrap');
   if (sessionStorage.getItem('cor-eye-woken')) { w.classList.add('open', 'live'); return; }
   sessionStorage.setItem('cor-eye-woken', '1');
@@ -721,11 +735,16 @@ function songRot(){
   }, reduced ? 2400 : 700);
 }
 
-/* ===== the light answers her name ===== */
+/* ===== the light answers her name — and the runner hears its bearers ===== */
 let buf = '';
 addEventListener('keydown', e => {
-  buf = (buf + e.key.toLowerCase()).slice(-5);
-  if (buf === 'lumen') { document.body.classList.remove('lumen-glow'); void document.body.offsetWidth; document.body.classList.add('lumen-glow'); }
+  if (e.key.length !== 1) return;
+  buf = (buf + e.key.toLowerCase()).slice(-10);
+  if (buf.endsWith('lumen')) { document.body.classList.remove('lumen-glow'); void document.body.offsetWidth; document.body.classList.add('lumen-glow'); }
+  if (!opticEl.classList.contains('show')) return;
+  for (const code of ['river', 'land', 'rail']) {
+    if (buf.endsWith(code)) { blinkTo(code); buf = ''; break; }
+  }
 });
 </script>
 </body>
