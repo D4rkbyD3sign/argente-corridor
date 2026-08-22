@@ -96,6 +96,21 @@
   .recon-mirror { border: 1px solid var(--corrupted); min-height: 11rem; display: flex; align-items: center; justify-content: center; text-align: center; color: rgba(212,175,95,0.5); letter-spacing: 0.3em; font-size: 0.7rem; transform: scaleX(-1); line-height: 2; padding: 1rem; }
   @media (prefers-reduced-motion: reduce) { .recon-empty .sigil, .recon-wrap .flick, .recon-wrap .beam, .recon-wrap img.ghost, .recon-wrap.holo img.plate, .recon-wrap.rough img.plate { animation: none; } }
 
+  /* ===== COMMIT A MEMORY — the write side (dark until the intake relay exists) ===== */
+  #commit { flex: 1; display: none; overflow-y: auto; background: #101114; }
+  #commit.show { display: block; }
+  .commit-inner { max-width: 46rem; margin: 2.5rem auto; padding: 0 1.5rem 3rem; }
+  .ci-label { color: var(--bronze); font-size: 0.68rem; letter-spacing: 0.25em; margin: 1.4rem 0 0.4rem; }
+  .ci-input, .ci-text { width: 100%; background: #0c0d10; border: 1px solid var(--bronze-deep); color: var(--text); font: inherit; font-size: 0.8rem; padding: 0.6rem 0.8rem; outline: none; }
+  .ci-input:focus, .ci-text:focus { border-color: var(--bronze); box-shadow: 0 0 10px rgba(176,141,87,0.2); }
+  .ci-text { min-height: 9rem; resize: vertical; line-height: 1.7; }
+  .ci-btn { margin-top: 1.2rem; background: #101114; border: 1px solid var(--bronze); color: var(--bronze); font: inherit; font-size: 0.72rem; letter-spacing: 0.25em; padding: 0.7rem 1.6rem; cursor: pointer; }
+  .ci-btn:hover { background: rgba(176,141,87,0.12); }
+  .ci-status { margin-top: 1rem; font-size: 0.72rem; letter-spacing: 0.18em; min-height: 1.2em; }
+  .ci-status.ok { color: var(--witnessed); }
+  .ci-status.bad { color: var(--corrupted); }
+  .ci-done { border: 1px solid var(--witnessed); padding: 2.2rem; text-align: center; color: var(--witnessed); letter-spacing: 0.25em; line-height: 2.2; text-shadow: 0 0 14px rgba(212,175,95,0.4); margin-top: 2rem; }
+
   /* ===== QUERY THE MACHINE — the ghost dial (anchored to SELF-QUERY) ===== */
   .qt { border-top: 1px dashed var(--bronze-deep); margin-top: 2rem; padding-top: 1.2rem; max-width: 74ch; }
   .qt-prompt { color: var(--crystal); font-size: 0.7rem; letter-spacing: 0.3em; margin-bottom: 0.9rem; opacity: 0.8; }
@@ -295,6 +310,19 @@
   </aside>
 </main>
 
+<div id="commit">
+  <div class="commit-inner">
+    <div class="rec-head"><div class="rec-title">COMMIT A MEMORY</div>
+    <div class="rec-kv">speak what you carry. the banks will render it in their own hand.</div></div>
+    <div class="ci-label">DESIGNATION — WHICH BEARER SPEAKS</div>
+    <input class="ci-input" id="ci-bearer" maxlength="80" autocomplete="off" spellcheck="false">
+    <div class="ci-label">THE MEMORY</div>
+    <textarea class="ci-text" id="ci-memory" maxlength="4000" spellcheck="false"></textarea>
+    <button class="ci-btn" id="ci-commit">[ COMMIT TO THE BANKS ]</button>
+    <div class="ci-status" id="ci-status"></div>
+  </div>
+</div>
+
 <div id="banks">
   <aside class="rail bank-list" id="banklist"></aside>
   <div class="bank-view" id="bankview">
@@ -418,6 +446,7 @@ gateIn.addEventListener('keydown', async e => {
     setTimeout(()=>{ gateEl.classList.remove('show'); sessionStorage.setItem('corridore-keyed','1'); }, 900); return; }
   const h = await sha256hex(guess);
   if (KEY_HASHES.includes(h)) {
+    sessionStorage.setItem('cor-key', guess);
     say('voice-welcome.wav');
     gateEl.classList.add('opened');
     document.getElementById('gatefail').textContent = '';
@@ -435,10 +464,39 @@ const mainEl = document.querySelector('main');
 const banksEl = document.getElementById('banks');
 const tabSurvey = document.getElementById('tab-survey');
 const tabBanks = document.getElementById('tab-banks');
-tabSurvey.addEventListener('click', () => { mainEl.classList.remove('hidden'); banksEl.classList.remove('show');
-  tabSurvey.classList.add('active'); tabBanks.classList.remove('active'); });
-tabBanks.addEventListener('click', () => { mainEl.classList.add('hidden'); banksEl.classList.add('show');
-  tabBanks.classList.add('active'); tabSurvey.classList.remove('active'); });
+const commitEl = document.getElementById('commit');
+const tabCommit = document.getElementById('tab-commit');
+function showTab(which){
+  mainEl.classList.toggle('hidden', which !== 'survey');
+  banksEl.classList.toggle('show', which === 'banks');
+  commitEl.classList.toggle('show', which === 'commit');
+  tabSurvey.classList.toggle('active', which === 'survey');
+  tabBanks.classList.toggle('active', which === 'banks');
+  tabCommit.classList.toggle('active', which === 'commit');
+}
+tabSurvey.addEventListener('click', () => showTab('survey'));
+tabBanks.addEventListener('click', () => showTab('banks'));
+/* ===== COMMIT A MEMORY — the write side. Empty INTAKE_URL = intake offline; the tab stays locked. */
+const INTAKE_URL = 'https://script.google.com/macros/s/AKfycbzZvYOsKPrKHvi52dFcKuFPekltQtWjmZ-PsLk7FD8xpkQhi2KAEmnQ0iszpVPcKxOQ/exec';
+if (INTAKE_URL) {
+  tabCommit.classList.remove('locked');
+  tabCommit.onclick = () => showTab('commit');
+  document.getElementById('ci-commit').addEventListener('click', async () => {
+    const bearer = document.getElementById('ci-bearer').value.trim();
+    const memory = document.getElementById('ci-memory').value.trim();
+    const st = document.getElementById('ci-status');
+    if (!memory) { st.className = 'ci-status bad'; st.textContent = 'THE BANKS CANNOT FILE AN EMPTY HAND.'; return; }
+    st.className = 'ci-status'; st.textContent = 'COMMITTING…';
+    try {
+      const res = await fetch(INTAKE_URL, { method: 'POST',
+        body: JSON.stringify({ bearer: bearer, memory: memory, key: sessionStorage.getItem('cor-key') || '' }) });
+      const out = await res.json();
+      if (!out.ok) throw 0;
+      document.querySelector('.commit-inner').innerHTML =
+        '<div class="ci-done">THE BANKS ACCEPT.<br>WHAT YOU CARRY IS NOW CARRIED.<br><span style="opacity:0.7;font-size:0.68rem">it will surface in the banks, rendered in the machine’s own hand.</span></div>';
+    } catch (e) { st.className = 'ci-status bad'; st.textContent = 'THE INTAKE FALTERED. CARRY IT A LITTLE LONGER.'; }
+  });
+}
 fetch('banks.json').then(x=>x.json()).then(d => {
   const list = document.getElementById('banklist');
   const q = document.createElement('div'); q.className = 'query-line';
