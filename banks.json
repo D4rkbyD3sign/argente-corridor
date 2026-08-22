@@ -604,7 +604,7 @@
             "DOCTRINE: the Emperor of Astravia keeps two Hands. The Right Hand wears its work in daylight — official, filed, acknowledged. Of a Left Hand the imperial registers say nothing at all, and the banks note that an empire of registers does not misplace a hand by accident.",
             "THE FINGERS: the instruments of a Hand are titled by weapon — titles gifted at the One War and passed by inheritance since. A house that carries a weapon-title carries it across generations.",
             "THE AXE: House Kirijo. Passed mother to daughter — Raiko, then Mitsuru. STATUS: THE TITLE SITS EMPTY — the Axe fell at Lolosia. See PERSONS OF INTEREST.",
-            "THE SHIELD: House Dragases, bonded house to Kirijo since the rise. STATUS: ACTIVE — witnessed at the gates of Lolosia, carrying no shield.",
+            "THE SHIELD: House Dragases, bonded house to Kirijo since the rise. STATUS: ACTIVE — witnessed at the gates of Lolosia, carrying no shield. See PERSONS OF INTEREST.",
             "THE SCYTHE: ▓▓▓▓▓▓▓▓ — struck from the imperial register. The banks retain what the empire struck. See PERSONS OF INTEREST.",
             "FURTHER FINGERS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
             "-- Survey confidence: BRIEFING, amended by witness. A hand the registers will not name is still a hand."
@@ -823,7 +823,7 @@
         {
           "id": "poi-kirijo",
           "title": "Mistress Kirijo — the Axe of the Right Hand",
-          "class": "PERSON OF INTEREST — DECEASED",
+          "class": "PERSON OF INTEREST — FINGER OF THE RIGHT HAND · DECEASED",
           "memory": "witnessed",
           "integrity": 62,
           "body": [
@@ -869,6 +869,53 @@
             "ALLEGIANCE: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
             "WHEREABOUTS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
             "-- A scythe harvests. It is not a duelling weapon. The banks note the title was chosen for accuracy."
+          ]
+        },
+        {
+          "id": "poi-dragases",
+          "title": "Dragases — the Shield of Astravia",
+          "class": "PERSON OF INTEREST — FINGER OF THE RIGHT HAND",
+          "memory": "witnessed",
+          "integrity": 63,
+          "body": [
+            "-- Person of interest. Compiled from the imperial register's public face and bearer witness at Lolosia. See THE POWERS — the Hands of the Emperor.",
+            "DESIGNATION: DRAGASES. The Shield of Astravia — weapon-title of House Dragases, gifted at the One War; bonded house to Kirijo since the rise.",
+            "FORM: the reputation says bastion. The witness record says a man of middle years you would pass in a market — dark hair, unshaven, war-weary. The banks note the gap between the rumour and the man, and decline to resolve it.",
+            "ARMAMENT: he carries no shield. One longsword, one-handed. It has been witnessed leaving his hands exactly once.",
+            "COMMISSION, stated plainly before the council: to hear Lolosia's terms and carry them north, faithfully. The record contains no threat. The record notes that none was needed.",
+            "UTTERANCE — UNRESOLVED: departing the square, the subject addressed the councilman Midas in the draconic tongue: \"The king of a land dead and of a lineage gone finally awakes to find the world has changed.\" The banks hold no file that resolves this sentence. It is retained at full fidelity against the day one exists.",
+            "FURTHER RECORD: ▓▓▓▓▓▓▓▓ [CORRUPTED]"
+          ]
+        },
+        {
+          "id": "poi-tower-twins",
+          "title": "Tavish and Diarmad — the Tower Knights",
+          "class": "PERSONS OF INTEREST — SWORN TO THE SHIELD",
+          "memory": "witnessed",
+          "integrity": 51,
+          "body": [
+            "-- Paired record. The banks file them together because no witness has yet filed them apart.",
+            "DESIGNATION: TAVISH · DIARMAD. Twin brothers, sworn to the Shield of Astravia.",
+            "FORM: seven feet in tower plate, visors down. One stands behind a shield the size of a door and shoulders a poleaxe; the other carries a maul the record describes as less a weapon than a judgment. Their speech carries the burr of the far northern reaches.",
+            "FUNCTION: at Lolosia they entered first, and the crowd gave them its attention while the Shield walked between them unremarked. The banks observe this is a formation, not an accident.",
+            "CORROBORATION: one bearer's memory corroborates the pair from before Lolosia. The banks do not annotate the provenance of bearer memories.",
+            "FURTHER RECORD: ▓▓▓▓▓▓▓▓ [CORRUPTED]"
+          ]
+        },
+        {
+          "id": "poi-the-qin",
+          "title": "The Qin — the Mercurial King",
+          "class": "PERSON OF INTEREST — SOVEREIGN OF JIN CHENG",
+          "memory": "witnessed",
+          "integrity": 58,
+          "body": [
+            "-- Person of interest. Sovereign record, compiled from bearer witness at the opening of the bridges. Cross-reference: the exchange ticker, the Jin Cheng trade accord.",
+            "DESIGNATION: QIN SHI HUANG. Styled THE QIN. King of Jin Cheng — the title he arrives under.",
+            "ARRIVAL — WITNESSED: a procession in robes of blue-green that shift as the light moves, trimmed in silver. Four bearers carried an empty silver-gilt chair by poles, a single lidded teacup at its centre. A fifth man, eyes downcast, opened the cup and poured one drop of liquid metal upon the seat. The drop rose, and became the king. The banks have replayed this record eleven times. The account does not change.",
+            "FORM: fluid. Neither one thing nor another, and untroubled by it. As sovereign he wears grandeur the way the Shield wears wear — a peacock beside a wall. The two traded words of spite over the chalk and neither yielded a step.",
+            "STANDING: Lolosia's answer, given with the Empire's envoy present — the city is free, and chooses its own trade. An accord with Jin Cheng was acknowledged.",
+            "NOTED: the Shield observed publicly that the Qin's own coasts bleed — the firestorm onslaught of the Embersea does not go home. The record retains the observation, and the silence that followed it.",
+            "FURTHER RECORD: ▓▓▓▓▓▓▓▓ [CORRUPTED]"
           ]
         },
         {
@@ -928,6 +975,33 @@
     {
       "title": "DISPATCH LOG",
       "records": [
+        {
+          "id": "log-sword-on-the-chalk",
+          "title": "MEMORY 005 — The Night the Sword Was Laid on the Chalk",
+          "class": "WITNESSED RECORD — BEARER MEMORY",
+          "memory": "witnessed",
+          "integrity": 78,
+          "body": [
+            "-- Bearer memory. The paved square of the Jewel, Lolosia, the day the bridges came down. Committed by two bearers who chose to stand in the crowd.",
+            "The bridges opened late. The machine notes, without pride, that the city's clockwork has run ragged since the judgment above it went silent. Then the Empire walked in.",
+            "Two knights in tower plate came first, seven feet if an inch, and the crowd argued over which of them was the Shield of Astravia. The argument was the point. Between them walked a man nobody argued about — ordinary, tired, his armour more battle-worn than any veteran's in the column. He looked at the city the way a man reads a letter that arrived too late.",
+            "He walked past the council's greeting without spending a word on it. He walked to the place where the general fell — new stone now, children's chalk already upon it — and rubbed the chalk between his fingers. When he finally spoke, it was not to the council, and it was not loud:",
+            "> \"Sweet child. Daughter. Friend. Family.",
+            "> Know that your wishes are carried by us — carried still, and carried on.",
+            "> Live now in the light of Alprecha.",
+            "> Be guided slow, by starlight, over the night sky and down —",
+            "> into the moon, and into Shoki's soft and warm embrace.",
+            "> Let it thaw the cold they set into your heart,",
+            "> and let the world learn late what I knew from the start:",
+            "> that beneath the armour of frost",
+            "> there lay, always, a woman with a warm heart.\"",
+            "> \"Go slow, Mitsuru. The wall keeps what it could not hold.\"",
+            "Then he laid his longsword on the stone. The Shield of Astravia carries no shield; he set down the only weapon he had, at a grave with no marker, in front of a council he had not yet greeted. The banks file the motion once and note that it was two things at the same time.",
+            "He spent the word MURDERER on the one who did it. The council answered that they did not know, and were not involved. The record notes the answer was believed.",
+            "A second sovereign arrived before the day was out — see PERSONS OF INTEREST, the Qin. Words of spite crossed over the chalk. Terms were heard. The Shield carries them north the way a coffin is carried: properly, slowly, because dropping it is unthinkable.",
+            "-- Committed at full fidelity. Grief and empire stood in the same man that day, and the man did not fall."
+          ]
+        },
         {
           "id": "log-confrontation-jewel",
           "title": "MEMORY 004 — The Confrontation Outside the Jewel",
