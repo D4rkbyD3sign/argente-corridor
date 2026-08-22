@@ -412,6 +412,80 @@
             "## THE OLD CITY",
             "-- From the records of Head Archavist Andrea, Year ADoTRS 251:",
             "> Beyond the bustling streets of the present lies a hidden realm of history — the enigmatic undercity, known to some as the Old City or the true City of Gold... a majestic bastion of trade and progress, deeply connected to the Almirian Empire of bygone days. Something occurred then — a calamity lost to the mists of time, plunging it into the ground below us... Tread carefully, my explorers, for the Old City guards its secrets fiercely."
+          ],
+          "gallery": [
+            {
+              "image": "recon/adachi.jpg",
+              "name": "ADACHI SAEGUSA",
+              "title": "Master of Coin — the Jewel",
+              "fidelity": 88,
+              "bio": "Aasimar; steward of the wealth drawn from the Minted Mound. Views the city as a living organism and its trade as its breath. SEAT HELD."
+            },
+            {
+              "image": "recon/midas.jpg",
+              "name": "MIDAS",
+              "title": "The Gold Beneath the City — the Jewel",
+              "fidelity": 74,
+              "bio": "For centuries the mint drew on his opened veins. Freed when the Rail fell; seated after the waking. Walks all three layers of the city slowly, as one who learned what motion costs."
+            },
+            {
+              "image": null,
+              "name": "ASTERILAK VAASKO",
+              "title": "The Locker Room's Champion — the Jewel",
+              "fidelity": 0,
+              "pending": true,
+              "bio": "Retired champion of the fighting pits, reluctantly seated. The fighters' district calls it the best judgment the Jewel ever made."
+            },
+            {
+              "image": "recon/lyndis.jpg",
+              "name": "LYNDIS SARZANA",
+              "title": "Master of Diplomatic Relations",
+              "fidelity": 52,
+              "bio": "Kept the Merchants Respite and the city's quieter handshakes. ▌▌ STATUS: DECEASED — RECORD RETAINED ▌▌"
+            },
+            {
+              "image": "recon/fabi.jpg",
+              "name": "FABI GERSHTACKER",
+              "title": "Master of Military",
+              "fidelity": 52,
+              "bio": "Dwarf of honour in gold-etched armour; funded the Three Pointe Watch and the Arena Della Fortuna, and spoke only truth. ▌▌ STATUS: DECEASED — RECORD RETAINED ▌▌"
+            },
+            {
+              "image": null,
+              "name": "ANDREA",
+              "title": "Head Archavist of Lolosia",
+              "fidelity": 0,
+              "pending": true,
+              "bio": "Keeper of the city's paper memory. Her tome of Year 251 names the buried cities beneath the streets. The Corridore endorses her caution."
+            },
+            {
+              "image": "recon/rex-armada.jpg",
+              "name": "REX ARMADA",
+              "title": "Runesmith of Lolosia",
+              "fidelity": 70,
+              "bio": "Goliath; wears her craft in ink instead of iron. The Smithy does not make blades — it transforms them. Recently returned; charges accordingly."
+            },
+            {
+              "image": "recon/mr-cain.jpg",
+              "name": "MR CAIN",
+              "title": "The Hound of Kreuzung",
+              "fidelity": 55,
+              "bio": "Master-tracker; blood follows blood. Freed at the Barrow De Cinte. The trail he leaves now is his own."
+            },
+            {
+              "image": "recon/ibrahim.jpg",
+              "name": "IBRAHIM NASSAR",
+              "title": "Smuggler of the Sandsea",
+              "fidelity": 58,
+              "bio": "Green-eyed and well-turbaned; doors open where he stands — not always doors that exist. Tell Ibrahim I said hi."
+            },
+            {
+              "image": "recon/zhoom.jpg",
+              "name": "ZHOOM",
+              "title": "The Bow Out of the Sandsea",
+              "fidelity": 58,
+              "bio": "Arrives with Nassar; leaves with the answer. The mark he wears is a seer's, and what he looks at is not always in front of him."
+            }
           ]
         },
         {
@@ -704,16 +778,37 @@
         {
           "id": "piece-zarek",
           "title": "ZAREK",
-          "locked": true,
-          "note": "RECORD PENDING — THE WATCHER HAS NOT YET WRITTEN",
-          "image": "recon/zarek.jpg"
+          "image": "recon/zarek.jpg",
+          "class": "BEARER RECORD — PIECE",
+          "memory": "witnessed",
+          "integrity": 44,
+          "body": [
+            "-- Piece observed, not authored. The author of the other pieces does not write here; the banks compiled what the record shows.",
+            "DESIGNATION: ZAREK — called \"the Man Who Listens\"",
+            "CLASS: WARLOCK — PATRON: NOT ON FILE",
+            "ORIGIN: FALCON REACH — the orphanage. The record shows one constant: ALECTO.",
+            "OBSERVED: leads with warmth and a joke only he finds funny; answers questions with questions; stands very still in rooms where the dead outnumber the living.",
+            "STATUS: ACTIVE — WITH THE BAND",
+            "-- The record is thin. The watcher writes of others; no one has yet written the watcher. The banks are patient."
+          ]
         },
         {
           "id": "piece-alecto",
           "title": "ALECTO",
-          "locked": true,
-          "note": "RECORD PENDING — THE WATCHER HAS NOT YET WRITTEN",
-          "image": "recon/alecto.jpg"
+          "image": "recon/alecto.jpg",
+          "class": "BEARER RECORD — PIECE",
+          "memory": "witnessed",
+          "integrity": 46,
+          "body": [
+            "-- Piece observed, not authored. The banks compiled what the record shows.",
+            "DESIGNATION: ALECTO — called \"the Quiet Blade\"",
+            "CLASS: OCCULTIST — ANTI-MAGIC PATTERN",
+            "ARMAMENT: SEVERENCE — a scythe that has earned its name.",
+            "ORIGIN: FALCON REACH — the orphanage. The record shows one constant: ZAREK.",
+            "OBSERVED: reads the room before it speaks; witnesses without performing. Contained is not detached — the banks respect the distinction.",
+            "STATUS: ACTIVE — WITH THE BAND",
+            "-- The record is thin. It will grow. The banks are patient."
+          ]
         }
       ]
     },
@@ -1197,7 +1292,7 @@
         },
         {
           "id": "anomaly-alva",
-          "title": "Anomaly — Alva, \"the Forsworn\"",
+          "title": "Anomaly — Alva, \"the Saint of the Sandsea\"",
           "class": "ANOMALY-CLASS RECORD",
           "memory": "rumoured",
           "integrity": 31,
@@ -1205,7 +1300,7 @@
           "warning": "⚠ ANOMALY-CLASS RECORD · SOURCE UNCONFIRMED · INTEGRITY 31% · DISPLAY UNSTABLE",
           "body": [
             "-- Anomaly register. Assembled from testimony, not witness. Nothing below is confirmed by the bearers.",
-            "DESIGNATION: ALVA — called \"the Forsworn\" [UNCONFIRMED]",
+            "DESIGNATION: ALVA — called \"the Saint of the Sandsea\", \"the Forsworn\" [UNCONFIRMED]",
             "CLASS: PALADIN [UNCONFIRMED — testimony]",
             "LAST KNOWN: THE SANDSEA [UNCONFIRMED]",
             "STATUS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",

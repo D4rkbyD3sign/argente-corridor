@@ -94,6 +94,15 @@
   .recon-wrap.rough .beam { animation-duration: 3.8s; }
   .recon-cap { color: var(--dim); font-size: 0.6rem; letter-spacing: 0.22em; margin-top: 0.5rem; line-height: 1.7; text-align: center; }
   .recon-mirror { border: 1px solid var(--corrupted); min-height: 11rem; display: flex; align-items: center; justify-content: center; text-align: center; color: rgba(212,175,95,0.5); letter-spacing: 0.3em; font-size: 0.7rem; transform: scaleX(-1); line-height: 2; padding: 1rem; }
+  /* the persons carousel — a record may carry a gallery; the pane pages through its people */
+  .recon-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 0.55rem; border: 1px solid var(--bronze-deep); background: #0c0d10; }
+  .recon-nav button { background: none; border: none; color: var(--bronze); font-family: inherit; font-size: 0.72rem; letter-spacing: 0.18em; padding: 0.45rem 0.8rem; cursor: pointer; }
+  .recon-nav button:hover { color: var(--gold, #d4af5f); }
+  .recon-nav .cnt { color: var(--dim); font-size: 0.6rem; letter-spacing: 0.25em; }
+  .recon-person { color: var(--bronze); font-size: 0.66rem; letter-spacing: 0.22em; margin-top: 0.55rem; text-align: center; line-height: 1.8; }
+  .recon-person .ptitle { color: var(--dim); font-size: 0.6rem; }
+  .recon-bio { color: #8d8672; font-size: 0.62rem; letter-spacing: 0.06em; line-height: 1.75; margin-top: 0.4rem; text-align: left; border-top: 1px solid var(--bronze-deep); padding-top: 0.45rem; }
+  .recon-empty.pending { color: #6b6350; }
   @media (prefers-reduced-motion: reduce) { .recon-empty .sigil, .recon-wrap .flick, .recon-wrap .beam, .recon-wrap img.ghost, .recon-wrap.holo img.plate, .recon-wrap.rough img.plate { animation: none; } }
 
   /* ===== COMMIT A MEMORY — the write side (dark until the intake relay exists) ===== */
@@ -602,8 +611,40 @@ fetch('banks.json').then(x=>x.json()).then(d => {
   });
 });
 /* the RECONSTRUCTION pane — fidelity IS integrity; corrupted records render degraded */
+/* a record carrying a gallery pages through its persons — the arrows are the filter */
+let galRecord = null, galIdx = 0;
+function galStep(d){ if (!galRecord || !galRecord.gallery) return;
+  const n = galRecord.gallery.length; galIdx = (galIdx + d + n) % n; renderGallery(); }
+function renderGallery(){
+  const el = document.getElementById('reconbody'); if (!el || !galRecord) return;
+  const g = galRecord.gallery, p = g[galIdx];
+  let plate;
+  if (p.pending || !p.image) {
+    plate = '<div class="recon-empty pending"><div class="sigil">ᛟ</div><div>NO PLATE ON FILE<br>RECONSTRUCTION PENDING</div></div>';
+  } else {
+    const fid = p.fidelity == null ? 47 : p.fidelity, deg = Math.max(0, 100 - fid);
+    const blur = (deg / 45).toFixed(2), con = ((100 - deg * 0.35) / 100).toFixed(2), sat = ((100 - deg * 0.5) / 100).toFixed(2);
+    plate = `<div class="recon-frame"><div class="recon-wrap ${fid < 50 ? 'rough' : 'holo'}">
+      <img class="plate" src="${p.image}" alt="reconstruction" style="filter: blur(${blur}px) contrast(${con}) saturate(${sat});">
+      <img class="ghost" src="${p.image}" alt="" aria-hidden="true">
+      <div class="scan"></div><div class="beam"></div><div class="flick"></div></div></div>`;
+  }
+  const fidline = (p.pending || !p.image) ? 'AWAITING PLATE' : `FIDELITY ${p.fidelity}%`;
+  el.innerHTML = `${plate}
+    <div class="recon-nav"><button type="button" onclick="galStep(-1)">&lsaquo; PREV</button>
+      <span class="cnt">${String(galIdx+1).padStart(2,'0')} / ${String(g.length).padStart(2,'0')}</span>
+      <button type="button" onclick="galStep(1)">NEXT &rsaquo;</button></div>
+    <div class="recon-person">${p.name}<br><span class="ptitle">${p.title}</span></div>
+    <div class="recon-bio">${p.bio}</div>
+    <div class="recon-cap">RECONSTRUCTED VIA ECHO MEMORY · ${fidline}</div>`;
+}
 function updateRecon(r){
   const el = document.getElementById('reconbody'); if (!el) return;
+  if (r && r.gallery && r.gallery.length) {
+    if (galRecord !== r) { galRecord = r; galIdx = 0; }
+    renderGallery(); return;
+  }
+  galRecord = null;
   if (r && r.effect === 'faceless') {
     el.innerHTML = '<div class="recon-mirror">NO RECONSTRUCTION.<br>THE BANKS RETURN THE QUERENT.</div>';
     return;
