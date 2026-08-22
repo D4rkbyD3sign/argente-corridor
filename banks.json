@@ -618,7 +618,8 @@
             "> Born twice beneath the mortal sun, Killed thrice before his work was done, Remade in shadow, blood, and flame— He is mine now. He bears my name."
           ],
           "focus": "out",
-          "focus_note": "OUT OF FOCUS — the piece remains on the board; the Echo-Tether no longer tracks it live. Not deceased. Not forgotten."
+          "focus_note": "OUT OF FOCUS — the piece remains on the board; the Echo-Tether no longer tracks it live. Not deceased. Not forgotten.",
+          "image": "recon/zaeus.jpg"
         },
         {
           "id": "piece-turox",
@@ -638,7 +639,8 @@
             "Then came the dragon. Midas, once a noble creature of radiant majesty, freed from his chains, told his tale through blood and ruin: how the Arbiter had butchered him, drained his veins, made his pain into coin. The golden blood that ran through the Minted Mound was not wealth, but desecration. Turox had known greed before—but here, in Lolosia, it had been sharpened into a machine.",
             "And so doubt crept into his heart. The Guild had taught him that coin was freedom, that trade was life, that gold was the great equaliser. But here he saw its true face: lives weighed on scales, justice bought and sold, sacrifice transmuted into profit. What creed could justify this? Was the Guild his family—or just another set of scales ready to discard him when his worth had run dry?",
             "On the board, Turox is a rook: silent, dark, unyielding. He moves in straight lines, inexorable, inevitable, crushing those who stand unprepared in his path. Turox is not the kind of piece that wins a game by himself. But he is the kind of piece upon which victories are built—and losses made permanent."
-          ]
+          ],
+          "image": "recon/turox.jpg"
         },
         {
           "id": "piece-eiliwyn",
@@ -656,7 +658,8 @@
             "In Lolosia, her devotion bent beneath the weight of abomination. Here, death is not a passage but a commodity, bound in jars and measured in coin. But the horror runs deeper still: the Arbiter forged an alliance with Pharaoh Sekt Duat, the soul monger and tyrant of the Sandsea. Through his delegate, Nebuchadnezzar the Younger, a pact was struck—timonium for souls. This is not mere corruption. This is industrialized desecration. An international trade in stolen eternity.",
             "This, she cannot abide. This is the line she will not cross. If war comes—and it will—she will not side with Astravia, Jin Cheng, or the Embersea Onslaught. She will side with the souls in jars. With the companions who stumbled into this nightmare alongside her. With the quiet, flickering belief that death deserves dignity.",
             "On this board, she does not play for coin nor crown. She plays for the weight of every soul unburied, every prayer unspoken, every life sold for timonium and bound in glass. She plays for Omar, still lost somewhere in the shadows. And when the time came to face the Arbiter, her hand did not tremble. Not for courage, but because she had already chosen which side of the scales she stands on."
-          ]
+          ],
+          "image": "recon/eiliwyn.jpg"
         },
         {
           "id": "piece-hesiod",
@@ -675,7 +678,8 @@
             "On this board, Hesiod does not play for glory or gold. He plays to write the story, to ensure that when the dust settles and the pieces fall, someone will remember what was said, what was lost, what was won. Because the alternative—silence, stillness, surrender—is a fate worse than any tragedy his tongue might conjure."
           ],
           "focus": "out",
-          "focus_note": "OUT OF FOCUS — the piece remains on the board; the Echo-Tether no longer tracks it live. Not deceased. Not forgotten."
+          "focus_note": "OUT OF FOCUS — the piece remains on the board; the Echo-Tether no longer tracks it live. Not deceased. Not forgotten.",
+          "image": "recon/hesiod.jpg"
         },
         {
           "id": "piece-ludrimein",
@@ -694,19 +698,22 @@
             "The board changed him once already. Somewhere between the dunes and Lolosia he met a thing that lived in dreams, and to survive it he let it in — and it cost him his flight, and the half of him that was his father's. A pawn that has lost its wings is still a pawn. It still cannot go back.",
             "And then, in the City of Gold, at the hands of a wingless man who knew the shape of the cut because he had made it on himself, and a blade held by one of his own party who did not know what she was doing until she had done it — the wings were given back. Not his own. Given. The pawn reached the far rank, and the board let it choose what it became.",
             "SEALED: What it chose is not on file. The banks hold the shape, not the substance. Watch the pawn."
-          ]
+          ],
+          "image": "recon/ludrimein.jpg"
         },
         {
           "id": "piece-zarek",
           "title": "ZAREK",
           "locked": true,
-          "note": "RECORD PENDING — THE WATCHER HAS NOT YET WRITTEN"
+          "note": "RECORD PENDING — THE WATCHER HAS NOT YET WRITTEN",
+          "image": "recon/zarek.jpg"
         },
         {
           "id": "piece-alecto",
           "title": "ALECTO",
           "locked": true,
-          "note": "RECORD PENDING — THE WATCHER HAS NOT YET WRITTEN"
+          "note": "RECORD PENDING — THE WATCHER HAS NOT YET WRITTEN",
+          "image": "recon/alecto.jpg"
         }
       ]
     },
@@ -818,7 +825,8 @@
             "LAST KNOWN: LOLOSIA — the square of the Jewel, before dawn, come to collect what she believed was owed.",
             "STATUS: DECEASED. Of the general the banks hold no remains to describe. The square held a crater, sixty feet, sheared clean. The city woke to it.",
             "-- She threw down manacles as one throws a collar to a dog. The record does not say the dog came."
-          ]
+          ],
+          "image": "recon/kirijo.jpg"
         },
         {
           "id": "poi-akihiko",
@@ -834,7 +842,8 @@
             "LAST KNOWN: LOLOSIA — the square of the Jewel. Sent to fetch. He put every bearer in the dirt at least once before the scythe fell.",
             "STATUS: DECEASED — fell to the bearers. The record notes he fought as a man defending something, and leaves to the reader what.",
             "-- The banks file the Wolf beside the Axe. It seemed correct."
-          ]
+          ],
+          "image": "recon/akihiko.jpg"
         },
         {
           "id": "poi-the-scythe",
@@ -853,7 +862,8 @@
             "ALLEGIANCE: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
             "WHEREABOUTS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
             "-- A scythe harvests. It is not a duelling weapon. The banks note the title was chosen for accuracy."
-          ]
+          ],
+          "image": "recon/the-scythe.jpg"
         },
         {
           "id": "poi-dragases",
@@ -869,7 +879,8 @@
             "COMMISSION, stated plainly before the council: to hear Lolosia's terms and carry them north, faithfully. The record contains no threat. The record notes that none was needed.",
             "UTTERANCE — UNRESOLVED: departing the square, the subject addressed the councilman Midas in the draconic tongue: \"The king of a land dead and of a lineage gone finally awakes to find the world has changed.\" The banks hold no file that resolves this sentence. It is retained at full fidelity against the day one exists.",
             "FURTHER RECORD: ▓▓▓▓▓▓▓▓ [CORRUPTED]"
-          ]
+          ],
+          "image": "recon/dragases.jpg"
         },
         {
           "id": "poi-tower-twins",
@@ -900,7 +911,8 @@
             "STANDING: Lolosia's answer, given with the Empire's envoy present — the city is free, and chooses its own trade. An accord with Jin Cheng was acknowledged.",
             "NOTED: the Shield observed publicly that the Qin's own coasts bleed — the firestorm onslaught of the Embersea does not go home. The record retains the observation, and the silence that followed it.",
             "FURTHER RECORD: ▓▓▓▓▓▓▓▓ [CORRUPTED]"
-          ]
+          ],
+          "image": "recon/the-qin.jpg"
         },
         {
           "id": "rumour-raven-snake",
@@ -1180,7 +1192,8 @@
             "STATUS: ACTIVE — roaming; spreading his song; not easily reached",
             "ASSOCIATION: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
             "-- One of seven. The banks hold the shape of the others, not the substance."
-          ]
+          ],
+          "image": "recon/savan.jpg"
         },
         {
           "id": "anomaly-alva",
@@ -1198,7 +1211,8 @@
             "STATUS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
             "ASSOCIATION: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
             "-- Rumour is a memory nobody committed. The banks flag it and keep it anyway."
-          ]
+          ],
+          "image": "recon/alva.jpg"
         },
         {
           "id": "anomaly-cleric",
