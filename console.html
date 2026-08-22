@@ -32,7 +32,7 @@
   #gate .hint { color: var(--dim); font-size: 0.64rem; letter-spacing: 0.28em; }
 
   /* ===== MEMORY BANKS ===== */
-  #banks { flex: 1; display: none; grid-template-columns: 300px 1fr; min-height: 0; }
+  #banks { flex: 1; display: none; grid-template-columns: 300px 1fr 280px; min-height: 0; }
   #banks.show { display: grid; }
   main.hidden { display: none; }
   .bank-list { background: var(--panel); border-right: 1px solid var(--bronze-deep); padding: 0.8rem; overflow-y: auto; }
@@ -57,6 +57,62 @@
   @media (prefers-reduced-motion: reduce) { .rec-warning .deny-line { animation: none; } }
   .rec-warning button { background: #101114; border: 1px solid var(--corrupted); color: var(--corrupted); font: inherit; font-size: 0.7rem; letter-spacing: 0.25em; padding: 0.6rem 1.6rem; cursor: pointer; }
   .rec-warning button:hover { background: rgba(160,92,80,0.15); color: var(--text); }
+
+  /* ===== RECONSTRUCTION pane — the artefact column (L2 skin) ===== */
+  .recon { background: var(--panel); border-right: none; border-left: 1px solid var(--bronze-deep); }
+  .recon-empty { border: 1px solid var(--bronze-deep); min-height: 11rem; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.9rem; color: #55503f; font-size: 0.62rem; letter-spacing: 0.3em; text-align: center; padding: 1rem; }
+  .recon-empty .sigil { font-size: 2.2rem; color: var(--bronze-dim); opacity: 0.5; animation: sigilturn 14s linear infinite; }
+  @keyframes sigilturn { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .recon-frame { border: 2px solid var(--bronze-deep); background: #0c0d10; padding: 6px; }
+  .recon-wrap { position: relative; overflow: hidden; }
+  .recon-wrap img { width: 100%; display: block; }
+  .recon-wrap .scan { position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(0,0,0,0.22) 0 1px, transparent 1px 3px); mix-blend-mode: multiply; }
+  .recon-wrap .flick { position: absolute; inset: 0; pointer-events: none; background: rgba(127,212,224,0.07); animation: reconflick 5s steps(1,end) infinite; }
+  @keyframes reconflick { 0%,100%{opacity:.5} 12%{opacity:.15} 14%{opacity:.6} 47%{opacity:.3} 49%{opacity:.7} 81%{opacity:.25} }
+  /* holographic projection: rolling beam + out-of-register ghost + flutter-and-slip */
+  .recon-wrap .beam { position: absolute; left: 0; right: 0; height: 24%; top: -26%; pointer-events: none;
+    background: linear-gradient(180deg, transparent, rgba(127,212,224,0.08), rgba(127,212,224,0.2), rgba(127,212,224,0.08), transparent);
+    animation: beamroll 6.5s linear infinite; }
+  @keyframes beamroll { from { top: -26%; } to { top: 112%; } }
+  .recon-wrap img.ghost { position: absolute; inset: 0; opacity: 0.15; mix-blend-mode: screen; pointer-events: none;
+    filter: blur(0.7px) hue-rotate(150deg) saturate(2.2); animation: ghostdrift 7s ease-in-out infinite; }
+  @keyframes ghostdrift { 0%,100% { transform: translateX(1.4px); } 50% { transform: translateX(-1.8px); } }
+  .recon-wrap.holo img.plate { animation: holoflut 4.6s steps(1,end) infinite; }
+  @keyframes holoflut { 0%,100% { opacity: 1; transform: none; }
+    9% { opacity: .86; transform: translateX(-1.5px); } 10% { opacity: 1; transform: none; }
+    33% { opacity: .93; } 34% { opacity: 1; }
+    61% { opacity: .78; transform: translateX(2.5px) skewX(0.4deg); } 62% { opacity: 1; transform: none; }
+    87% { opacity: .9; } 88% { opacity: 1; } }
+  .recon-wrap.rough img.plate { animation: holoflut-rough 2.4s steps(1,end) infinite; }
+  @keyframes holoflut-rough { 0%,100% { opacity: 1; transform: none; }
+    7% { opacity: .55; transform: translateX(-4px); } 9% { opacity: 1; transform: none; }
+    26% { opacity: .8; transform: translateX(2px) skewX(0.7deg); } 28% { opacity: 1; transform: none; }
+    47% { opacity: .3; } 49% { opacity: 1; }
+    63% { opacity: .7; transform: translateX(5px); } 65% { opacity: 1; transform: none; }
+    84% { opacity: .5; transform: translateX(-2px) skewX(-0.5deg); } 86% { opacity: 1; transform: none; } }
+  .recon-wrap.rough img.ghost { opacity: 0.24; animation-duration: 3.2s; }
+  .recon-wrap.rough .beam { animation-duration: 3.8s; }
+  .recon-cap { color: var(--dim); font-size: 0.6rem; letter-spacing: 0.22em; margin-top: 0.5rem; line-height: 1.7; text-align: center; }
+  .recon-mirror { border: 1px solid var(--corrupted); min-height: 11rem; display: flex; align-items: center; justify-content: center; text-align: center; color: rgba(212,175,95,0.5); letter-spacing: 0.3em; font-size: 0.7rem; transform: scaleX(-1); line-height: 2; padding: 1rem; }
+  @media (prefers-reduced-motion: reduce) { .recon-empty .sigil, .recon-wrap .flick, .recon-wrap .beam, .recon-wrap img.ghost, .recon-wrap.holo img.plate, .recon-wrap.rough img.plate { animation: none; } }
+
+  /* ===== accordion + QUERY > (L2 skin) ===== */
+  .query-line { display: flex; align-items: center; gap: 0.4rem; border: 1px solid var(--bronze-deep); background: #101114; padding: 0.35rem 0.5rem; margin-bottom: 0.7rem; }
+  .query-line label { color: var(--bronze); font-size: 0.66rem; letter-spacing: 0.2em; }
+  .query-line input { flex: 1; background: none; border: none; outline: none; color: var(--crystal); font: inherit; font-size: 0.72rem; letter-spacing: 0.08em; min-width: 0; }
+  .sec-head { display: flex; width: 100%; align-items: baseline; gap: 0.5rem; background: none; border: none; border-bottom: 1px dashed var(--bronze-deep); color: var(--bronze); font: inherit; font-size: 0.66rem; letter-spacing: 0.25em; padding: 0.55rem 0.2rem 0.35rem; cursor: pointer; text-align: left; }
+  .sec-head .chev { color: var(--dim); display: inline-block; }
+  .sec-head .count { margin-left: auto; color: var(--dim); letter-spacing: 0.1em; }
+  .sec-body { display: none; }
+  .sec.open > .sec-body { display: block; }
+  .sec.open > .sec-head .chev { transform: rotate(90deg); }
+
+  /* phones: the banks stack — list, record, reconstruction */
+  @media (max-width: 860px) {
+    #banks.show { grid-template-columns: 1fr; grid-template-rows: 32vh minmax(0, 1fr) auto; }
+    .bank-list { border-right: none; border-bottom: 1px solid var(--bronze-deep); }
+    .recon { border-left: none; border-top: 1px solid var(--bronze-deep); max-height: 36vh; }
+  }
 
   /* ===== CHROME ===== */
   header { border-bottom: 2px solid var(--bronze-deep); background: linear-gradient(180deg, #26221a, var(--panel)); padding: 0.55rem 1.2rem; display: flex; align-items: baseline; gap: 1.5rem; }
@@ -226,6 +282,10 @@
     <div class="rec-head"><div class="rec-title">MEMORY BANKS</div>
     <div class="rec-kv">select a record. the banks render what their bearers have earned.</div></div>
   </div>
+  <aside class="rail recon" id="recon">
+    <h2>RECONSTRUCTION</h2>
+    <div id="reconbody"><div class="recon-empty"><div class="sigil">ᛟ</div><div>NO RECONSTRUCTION ON FILE</div></div></div>
+  </aside>
 </div>
 
 <footer><div class="tick">LOLOSIA EXCHANGE: saffron ↑ 3gp/dr · dye-lots holding · gold soft against timomium a third straight month; the Minted Mound lists no new lots · DISPATCH: Lolosia signs historic trade accord with the Mercurial King, Qin Shi Huang of Jin Cheng — the free city chooses its current · GUILD NOTICE: caravan escort tenders close moonday · GUILD NOTICE: Rex Armada's Rune Smithy declares its GRAND RE-OPENING — the runesmith returns from what she calls her well-deserved sick leave; prices adjusted accordingly · RUMOUR (UNVERIFIED): strange blue metals and materials surfacing in the lower markets — assay pending, provenance undeclared · YEN DA TOLL: unchanged · CIVIC NOTICE: the square at the Jewel reopens on new stone — the children have already chalked it · GUILD NOTICE: the Firestorm Onslaught extends its watch contract; Embersea reds walk the walls until further notice · RUMOUR (UNVERIFIED): lights over the Umbral canopy · BUCHLITA ROAD: open, watch posted · THE ROW: two tables free at the Rusty Spoon</div></footer>
@@ -357,19 +417,60 @@ tabBanks.addEventListener('click', () => { mainEl.classList.add('hidden'); banks
   tabBanks.classList.add('active'); tabSurvey.classList.remove('active'); });
 fetch('banks.json').then(x=>x.json()).then(d => {
   const list = document.getElementById('banklist');
-  for (const sec of d.sections) {
-    const h = document.createElement('h2'); h.textContent = sec.title; list.appendChild(h);
+  const q = document.createElement('div'); q.className = 'query-line';
+  q.innerHTML = '<label>QUERY &gt;</label><input id="queryin" autocomplete="off" spellcheck="false" aria-label="query the banks">';
+  list.appendChild(q);
+  d.sections.forEach((sec, si) => {
+    const wrap = document.createElement('div'); wrap.className = 'sec' + (si === 0 ? ' open' : '');
+    const head = document.createElement('button'); head.className = 'sec-head';
+    head.innerHTML = `<span class="chev">▸</span><span>${sec.title}</span><span class="count">${sec.records.length}</span>`;
+    head.addEventListener('click', () => wrap.classList.toggle('open'));
+    const body = document.createElement('div'); body.className = 'sec-body';
     for (const r of sec.records) {
       const b = document.createElement('button');
       b.className = 'bank-item' + (r.locked ? ' locked' : '') + (r.focus === 'out' ? ' outfocus' : '');
       b.textContent = (r.locked ? '▓ ' : '· ') + r.title.toUpperCase();
+      b.dataset.q = (r.title + ' ' + (r.class || '')).toLowerCase();
       b.addEventListener('click', () => r.locked ? showSealed(r) : showRecord(r, b));
-      list.appendChild(b);
+      body.appendChild(b);
     }
-  }
+    wrap.appendChild(head); wrap.appendChild(body); list.appendChild(wrap);
+  });
+  document.getElementById('queryin').addEventListener('input', e => {
+    const term = e.target.value.trim().toLowerCase();
+    document.querySelectorAll('#banklist .sec').forEach(sec => {
+      let hits = 0;
+      sec.querySelectorAll('.bank-item').forEach(b => {
+        const hit = !term || b.dataset.q.includes(term);
+        b.style.display = hit ? '' : 'none'; if (hit) hits++;
+      });
+      if (term) { sec.classList.toggle('open', hits > 0); sec.style.display = hits ? '' : 'none'; }
+      else { sec.style.display = ''; }
+    });
+  });
 });
+/* the RECONSTRUCTION pane — fidelity IS integrity; corrupted records render degraded */
+function updateRecon(r){
+  const el = document.getElementById('reconbody'); if (!el) return;
+  if (r && r.effect === 'faceless') {
+    el.innerHTML = '<div class="recon-mirror">NO RECONSTRUCTION.<br>THE BANKS RETURN THE QUERENT.</div>';
+    return;
+  }
+  if (r && r.image) {
+    const fid = r.integrity, deg = Math.max(0, 100 - fid);
+    const blur = (deg / 45).toFixed(2), con = ((100 - deg * 0.35) / 100).toFixed(2), sat = ((100 - deg * 0.5) / 100).toFixed(2);
+    el.innerHTML = `<div class="recon-frame"><div class="recon-wrap ${fid < 50 ? 'rough' : 'holo'}">
+      <img class="plate" src="${r.image}" alt="reconstruction" style="filter: blur(${blur}px) contrast(${con}) saturate(${sat});">
+      <img class="ghost" src="${r.image}" alt="" aria-hidden="true">
+      <div class="scan"></div><div class="beam"></div><div class="flick"></div></div></div>
+      <div class="recon-cap">RECONSTRUCTED VIA ECHO MEMORY<br>FIDELITY ${fid}%</div>`;
+    return;
+  }
+  el.innerHTML = '<div class="recon-empty"><div class="sigil">ᛟ</div><div>NO RECONSTRUCTION ON FILE</div></div>';
+}
 function showSealed(r){
   document.querySelectorAll('.bank-item').forEach(x=>x.classList.remove('active'));
+  updateRecon(null);
   document.getElementById('bankview').innerHTML =
     `<div class="rec-head"><div class="rec-title">${r.title.toUpperCase()}</div>
      <div class="rec-kv">memory: <span class="badge corrupted">SEALED</span><br>${r.note}</div></div>
@@ -402,6 +503,7 @@ function showRecord(r, btn, force){
   if (btn) btn.classList.add('active');
   if (r.warning && !force) {
     warnedRecord = r;
+    updateRecon(null);
     document.getElementById('bankview').innerHTML =
       `<div class="rec-head"><div class="rec-title${r.anomaly?' anomaly':''}">${r.title.toUpperCase()}</div>
        <div class="rec-kv">designation: ${r.class} · memory: <span class="badge ${r.memory}">${r.memory.toUpperCase()}</span> · integrity ${r.integrity}%</div></div>
@@ -421,6 +523,7 @@ function showRecord(r, btn, force){
   }
   if (r.focus === 'out' && r.focus_note) html += `<p class="focusline">-- ${r.focus_note}</p>`;
   document.getElementById('bankview').innerHTML = html + '</div>';
+  updateRecon(r);
   if (songTimer) { clearInterval(songTimer); songTimer = null; }
   if (r.effect === 'song') songRot();
 }
