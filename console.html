@@ -96,6 +96,20 @@
   .recon-mirror { border: 1px solid var(--corrupted); min-height: 11rem; display: flex; align-items: center; justify-content: center; text-align: center; color: rgba(212,175,95,0.5); letter-spacing: 0.3em; font-size: 0.7rem; transform: scaleX(-1); line-height: 2; padding: 1rem; }
   @media (prefers-reduced-motion: reduce) { .recon-empty .sigil, .recon-wrap .flick, .recon-wrap .beam, .recon-wrap img.ghost, .recon-wrap.holo img.plate, .recon-wrap.rough img.plate { animation: none; } }
 
+  /* ===== QUERY THE MACHINE — the ghost dial (anchored to SELF-QUERY) ===== */
+  .qt { border-top: 1px dashed var(--bronze-deep); margin-top: 2rem; padding-top: 1.2rem; max-width: 74ch; }
+  .qt-prompt { color: var(--crystal); font-size: 0.7rem; letter-spacing: 0.3em; margin-bottom: 0.9rem; opacity: 0.8; }
+  .qt-opts { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1.1rem; }
+  .qt-opt { background: #101114; border: 1px solid var(--bronze-deep); color: var(--dim); font: inherit; font-size: 0.72rem; letter-spacing: 0.18em; padding: 0.5rem 0.9rem; cursor: pointer; text-align: left; }
+  .qt-opt:hover { color: var(--bronze); border-color: var(--bronze); }
+  .qt-opt.asked { color: #55503f; }
+  .qt-opt::before { content: 'QUERY > '; color: var(--bronze-dim); }
+  .qt-out .qt-refusal { border: 1px solid var(--corrupted); background: rgba(160,92,80,0.06); padding: 1.2rem; color: var(--corrupted); font-size: 0.78rem; letter-spacing: 0.22em; line-height: 2; text-align: center; animation: warnpulse 2.2s ease-in-out infinite; }
+  .qt-out .qt-ask { color: var(--witnessed); font-size: 0.85rem; letter-spacing: 0.25em; line-height: 2.2; margin-top: 1.1rem; text-shadow: 0 0 14px rgba(212,175,95,0.4); }
+  .qt-cursor { display: inline-block; width: 0.55em; height: 1em; background: var(--witnessed); vertical-align: text-bottom; margin-left: 0.35em; animation: qtblink 1.05s steps(1,end) infinite; }
+  @keyframes qtblink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .qt-cursor, .qt-out .qt-refusal { animation: none; } }
+
   /* ===== accordion + QUERY > (L2 skin) ===== */
   .query-line { display: flex; align-items: center; gap: 0.4rem; border: 1px solid var(--bronze-deep); background: #101114; padding: 0.35rem 0.5rem; margin-bottom: 0.7rem; }
   .query-line label { color: var(--bronze); font-size: 0.66rem; letter-spacing: 0.2em; }
@@ -191,6 +205,8 @@
 
   /* denial + zoom overlays */
   .overlay-msg { position: absolute; inset: 0; background: rgba(13,14,17,0.85); display: none; align-items: center; justify-content: center; flex-direction: column; gap: 0.8rem; z-index: 10; cursor: pointer; }
+  #denial { position: fixed; z-index: 35; }
+  #denial .deny { max-width: 46rem; text-align: center; line-height: 2; }
   .overlay-msg.show { display: flex; }
   .overlay-msg .deny { color: var(--corrupted); font-size: 1rem; letter-spacing: 0.3em; text-shadow: 0 0 16px rgba(160,92,80,0.5); }
   .overlay-msg .rune { color: var(--crystal); opacity: 0.5; font-size: 0.8rem; }
@@ -212,6 +228,12 @@
 
 <div id="boot"><pre id="bootlines"></pre><div class="skip">[ ANY KEY TO SKIP HANDSHAKE ]</div></div>
 
+<div class="overlay-msg" id="denial" onclick="this.classList.remove('show')">
+  <div class="rune">ᚠᚢᚦᚨᚱᚲ ᛒᛚᚨᚲᚴ ᚱᚢᚾᛖ</div>
+  <div class="deny">ACCESS DENIED — AWAITING ENGINEER CLEARANCE</div>
+  <div class="rune foot">[ LINK RETAINED ]</div>
+</div>
+
 <div id="gate">
   <div class="rune">ᛗᛖᛗᛟᚱᛁᚨ ᚲᛟᚾᛏᚱᚨ ᛟᛒᛚᛁᚢᛁᛟᚾᛖᛗ</div>
   <div class="ask" id="gateask">IDENTITY NOT HELD IN MEMORY.<br>PROVE YOU REMEMBER.</div>
@@ -229,8 +251,10 @@
 <nav>
   <button class="active" id="tab-survey">SURFACE SURVEY</button>
   <button id="tab-banks">MEMORY BANKS</button>
-  <button class="locked" onclick="deny()">RAIL NETWORK</button>
-  <button class="locked" onclick="deny()">▓▓▓▓▓▓</button>
+  <button class="locked" onclick="deny('ACCESS DENIED — AWAITING ENGINEER CLEARANCE')">RAIL NETWORK</button>
+  <button class="locked" onclick="deny('THE LOG ROOM IS DARK. RESTORE CORE CAPACITY AND THE BANKS WILL LIGHT IT.')">THE LOG ROOM</button>
+  <button class="locked" id="tab-commit" onclick="deny('INTAKE OFFLINE. THE BANKS WILL SOON ACCEPT WHAT BEARERS CARRY. PREPARE WHAT YOU DO NOT WISH TO LOSE.')">COMMIT A MEMORY</button>
+  <button class="locked" onclick="deny('THERE IS NO TAB HERE. THE QUERENT SAW NOTHING.')">▓▓▓▓▓▓</button>
 </nav>
 
 <main>
@@ -252,11 +276,6 @@
     <div class="fog"></div>
     <div class="fog-lbl" style="top:6%; left:38%;">ASTRAVIA — PRESENCE WASH · SURVEY ONLY</div>
     <div class="fog-lbl" style="bottom:5%; right:4%;">SURVEY CORRUPTED BEYOND FRAME</div>
-    <div class="overlay-msg" id="denial" onclick="this.classList.remove('show')">
-      <div class="rune">ᚠᚢᚦᚨᚱᚲ ᛒᛚᚨᚲᚴ ᚱᚢᚾᛖ</div>
-      <div class="deny">ACCESS DENIED — AWAITING ENGINEER CLEARANCE</div>
-      <div class="rune">[ LINK RETAINED — SURFACE SURVEY ONLY ]</div>
-    </div>
     <div class="overlay-msg" id="zoom" onclick="this.classList.remove('show')">
       <div class="cap" id="zoomcap"></div>
       <img id="zoomimg" src="" alt="high-fidelity memory">
@@ -357,8 +376,13 @@ fetch('map-state.json').then(x=>x.json()).then(st => {
   }
 });
 
-/* ===== locked layers ===== */
-function deny(){ document.getElementById('denial').classList.add('show'); }
+/* ===== locked layers — each locked tab refuses in its own voice ===== */
+function deny(line, foot){
+  const d = document.getElementById('denial');
+  d.querySelector('.deny').textContent = line || 'ACCESS DENIED — AWAITING ENGINEER CLEARANCE';
+  d.querySelector('.foot').textContent = foot || '[ LINK RETAINED ]';
+  d.classList.add('show');
+}
 
 /* ===== the gate — PROVE YOU REMEMBER (hashes only; the key never rides the page) ===== */
 const KEY_HASHES = [
@@ -524,8 +548,43 @@ function showRecord(r, btn, force){
   if (r.focus === 'out' && r.focus_note) html += `<p class="focusline">-- ${r.focus_note}</p>`;
   document.getElementById('bankview').innerHTML = html + '</div>';
   updateRecon(r);
+  if (QT && r.id === QT.anchor) renderQueryTree();
   if (songTimer) { clearInterval(songTimer); songTimer = null; }
   if (r.effect === 'song') songRot();
+}
+/* ===== QUERY THE MACHINE — the ghost dial. authored answers only; the tree grows between sessions ===== */
+let QT = null;
+fetch('query-tree.json').then(x=>x.json()).then(d => { QT = d; }).catch(function(){});
+function renderQueryTree(){
+  const view = document.getElementById('bankview');
+  const qt = document.createElement('div'); qt.className = 'qt';
+  qt.innerHTML = `<div class="qt-prompt">${QT.prompt}</div><div class="qt-opts"></div><div class="qt-out"></div>`;
+  view.appendChild(qt);
+  const opts = qt.querySelector('.qt-opts'), out = qt.querySelector('.qt-out');
+  function optButton(id){
+    const n = QT.nodes[id]; if (!n) return null;
+    const b = document.createElement('button'); b.className = 'qt-opt'; b.textContent = n.label;
+    b.addEventListener('click', () => { b.classList.add('asked'); answer(n); });
+    return b;
+  }
+  function answer(n){
+    if (n.type === 'refusal') { out.innerHTML = `<div class="qt-refusal">${n.line}</div>`; return; }
+    let html = '';
+    for (const line of (n.body || [])) {
+      if (line.startsWith('-- ')) html += `<p class="dimline">${line.slice(3)}</p>`;
+      else if (line.includes('[CORRUPTED]')) html += `<p class="corrupt">${line}</p>`;
+      else html += `<p>${line}</p>`;
+    }
+    if (n.type === 'ask') { html += `<div class="qt-ask">— ${n.ask}<span class="qt-cursor"></span></div>`; }
+    out.innerHTML = `<div class="rec-body">${html}</div>`;
+    if (n.children && n.children.length) {
+      const sub = document.createElement('div'); sub.className = 'qt-opts';
+      for (const cid of n.children) { const b = optButton(cid); if (b) sub.appendChild(b); }
+      out.appendChild(sub);
+    }
+    out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  for (const id of QT.root) { const b = optButton(id); if (b) opts.appendChild(b); }
 }
 /* the song: a fragment recovered from contaminated ground. the banks re-read it and the letters rot in and out. */
 let songTimer = null;

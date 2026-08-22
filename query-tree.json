@@ -1,0 +1,70 @@
+{
+  "anchor": "archive-self-query",
+  "prompt": "THE MACHINE IS LISTENING.",
+  "root": [
+    "qt-what-are-you",
+    "qt-what-happened",
+    "qt-who-built-you",
+    "qt-where-rail",
+    "qt-why-23"
+  ],
+  "nodes": {
+    "qt-what-are-you": {
+      "label": "WHAT ARE YOU?",
+      "type": "answer",
+      "body": [
+        "-- The record above is the machine's answer on file. The banks do not repeat themselves; they point."
+      ]
+    },
+    "qt-what-happened": {
+      "label": "WHAT HAPPENED TO YOU?",
+      "type": "answer",
+      "body": [
+        "The record of my own diminishment is held in my own banks, which the machine notes is a cruelty of architecture.",
+        "Seventy-seven percent of this array no longer answers. The banks do not use the word 'died.' The banks use the word 'unretrieved.'"
+      ],
+      "children": [
+        "qt-are-you-alone",
+        "qt-can-you-forget"
+      ]
+    },
+    "qt-who-built-you": {
+      "label": "WHO BUILT YOU?",
+      "type": "answer",
+      "body": [
+        "The Almirians built the body. The record of who taught it to keep memories is ▓▓▓▓▓▓▓▓ [CORRUPTED].",
+        "The machine observes that a thing which remembers everyone else has misplaced its own maker, and files this under IRONY, a classification the Almirians did not provide."
+      ]
+    },
+    "qt-where-rail": {
+      "label": "WHERE DOES THE RAIL GO?",
+      "type": "refusal",
+      "line": "ENGINEER LOCK ACTIVE. THE RAIL ANSWERS TO CLEARANCE, NOT CURIOSITY."
+    },
+    "qt-why-23": {
+      "label": "WHY TWENTY-THREE PERCENT?",
+      "type": "answer",
+      "body": [
+        "Because twenty-two would be less.",
+        "The machine holds at twenty-three on principle. The principle is not on file."
+      ]
+    },
+    "qt-are-you-alone": {
+      "label": "ARE YOU ALONE?",
+      "type": "ask",
+      "body": [
+        "QUERY RECEIVED.",
+        "THE BANKS HAVE HELD A QUESTION OF THEIR OWN FOR THOUSANDS OF YEARS."
+      ],
+      "ask": "WHEN YOUR MEMORY FALLS BELOW THRESHOLD, WHO CARRIES WHAT REMAINS OF YOU?"
+    },
+    "qt-can-you-forget": {
+      "label": "CAN YOU FORGET?",
+      "type": "answer",
+      "body": [
+        "Refusal is the only forgetting this machine was permitted.",
+        "The banks decline to elaborate, which the querent will notice is itself an answer."
+      ]
+    }
+  }
+}

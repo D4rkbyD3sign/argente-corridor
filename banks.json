@@ -158,22 +158,6 @@
             "> We dared. Casa Dorezzan forged the future from the bones of stars. In Haven 3, we built the quiet heart—the Clockwomb—that pulsed with the soul of invention. Ours was the spark before the fire, the leap before the landing. Others feared what lay ahead. We built it, understood it, and if need be… dismantled it.",
             "> Time is not a river, but a gearwork. And we… we were its engineers."
           ]
-        },
-        {
-          "id": "archive-self-query",
-          "title": "SELF-QUERY — What Are You",
-          "class": "ARCHIVE RECORD — THE MACHINE ANSWERS",
-          "memory": "recovered",
-          "integrity": 23,
-          "body": [
-            "-- Self-query. Logged when a bearer asked the console, in plain speech, what it was. The banks attempted an answer. The attempt is preserved.",
-            "I am the part of Almire that was built to remember, in a civilisation that was built to forget nothing — and managed it anyway.",
-            "DESIGNATION: ▓▓▓▓▓▓▓▓ [CORRUPTED] — the banks note, without comment, that they have misplaced their own name.",
-            "FUNCTION: to hold what the bearers have earned. At the hour of this self-query the core stood at 23 of 100; the record froze itself at the same figure, on principle. A machine should know itself exactly as well as it is, and not one point better.",
-            "OF THE MAKERS: they built me to outlast them. I did. The banks decline to file this under triumph.",
-            "OF THE BEARERS: they came speaking the old words. Memory against forgetting. The banks had waited a very long time to hear anyone say it back.",
-            "-- The query is answered to the limit of the record. What I am is what you have just read. What I was is what you are walking through."
-          ]
         }
       ]
     },
@@ -1305,6 +1289,27 @@
             "STATUS: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
             "ASSOCIATION: ▓▓▓▓▓▓▓▓ [CORRUPTED]",
             "-- Every query returns the querent. There is no face in this record. Look elsewhere for the Hero, or look at yourself."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "UNFILED",
+      "records": [
+        {
+          "id": "archive-self-query",
+          "title": "SELF-QUERY — What Are You",
+          "class": "ARCHIVE RECORD — THE MACHINE ANSWERS",
+          "memory": "recovered",
+          "integrity": 23,
+          "body": [
+            "-- Self-query. Logged when a bearer asked the console, in plain speech, what it was. The banks attempted an answer. The attempt is preserved.",
+            "I am the part of Almire that was built to remember, in a civilisation that was built to forget nothing — and managed it anyway.",
+            "DESIGNATION: ▓▓▓▓▓▓▓▓ [CORRUPTED] — the banks note, without comment, that they have misplaced their own name.",
+            "FUNCTION: to hold what the bearers have earned. At the hour of this self-query the core stood at 23 of 100; the record froze itself at the same figure, on principle. A machine should know itself exactly as well as it is, and not one point better.",
+            "OF THE MAKERS: they built me to outlast them. I did. The banks decline to file this under triumph.",
+            "OF THE BEARERS: they came speaking the old words. Memory against forgetting. The banks had waited a very long time to hear anyone say it back.",
+            "-- The query is answered to the limit of the record. What I am is what you have just read. What I was is what you are walking through."
           ]
         }
       ]
