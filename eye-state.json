@@ -2,9 +2,20 @@
   "current": "water",
   "scenes": {
     "water": {
-      "image": "optic/yen-da-open-water.jpg",
-      "designation": "OPEN WATER — THE YEN DA STRAIT",
-      "condition": "FEED LIVE · HULL AWASH · THE EYE RIDES THE WATERLINE"
+      "views": [
+        {
+          "label": "COMMAND",
+          "image": "optic/strait-pilot-view.jpg",
+          "designation": "COMMAND SPHERE — THROUGH THE PILOT'S EYES",
+          "condition": "FEED LIVE · THE CRYSTAL HOLDS · WATER ON THE DOME"
+        },
+        {
+          "label": "BOW",
+          "image": "optic/yen-da-open-water.jpg",
+          "designation": "OPEN WATER — THE YEN DA STRAIT",
+          "condition": "FEED LIVE · HULL AWASH · THE EYE RIDES THE WATERLINE"
+        }
+      ]
     },
     "rail": {
       "image": "optic/railway-tunnel.jpg",

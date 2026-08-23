@@ -141,6 +141,11 @@
   .optic-view { clip-path: circle(0.6% at 50% 50%); transition: clip-path 1.7s cubic-bezier(0.7, 0, 0.3, 1); aspect-ratio: 16 / 9; }
   .optic-view img { width: 100%; height: 100%; object-fit: cover; }
   .optic-wrap.open .optic-view { clip-path: circle(75% at 50% 50%); transition-duration: 3.4s; }
+  /* the optic array — a scene may offer more than one feed; the machine offers the feeds it trusts */
+  .optic-cams { display: flex; gap: 0.5rem; justify-content: center; margin-top: 0.6rem; flex-wrap: wrap; }
+  .optic-cams button { background: none; border: 1px solid var(--bronze-deep); color: var(--dim); font: inherit; font-size: 0.62rem; letter-spacing: 0.18em; padding: 0.3rem 0.7rem; cursor: pointer; }
+  .optic-cams button.active { color: var(--bronze); border-color: var(--bronze); }
+  .optic-cams button:hover { color: var(--text); }
   .optic-wrap.waking img { animation: opticflicker 1.1s steps(1,end) 2; }
   @keyframes opticflicker { 0%,100% { opacity: 1; } 25% { opacity: 0.15; } 40% { opacity: 0.9; } 65% { opacity: 0.35; } 80% { opacity: 1; } }
   .optic-cap { display: flex; justify-content: space-between; gap: 1rem; color: var(--dim); font-size: 0.66rem; letter-spacing: 0.22em; margin-top: 0.6rem; line-height: 1.8; flex-wrap: wrap; }
@@ -400,6 +405,7 @@
       </div>
     </div></div>
     <div class="optic-cap"><span id="optic-desig">…</span><span class="live-dot" id="optic-cond">OPTIC DARK</span></div>
+    <div class="optic-cams" id="optic-cams"></div>
   </div>
 </div>
 
@@ -756,16 +762,41 @@ let EYE = null;
 fetch('eye-state.json').then(x=>x.json()).then(d => { EYE = d; }).catch(function(){});
 tabOptic.addEventListener('click', () => { showTab('optic'); openEye(); });
 function eyeScene(){ return (EYE && EYE.scenes) ? EYE.scenes[EYE.current] : null; }
+/* the optic array — a scene may carry several views (cameras); single-image scenes render as ever */
+let EYE_VIEW = 0;
+function eyeViews(sc){ return (sc.views && sc.views.length) ? sc.views : [{ image: sc.image, designation: sc.designation, condition: sc.condition }]; }
 function paintEye(sc){
-  document.getElementById('opticimg').src = sc.image;
-  document.getElementById('optic-desig').textContent = sc.designation || '';
-  document.getElementById('optic-cond').textContent = sc.condition || 'FEED LIVE';
+  const views = eyeViews(sc);
+  if (EYE_VIEW >= views.length) EYE_VIEW = 0;
+  const v = views[EYE_VIEW];
+  document.getElementById('opticimg').src = v.image;
+  document.getElementById('optic-desig').textContent = v.designation || '';
+  document.getElementById('optic-cond').textContent = v.condition || 'FEED LIVE';
+  const cams = document.getElementById('optic-cams');
+  cams.innerHTML = '';
+  if (views.length > 1) views.forEach((vw, i) => {
+    const b = document.createElement('button');
+    b.textContent = '[ OPTIC ' + String(i + 1).padStart(2, '0') + (vw.label ? ' · ' + vw.label : '') + ' ]';
+    if (i === EYE_VIEW) b.classList.add('active');
+    b.addEventListener('click', () => switchView(i));
+    cams.appendChild(b);
+  });
+}
+function switchView(i){
+  const sc = eyeScene(); if (!sc) return;
+  const views = eyeViews(sc);
+  if (i === EYE_VIEW || i < 0 || i >= views.length) return;
+  EYE_VIEW = i;
+  const w = document.getElementById('opticwrap');
+  w.classList.remove('open');
+  setTimeout(() => { paintEye(sc); w.classList.add('open'); }, 700);
 }
 /* the runner hears its bearers: with the optic on screen, a spoken destination steers the eye */
 function blinkTo(key){
   const sc = EYE && EYE.scenes && EYE.scenes[key];
   if (!sc || EYE.current === key) return;
   EYE.current = key;
+  EYE_VIEW = 0;
   const w = document.getElementById('opticwrap');
   w.classList.remove('open');
   setTimeout(() => { paintEye(sc); w.classList.add('open'); }, 1800);
