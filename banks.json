@@ -159,7 +159,8 @@
             "> Time is not a river, but a gearwork. And we… we were its engineers."
           ]
         }
-      ]
+      ],
+      "blurb": "What the machine was built holding: the records of Almire that survived their makers. The oldest shelves in the banks, still linked to the Almirian relay network. What the bearers reconnect in the world, the shelves receive."
     },
     {
       "title": "THE ASCENDED",
@@ -387,7 +388,8 @@
           ],
           "image": "recon/dreselia.jpg"
         }
-      ]
+      ],
+      "blurb": "The Nine, as the world believes them. Compiled from the bearers' own primer, not from the machine's ground. The banks note the difference and keep both."
     },
     {
       "title": "THE ORDER",
@@ -431,7 +433,8 @@
             "Built over Almirian architecture, the old design and its workings still live in the stone. There the coffins of Aastin and the Founding Five were found, and found empty. The banks hold no record of where the Five went. The banks hold no record that they died."
           ]
         }
-      ]
+      ],
+      "blurb": "The sworn orders of the old world. One record survives whole: the Knights of the Spiral, nine-sworn, one for each of the Nine. The banks keep the oath the world forgot."
     },
     {
       "title": "RELICS",
@@ -457,7 +460,8 @@
             "SEALED: THE SHATTERED WHEEL PENDANT (Dreselia) — MEMORY LOST"
           ]
         }
-      ]
+      ],
+      "blurb": "The instruments of the Nine's knights. Four walk with the bearers. Five are sealed under MEMORY LOST, which is not the same as gone."
     },
     {
       "title": "PLACES",
@@ -566,7 +570,8 @@
           "locked": true,
           "note": "RECORD RESTORING — SURVEY HOLDS THE PLATE"
         }
-      ]
+      ],
+      "blurb": "Cities and grounds the machine holds whole records for. Two so far. The world is larger than this section, and the section knows it."
     },
     {
       "title": "THE PLATE — KREUZUNG",
@@ -791,7 +796,8 @@
             "-- Witnessed by the bearers. The Exchange ticker carries its toll. Nothing further is committed."
           ]
         }
-      ]
+      ],
+      "blurb": "Every region the Kreuzung plate names, stamped with the confidence the banks can honestly give it. An index of the known, and an admission of the rest."
     },
     {
       "title": "THE POWERS — BEYOND THE FRAME",
@@ -878,7 +884,8 @@
             "-- Survey confidence: BRIEFING, amended by witness. A hand the registers will not name is still a hand."
           ]
         }
-      ]
+      ],
+      "blurb": "The powers whose writ reaches the plate from beyond its edge. Compiled from briefing, not from walking. The banks stamp these SURVEY CONFIDENCE: BRIEFING and will not pretend otherwise."
     },
     {
       "title": "THE BEARERS",
@@ -1020,7 +1027,8 @@
             "-- The record is thin. It will grow. The banks are patient."
           ]
         }
-      ]
+      ],
+      "blurb": "The pieces on the board. The machine does not rank them and does not explain the board. Committed and observed records both; the bearers write themselves here, whether they mean to or not."
     },
     {
       "title": "PERSONS OF INTEREST",
@@ -1271,7 +1279,8 @@
             "-- Tale ends. What a village believes and what the banks can prove are two different records."
           ]
         }
-      ]
+      ],
+      "blurb": "Persons the record keeps returning to. Not bearers, not anomalies: the ones whose names recur across other files. Some records here are rumour, and say so."
     },
     {
       "title": "DISPATCH LOG",
@@ -1492,7 +1501,8 @@
             "-- Every retrieval degrades further. What you read now may not be what you read next."
           ]
         }
-      ]
+      ],
+      "blurb": "The witness shelf. What the bearers commit and what the machine recovers lands here, newest at the top. The banks consider this section the reason for all the others."
     },
     {
       "title": "ANOMALIES",
@@ -1626,7 +1636,8 @@
             "-- Every query returns the querent. There is no face in this record. Look elsewhere for the Hero, or look at yourself."
           ]
         }
-      ]
+      ],
+      "blurb": "Entities the machine cannot classify and will not ignore. The records flicker because the subjects do. Retrieval against advice is permitted, and logged."
     },
     {
       "title": "UNFILED",
@@ -1663,7 +1674,8 @@
             "-- The banks thank the bearers for testing the door. The door was never the test."
           ]
         }
-      ]
+      ],
+      "blurb": "What the banks hold but cannot shelve: answers without questions, signals without class. Nothing here is lost. It is only waiting for the rest of itself."
     }
   ]
 }
