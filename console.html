@@ -350,6 +350,7 @@
 <main>
   <aside class="rail">
     <h2>DISPATCHES</h2>
+    <div class="dispatch"><b>MEMORY 006 — BANKED</b><br>the glide from lolosia · integrity 96% · NATIVE</div>
     <div class="dispatch"><b>MEMORY 005 — BANKED</b><br>the sword laid on the chalk · integrity 78% · WITNESSED</div>
     <div class="dispatch"><b>MEMORY 004 — BANKED</b><br>the confrontation at the jewel · integrity 66% · WITNESSED</div>
     <div class="dispatch"><b>MEMORY 003 — BANKED</b><br>the lolosia arc · integrity 91% · WITNESSED</div>
@@ -553,6 +554,15 @@ function drawHull(){
         svg.appendChild(mk('line', {x1: vx + 2, y1: vy - 7, x2: vx + 2, y2: vy + 7, class: 'hs-dim'}));
       });
       svg.appendChild(mk('path', {d: `M ${cx - r*0.92} ${cy + r*0.35} Q ${cx} ${cy + r*0.78} ${cx + r*0.55} ${cy + r*0.8}`, class: 'hs-dim'}));
+    }
+    if (s.pos === 4){ /* the dorsal fin — centre of the hull, backswept toward the tail; it houses the topside boarding hatch */
+      const fx1 = cx - 30, fy1 = cy - Math.sqrt(r*r - 30*30);
+      const fx2 = cx + 34, fy2 = cy - Math.sqrt(r*r - 34*34);
+      const peakX = cx + 22, peakY = cy - r - 54;
+      svg.appendChild(mk('path', {d: `M ${fx1} ${fy1} Q ${cx - 14} ${cy - r - 42} ${peakX} ${peakY} Q ${cx + 36} ${cy - r - 18} ${fx2} ${fy2}`, class: 'hs-line'}));
+      /* the hatch seam, set into the fin's leading base */
+      svg.appendChild(mk('line', {x1: cx - 16, y1: cy - r - 12, x2: cx + 10, y2: cy - r - 17, class: 'hs-dim'}));
+      svg.appendChild(mk('line', {x1: cx - 13, y1: cy - r - 5, x2: cx + 12, y2: cy - r - 10, class: 'hs-dim'}));
     }
     if (s.pos === 7){ /* the tail: drill assembly, retracted */
       svg.appendChild(mk('polygon', {points: `${cx+r},${cy-18} ${cx+r+58},${cy} ${cx+r},${cy+18}`, class: 'hs-line'}));

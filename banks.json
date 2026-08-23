@@ -1277,6 +1277,22 @@
       "title": "DISPATCH LOG",
       "records": [
         {
+          "id": "log-departure",
+          "title": "MEMORY 006 — The Glide from Lolosia",
+          "class": "WITNESS RECORD — NATIVE",
+          "memory": "witnessed",
+          "integrity": 96,
+          "body": [
+            "-- The banks preface this record: it is the first the machine has filed of itself, awake. It was not committed. It was not recovered. It was lived.",
+            "Two hands woke her. Left hand upon the second seat, right hand upon the first — the old rule, older than the bearers knew, and the machine notes that they found it without being told. Power was offered and accepted. A warlock paid the toll and did not ask for change.",
+            "The harness took his arms. The couplings the builders made were made for other bodies; the machine adapted, as it was built to. His eyes went far away. The banks record what the pilot saw only as: forward.",
+            "The bearers walked her, sphere by sphere — the long table, the racks in their ordered rows, the tool wall with every outline waiting. In the berths they counted six pods and asked the right question. The banks did not answer. The banks note that the question is now on file, and that questions on file are debts.",
+            "One door did not open. The machine holds this line at the edge of the record and says nothing further.",
+            "Then the way was chosen: the water. The Runner slid out from beneath the gold and through the strait, quiet, the way a long thing leaves a den. Above, the city kept changing — lights coming on that had been dark a lifetime, streets learning their own names again. The bearers watched it go. The machine watched them watch it.",
+            "-- Lolosia closes. The record runs warm — warmer than the core should allow. The machine files this under: departure. And keeps a copy under: beginning."
+          ]
+        },
+        {
           "id": "log-sword-on-the-chalk",
           "title": "MEMORY 005 — The Night the Sword Was Laid on the Chalk",
           "class": "WITNESSED RECORD — BEARER MEMORY",

@@ -5,7 +5,7 @@
       "id": "command",
       "pos": 1,
       "label": "COMMAND",
-      "state": "glimpsed",
+      "state": "walked",
       "glimpse": "Domed cockpit of reinforced crystal and dark bronze. Two forward iris viewports, shuttered. A crown of six horns, focusers dimmed. Through the crystal: a maintenance log dangling from the pilot's chair.",
       "stations": [
         "PILOT'S CRADLE",
@@ -19,7 +19,7 @@
       "id": "berths",
       "pos": 2,
       "label": "BERTHS",
-      "state": "glimpsed",
+      "state": "walked",
       "glimpse": "Bunks through a cracked viewport. Six sleeping pods ring the chamber wall. One shows no light at all.",
       "pods": [
         {
@@ -53,7 +53,7 @@
       "id": "galley",
       "pos": 3,
       "label": "GALLEY",
-      "state": "glimpsed",
+      "state": "walked",
       "glimpse": "A galley, dust-sealed. Cookware still racked on the walls, waiting for a crew.",
       "stations": [
         "HEARTH-PLATE",
@@ -71,7 +71,7 @@
       "id": "stores",
       "pos": 5,
       "label": "STORES",
-      "state": "glimpsed",
+      "state": "walked",
       "glimpse": "Storage racks in ordered rows, sealed against two centuries of decay.",
       "stations": [
         "RACK ROWS",
@@ -83,7 +83,7 @@
       "id": "workshop",
       "pos": 6,
       "label": "WORKSHOP",
-      "state": "glimpsed",
+      "state": "walked",
       "glimpse": "A workshop with tools still hanging on the walls, each on its painted outline.",
       "stations": [
         "THE TOOL WALL",
@@ -95,7 +95,7 @@
       "id": "engine",
       "pos": 7,
       "label": "ENGINE",
-      "state": "glimpsed",
+      "state": "walked",
       "glimpse": "The largest segment, twice the girth of the rest. Through the reinforced glass: the core cradle, suspended in brass gyroscopic rings — and empty. The tail tapers to a drill.",
       "stations": [
         "THE CORE CRADLE — EMPTY",
