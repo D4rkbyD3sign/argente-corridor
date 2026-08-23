@@ -157,6 +157,36 @@
             "## ECHO OF CASA DOREZZAN",
             "> We dared. Casa Dorezzan forged the future from the bones of stars. In Haven 3, we built the quiet heart—the Clockwomb—that pulsed with the soul of invention. Ours was the spark before the fire, the leap before the landing. Others feared what lay ahead. We built it, understood it, and if need be… dismantled it.",
             "> Time is not a river, but a gearwork. And we… we were its engineers."
+          ],
+          "gallery": [
+            {
+              "name": "CASA BELLAVERTI",
+              "title": "the Velvet Voice — DIPLOMACY",
+              "image": "recon/casa-bellaverti.jpg",
+              "bio": "The lion-hearted; the outward face of Almire. 'We sculpted the theatre of peace. We mastered the theatre of war.' In the city's later tongue: the tongue is sharper than the sword.",
+              "fidelity": 81
+            },
+            {
+              "name": "CASA MORVAGLIO",
+              "title": "the Drumbeat — WAR · DISCIPLINE",
+              "image": "recon/casa-morvaglio.jpg",
+              "bio": "Steel and discipline wrapped in silence; from Haven 3 they trained the Spiral Guard. 'We raised statues not to honour the fallen, but to remind the living of what is expected.' In the city's later tongue: iron and blood, nothing more.",
+              "fidelity": 81
+            },
+            {
+              "name": "CASA VIRELLI",
+              "title": "the Rememberers — MEMORY · THE ART",
+              "image": "recon/casa-virelli.jpg",
+              "bio": "The strange and sacred minds; they tethered magic, codified it, and kept the soul of Almire. 'In the end, all revolutions begin with a question.' In the city's later tongue: truth has a price.",
+              "fidelity": 81
+            },
+            {
+              "name": "CASA DOREZZAN",
+              "title": "the Clocksmiths — INVENTION · TIME",
+              "image": "recon/casa-dorezzan.jpg",
+              "bio": "Mad, brilliant, often impossible; they bring the light, even if it flickers. 'Time is not a river, but a gearwork. And we were its engineers.' In the city's later tongue: what is broken can be remade.",
+              "fidelity": 81
+            }
           ]
         }
       ],
@@ -816,7 +846,8 @@
             "ON THE ART: those with magic are not shunned. They are selected. Recruited. Integrated into the Empire's forces.",
             "> There is no declining the call of the Emperor.",
             "-- Survey confidence: BRIEFING. On the plate the Empire registers as a presence-wash, survey-grade: where its writ runs, not where a line is drawn."
-          ]
+          ],
+          "image": "recon/astravia-banner.jpg"
         },
         {
           "id": "terr-falcon-reach",
