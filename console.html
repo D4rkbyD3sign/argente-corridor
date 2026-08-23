@@ -490,6 +490,7 @@ fetch('map-state.json').then(x=>x.json()).then(st => {
   document.getElementById('clearance').textContent = 'CLEARANCE: ' + st.clearance;
   const g = document.getElementById('shapes');
   const NS = 'http://www.w3.org/2000/svg';
+  const SNAP_POINTS = [];
   for (const [id, r] of Object.entries(st.regions)) {
     let el = null;
     const extra = [];
@@ -527,12 +528,28 @@ fetch('map-state.json').then(x=>x.json()).then(st => {
       document.getElementById('zoomcap').textContent = r.name.toUpperCase() + ' — HIGH-FIDELITY MEMORY';
       document.getElementById('zoomimg').src = st.plates[r.superzoom];
       document.getElementById('zoom').classList.add('show'); } };
+    if (r.point) SNAP_POINTS.push({ x: r.point[0], y: r.point[1], open: openRegion });
     for (const t of [el].concat(extra)) {
       t.addEventListener('mouseenter', () => show(r));
       t.addEventListener('click', openRegion);
     }
     g.appendChild(el);
   }
+  /* the land answers the hand — a click on open ground opens the nearest marked place;
+     the drawn settlements read as buttons, so they behave as buttons */
+  const svgEl = document.getElementById('map');
+  svgEl.addEventListener('click', e => {
+    const tag = (e.target.tagName || '').toLowerCase();
+    if (tag !== 'svg' && tag !== 'image') return;
+    const ctm = svgEl.getScreenCTM(); if (!ctm) return;
+    const pt = new DOMPoint(e.clientX, e.clientY).matrixTransform(ctm.inverse());
+    let best = null, bestD = 120;
+    for (const s of SNAP_POINTS) {
+      const d = Math.hypot(s.x - pt.x, s.y - pt.y);
+      if (d < bestD) { bestD = d; best = s; }
+    }
+    if (best) best.open();
+  });
 });
 
 /* ===== HULL SCHEMA — the runner's self-schema; the hull state file is the keeper's dial ===== */
