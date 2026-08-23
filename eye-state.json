@@ -1,6 +1,11 @@
 {
-  "current": "river",
+  "current": "water",
   "scenes": {
+    "water": {
+      "image": "optic/yen-da-open-water.jpg",
+      "designation": "OPEN WATER — THE YEN DA STRAIT",
+      "condition": "FEED LIVE · HULL AWASH · THE EYE RIDES THE WATERLINE"
+    },
     "rail": {
       "image": "optic/railway-tunnel.jpg",
       "designation": "RAIL BORE — OUTBOUND OF LOLOSIA",
