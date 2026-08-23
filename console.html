@@ -195,6 +195,9 @@
   @media (prefers-reduced-motion: reduce) { .qt-cursor, .qt-out .qt-refusal { animation: none; } }
 
   /* ===== accordion + QUERY > (L2 skin) ===== */
+  .sec-blurb { padding: 0.35rem 0.9rem 0.55rem; color: var(--dim); font-size: 0.82rem; line-height: 1.45; border-bottom: 1px dotted rgba(128,128,128,0.25); }
+  .dispatch[data-rec] { cursor: pointer; }
+  .dispatch[data-rec]:hover b { text-decoration: underline dotted; }
   .query-line { display: flex; align-items: center; gap: 0.4rem; border: 1px solid var(--bronze-deep); background: #101114; padding: 0.35rem 0.5rem; margin-bottom: 0.7rem; }
   .query-line label { color: var(--bronze); font-size: 0.66rem; letter-spacing: 0.2em; }
   .query-line input { flex: 1; background: none; border: none; outline: none; color: var(--crystal); font: inherit; font-size: 0.72rem; letter-spacing: 0.08em; min-width: 0; }
@@ -350,12 +353,12 @@
 <main>
   <aside class="rail">
     <h2>DISPATCHES</h2>
-    <div class="dispatch"><b>MEMORY 006 — BANKED</b><br>the glide from lolosia · integrity 96% · NATIVE</div>
-    <div class="dispatch"><b>MEMORY 005 — BANKED</b><br>the sword laid on the chalk · integrity 78% · WITNESSED</div>
-    <div class="dispatch"><b>MEMORY 004 — BANKED</b><br>the confrontation at the jewel · integrity 66% · WITNESSED</div>
-    <div class="dispatch"><b>MEMORY 003 — BANKED</b><br>the lolosia arc · integrity 91% · WITNESSED</div>
-    <div class="dispatch"><b>MEMORY 002 — BANKED</b><br>the wings · integrity 91% · WITNESSED</div>
-    <div class="dispatch"><b>MEMORY 001 — BANKED</b><br>the-guild · integrity 74% · RECOVERED</div>
+    <div class="dispatch" data-rec="log-departure" onclick="jumpToRecord('log-departure')"><b>MEMORY 006 — BANKED</b><br>the glide from lolosia · integrity 96% · NATIVE</div>
+    <div class="dispatch" data-rec="log-sword-on-the-chalk" onclick="jumpToRecord('log-sword-on-the-chalk')"><b>MEMORY 005 — BANKED</b><br>the sword laid on the chalk · integrity 78% · WITNESSED</div>
+    <div class="dispatch" data-rec="log-confrontation-jewel" onclick="jumpToRecord('log-confrontation-jewel')"><b>MEMORY 004 — BANKED</b><br>the confrontation at the jewel · integrity 66% · WITNESSED</div>
+    <div class="dispatch" data-rec="log-waking" onclick="jumpToRecord('log-waking')"><b>MEMORY 003 — BANKED</b><br>the lolosia arc · integrity 91% · WITNESSED</div>
+    <div class="dispatch" data-rec="log-wings" onclick="jumpToRecord('log-wings')"><b>MEMORY 002 — BANKED</b><br>the wings · integrity 91% · WITNESSED</div>
+    <div class="dispatch" data-rec="log-guild" onclick="jumpToRecord('log-guild')"><b>MEMORY 001 — BANKED</b><br>the-guild · integrity 74% · RECOVERED</div>
     <div class="dispatch">AWAITING NARRATOR RELAY…<br>further entries bank when What Was Chosen speaks.</div>
   </aside>
 
@@ -483,6 +486,7 @@ fetch('map-state.json').then(x=>x.json()).then(st => {
   const NS = 'http://www.w3.org/2000/svg';
   for (const [id, r] of Object.entries(st.regions)) {
     let el = null;
+    const extra = [];
     if (r.polygon) {
       el = document.createElementNS(NS, 'polygon');
       el.setAttribute('points', r.polygon.map(p=>p.join(',')).join(' '));
@@ -495,7 +499,12 @@ fetch('map-state.json').then(x=>x.json()).then(st => {
       el = document.createElementNS(NS, 'circle');
       el.setAttribute('cx', r.point[0]); el.setAttribute('cy', r.point[1]); el.setAttribute('r', 15);
       el.setAttribute('class', 'poi-dot');
-      /* the callout sits clear of the marker — offset per label_side (default above-right) */
+      /* a finger is wider than a dot — an unseen halo answers for the marker */
+      const halo = document.createElementNS(NS, 'circle');
+      halo.setAttribute('cx', r.point[0]); halo.setAttribute('cy', r.point[1]); halo.setAttribute('r', 46);
+      halo.setAttribute('fill', 'transparent'); halo.style.pointerEvents = 'all';
+      g.appendChild(halo); extra.push(halo);
+      /* the callout sits clear of the marker — offset per label_side (default above-right); the name answers too */
       const lbl = document.createElementNS(NS, 'text');
       const side = r.label_side || 'ne';
       const off = { ne:[24,-20], nw:[-24,-20], se:[24,38], sw:[-24,38], e:[26,9], w:[-26,9] }[side] || [24,-20];
@@ -503,14 +512,19 @@ fetch('map-state.json').then(x=>x.json()).then(st => {
       if (side === 'nw' || side === 'sw' || side === 'w') lbl.setAttribute('text-anchor', 'end');
       lbl.setAttribute('class', 'poi-label' + (r.memory === 'recovered' ? ' recovered' : ''));
       lbl.textContent = r.name.toUpperCase();
-      g.appendChild(lbl);
+      lbl.style.cursor = 'pointer';
+      lbl.style.pointerEvents = 'all';
+      g.appendChild(lbl); extra.push(lbl);
     }
     if (!el) continue;
-    el.addEventListener('mouseenter', () => show(r));
-    el.addEventListener('click', () => { show(r); if (r.superzoom && st.plates[r.superzoom]) {
+    const openRegion = () => { show(r); if (r.superzoom && st.plates[r.superzoom]) {
       document.getElementById('zoomcap').textContent = r.name.toUpperCase() + ' — HIGH-FIDELITY MEMORY';
       document.getElementById('zoomimg').src = st.plates[r.superzoom];
-      document.getElementById('zoom').classList.add('show'); } });
+      document.getElementById('zoom').classList.add('show'); } };
+    for (const t of [el].concat(extra)) {
+      t.addEventListener('mouseenter', () => show(r));
+      t.addEventListener('click', openRegion);
+    }
     g.appendChild(el);
   }
 });
@@ -598,35 +612,65 @@ function hullDetail(s, el){
   d.innerHTML = h;
 }
 
-/* ===== the survey pans in the hand — drag moves the viewBox window, clamped to the plate ===== */
+/* ===== the survey moves in the hand — drag pans, wheel and pinch zoom, all clamped to the plate ===== */
 (function(){
   const svg = document.getElementById('map');
   const FULL = { w: 2304, h: 1313 };
-  /* the window shows ~87% of the plate; the rest is reached by the hand */
+  /* the window opens at ~87% of the plate; the hand reaches the rest, and may lean closer */
   const vb = { w: Math.round(FULL.w / 1.15), h: Math.round(FULL.h / 1.15), x: 0, y: 0 };
   vb.x = Math.round((FULL.w - vb.w) / 2); vb.y = Math.round((FULL.h - vb.h) / 2);
-  let dragging = false, moved = 0, px = 0, py = 0;
-  function apply(){ svg.setAttribute('viewBox', `${vb.x} ${vb.y} ${vb.w} ${vb.h}`); }
+  const MINW = Math.round(FULL.w / 2.5);
+  let moved = 0, pinchD = 0;
+  const pts = new Map();
+  function apply(){
+    vb.w = Math.min(Math.max(vb.w, MINW), FULL.w);
+    vb.h = Math.round(vb.w * FULL.h / FULL.w);
+    vb.x = Math.min(Math.max(vb.x, 0), FULL.w - vb.w);
+    vb.y = Math.min(Math.max(vb.y, 0), FULL.h - vb.h);
+    svg.setAttribute('viewBox', `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
+  }
   apply();
+  function scaleAt(f, cx, cy){
+    const r = svg.getBoundingClientRect();
+    const px2 = vb.x + (cx - r.left) / r.width * vb.w;
+    const py2 = vb.y + (cy - r.top) / r.height * vb.h;
+    const w2 = Math.min(Math.max(vb.w * f, MINW), FULL.w);
+    const k = w2 / vb.w;
+    vb.x = px2 - (px2 - vb.x) * k;
+    vb.y = py2 - (py2 - vb.y) * k;
+    vb.w = w2;
+    apply();
+  }
+  svg.addEventListener('wheel', e => { e.preventDefault(); scaleAt(e.deltaY < 0 ? 0.88 : 1.136, e.clientX, e.clientY); }, { passive: false });
   svg.addEventListener('pointerdown', e => {
-    dragging = true; moved = 0; px = e.clientX; py = e.clientY;
-    svg.classList.add('dragging'); svg.setPointerCapture(e.pointerId);
+    pts.set(e.pointerId, { x: e.clientX, y: e.clientY, sx: e.clientX, sy: e.clientY });
+    moved = 0; svg.classList.add('dragging'); svg.setPointerCapture(e.pointerId);
+    if (pts.size === 2) { const a = [...pts.values()]; pinchD = Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y); }
   });
   svg.addEventListener('pointermove', e => {
-    if (!dragging) return;
+    const p = pts.get(e.pointerId); if (!p) return;
+    if (pts.size === 2) {
+      p.x = e.clientX; p.y = e.clientY;
+      const a = [...pts.values()];
+      const dNow = Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y);
+      if (pinchD > 0 && dNow > 0) scaleAt(pinchD / dNow, (a[0].x + a[1].x) / 2, (a[0].y + a[1].y) / 2);
+      pinchD = dNow; moved += 10;
+      return;
+    }
     const scale = vb.w / svg.clientWidth;
-    const dx = (e.clientX - px) * scale, dy = (e.clientY - py) * scale;
-    moved += Math.abs(e.clientX - px) + Math.abs(e.clientY - py);
-    px = e.clientX; py = e.clientY;
-    vb.x = Math.min(Math.max(vb.x - dx, 0), FULL.w - vb.w);
-    vb.y = Math.min(Math.max(vb.y - dy, 0), FULL.h - vb.h);
+    const dx = (e.clientX - p.x) * scale, dy = (e.clientY - p.y) * scale;
+    /* a tap is judged by how far it travelled from where it began, not by its jitter */
+    moved = Math.max(moved, Math.hypot(e.clientX - p.sx, e.clientY - p.sy));
+    p.x = e.clientX; p.y = e.clientY;
+    vb.x -= dx; vb.y -= dy;
     apply();
   });
-  ['pointerup','pointercancel'].forEach(ev => svg.addEventListener(ev, () => {
-    dragging = false; svg.classList.remove('dragging');
+  ['pointerup','pointercancel'].forEach(ev => svg.addEventListener(ev, e => {
+    pts.delete(e.pointerId); pinchD = 0;
+    if (!pts.size) svg.classList.remove('dragging');
   }));
   /* a drag is not a click — swallow region clicks that follow real movement */
-  svg.addEventListener('click', e => { if (moved > 8) { e.stopPropagation(); e.preventDefault(); moved = 0; } }, true);
+  svg.addEventListener('click', e => { if (moved > 12) { e.stopPropagation(); e.preventDefault(); moved = 0; } }, true);
 })();
 
 /* ===== locked layers — each locked tab refuses in its own voice ===== */
@@ -767,6 +811,14 @@ if (INTAKE_URL) {
   }
   bindCommit();
 }
+const BANK_INDEX = {};
+function jumpToRecord(rid){
+  const t = BANK_INDEX[rid]; if (!t) return;
+  showTab('banks');
+  t.wrap.classList.add('open');
+  t.btn.click();
+  t.btn.scrollIntoView({ block: 'center' });
+}
 fetch('banks.json').then(x=>x.json()).then(d => {
   const list = document.getElementById('banklist');
   const q = document.createElement('div'); q.className = 'query-line';
@@ -778,12 +830,14 @@ fetch('banks.json').then(x=>x.json()).then(d => {
     head.innerHTML = `<span class="chev">▸</span><span>${sec.title}</span><span class="count">${sec.records.length}</span>`;
     head.addEventListener('click', () => wrap.classList.toggle('open'));
     const body = document.createElement('div'); body.className = 'sec-body';
+    if (sec.blurb) { const bl = document.createElement('div'); bl.className = 'sec-blurb'; bl.textContent = sec.blurb; body.appendChild(bl); }
     for (const r of sec.records) {
       const b = document.createElement('button');
       b.className = 'bank-item' + (r.locked ? ' locked' : '') + (r.focus === 'out' ? ' outfocus' : '');
       b.textContent = (r.locked ? '▓ ' : '· ') + r.title.toUpperCase();
       b.dataset.q = (r.title + ' ' + (r.class || '')).toLowerCase();
       b.addEventListener('click', () => r.locked ? showSealed(r) : showRecord(r, b));
+      if (r.id) BANK_INDEX[r.id] = { btn: b, wrap: wrap };
       body.appendChild(b);
     }
     wrap.appendChild(head); wrap.appendChild(body); list.appendChild(wrap);
