@@ -303,6 +303,34 @@
   .poi-dot:hover { fill: var(--crystal); }
   .water-line { fill: none; stroke: rgba(127,212,224,0.55); stroke-width: 6; stroke-dasharray: 2 12; stroke-linecap: round; pointer-events: stroke; cursor: pointer; }
 
+  /* ===== THE ECHO-TETHER — the survey renders what its bearers have earned ===== */
+  .walk-dim { pointer-events: none; }
+  .walk-line-under { fill: none; stroke: rgba(212,175,95,0.28); stroke-width: 16; stroke-linejoin: round; stroke-linecap: round; pointer-events: none; }
+  .walk-line { fill: none; stroke: #d4af5f; stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; opacity: 0.9; pointer-events: none; }
+  .runner-core { fill: var(--crystal); stroke: #06222b; stroke-width: 2.5; pointer-events: none; }
+  .runner-pulse { fill: none; stroke: var(--crystal); stroke-width: 3; opacity: 0.7; transform-box: fill-box; transform-origin: center; animation: runnerpulse 2.8s ease-out infinite; pointer-events: none; }
+  @keyframes runnerpulse { 0% { transform: scale(0.35); opacity: 0.8; } 70% { transform: scale(1.7); opacity: 0; } 100% { transform: scale(1.7); opacity: 0; } }
+  .runner-lbl { fill: rgba(127,212,224,0.9); font-size: 26px; letter-spacing: 5px; pointer-events: none; }
+  .runner-sub { fill: rgba(127,212,224,0.5); font-size: 17px; letter-spacing: 3px; pointer-events: none; }
+  @media (prefers-reduced-motion: reduce) { .runner-pulse { animation: none; opacity: 0.3; } }
+  .traverse { position: absolute; bottom: 0.7rem; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 0.35rem; z-index: 5; background: rgba(13,14,17,0.88); border: 1px solid var(--bronze-deep); padding: 0.35rem 0.6rem; box-shadow: 0 8px 14px rgba(0,0,0,0.85), 0 3px 5px rgba(0,0,0,0.7), inset 0 1px 0 rgba(212,175,95,0.14); }
+  .trv-cap { color: var(--bronze); font-size: 0.6rem; letter-spacing: 0.25em; margin-right: 0.3rem; }
+  .trv-tok { background: #101114; border: 1px solid var(--bronze-deep); color: var(--dim); font: inherit; font-size: 0.62rem; letter-spacing: 0.12em; padding: 0.28rem 0.5rem; cursor: pointer; }
+  .trv-tok.walked { color: var(--bronze); }
+  .trv-tok.ahead { opacity: 0.4; }
+  .trv-tok.sel { border-color: var(--witnessed); color: var(--witnessed); }
+  .trv-tok.now { color: var(--crystal); border-color: rgba(127,212,224,0.55); }
+  .trv-tok.now.sel { border-color: var(--crystal); }
+  .trv-step { background: none; border: 1px solid var(--bronze-deep); color: var(--dim); font: inherit; font-size: 0.62rem; padding: 0.28rem 0.4rem; cursor: pointer; }
+  .trv-step:hover, .trv-tok:hover { border-color: var(--bronze); color: var(--bronze); }
+  /* ground the bearers have not reached sits ghost-dim; the frame itself never dims */
+  #shapes .unvisited { opacity: 0.32; }
+  #shapes text.unvisited { opacity: 0.28; }
+  .tether-notice { position: fixed; z-index: 60; display: none; background: #12100e; border: 1px solid var(--corrupted); padding: 0.45rem 0.8rem 0.55rem; color: var(--corrupted); font-size: 0.68rem; letter-spacing: 0.18em; box-shadow: 0 8px 14px rgba(0,0,0,0.85), 0 3px 5px rgba(0,0,0,0.7), inset 0 1px 0 rgba(160,92,80,0.2); pointer-events: none; }
+  .tether-notice.show { display: block; }
+  .tether-notice .tn-sub { color: var(--dim); letter-spacing: 0.08em; margin-top: 0.3rem; font-size: 0.66rem; }
+  @media (max-width: 860px) { .traverse { bottom: 0.4rem; padding: 0.25rem 0.4rem; gap: 0.25rem; } .trv-cap { display: none; } .trv-tok { padding: 0.22rem 0.38rem; } }
+
   /* denial + zoom overlays */
   .overlay-msg { position: absolute; inset: 0; background: rgba(13,14,17,0.85); display: none; align-items: center; justify-content: center; flex-direction: column; gap: 0.8rem; z-index: 10; cursor: pointer; }
   #denial { position: fixed; z-index: 35; }
@@ -374,6 +402,7 @@
   <div class="viewport" id="vp">
     <svg id="map" viewBox="0 0 2304 1313" preserveAspectRatio="xMidYMid meet">
       <image href="survey-wire.jpg" x="0" y="0" width="2304" height="1313" opacity="0.95"/>
+      <g id="journey"></g>
       <g id="shapes"></g>
     </svg>
     <div class="fog"></div>
@@ -490,6 +519,110 @@ function show(r){
     memory: <span class="badge ${r.memory}">${r.memory.toUpperCase()}</span><br>
     ${r.superzoom ? '<br>[ CLICK TARGET FOR HIGH-FIDELITY MEMORY ]' : ''}</div>`;
 }
+/* THE ECHO-TETHER — the journey dial belongs to the narrator; the survey draws what it says and nothing it does not.
+   The TRAVERSE bar scrubs the tether: each token re-renders line, dim and Runner from that stage's ground. */
+fetch('journey-state.json').then(x=>x.json()).then(j => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const g = document.getElementById('journey');
+  const mk = (tag, attrs) => { const e = document.createElementNS(NS, tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); return e; };
+  const legPath = leg => leg.path || [leg.ground];
+  function ptsUpTo(n) {
+    const pts = [];
+    for (const leg of j.legs.slice(0, n)) for (const p of legPath(leg)) {
+      const last = pts[pts.length - 1]; if (!last || last[0] !== p[0] || last[1] !== p[1]) pts.push(p);
+    }
+    return pts;
+  }
+  function render(n, atNow) {
+    g.innerHTML = '';
+    let pts = ptsUpTo(n);
+    if (atNow) { const last = pts[pts.length - 1], np = j.now.position; if (!last || last[0] !== np[0] || last[1] !== np[1]) pts.push(np); }
+    const runnerPos = atNow ? j.now.position : (pts.length ? pts[pts.length - 1] : legPath(j.legs[0])[0]);
+    const ptStr = pts.map(p => p.join(',')).join(' ');
+    /* the dim: one mask, one rect — unwalked ground sits dark, walked ground keeps the light */
+    const defs = mk('defs', {});
+    const mask = mk('mask', { id: 'walkmask' });
+    mask.appendChild(mk('rect', { x: 0, y: 0, width: 2304, height: 1313, fill: 'white' }));
+    if (pts.length > 1) mask.appendChild(mk('polyline', { points: ptStr, fill: 'none', stroke: 'black', 'stroke-width': 110, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
+    for (const leg of j.legs.slice(0, n)) mask.appendChild(mk('circle', { cx: leg.ground[0], cy: leg.ground[1], r: leg.reveal || 120, fill: 'black' }));
+    mask.appendChild(mk('circle', { cx: runnerPos[0], cy: runnerPos[1], r: 120, fill: 'black' }));
+    defs.appendChild(mask);
+    g.appendChild(defs);
+    g.appendChild(mk('rect', { x: 0, y: 0, width: 2304, height: 1313, fill: 'black', opacity: j.dim != null ? j.dim : 0.55, mask: 'url(#walkmask)', 'class': 'walk-dim' }));
+    /* the line walked */
+    if (pts.length > 1) {
+      g.appendChild(mk('polyline', { points: ptStr, 'class': 'walk-line-under' }));
+      g.appendChild(mk('polyline', { points: ptStr, 'class': 'walk-line' }));
+    }
+    /* the Runner */
+    const nx = runnerPos[0], ny = runnerPos[1];
+    g.appendChild(mk('circle', { cx: nx, cy: ny, r: 26, 'class': 'runner-pulse' }));
+    g.appendChild(mk('circle', { cx: nx, cy: ny, r: 11, 'class': 'runner-core' }));
+    const leg = n > 0 ? j.legs[n - 1] : null;
+    const t1 = atNow ? 'THE RUNNER · NOW' : 'ECHO-TETHER · ' + (leg ? leg.n : '000');
+    const t2 = atNow ? ('position ' + (j.now.confidence || 'estimated').toUpperCase() + ' · narrator confirms')
+                     : ((leg ? leg.ground_name : '').toUpperCase() + ' · walked ground');
+    const l1 = mk('text', { x: nx - 34, y: ny - 40, 'class': 'runner-lbl', 'text-anchor': 'end' }); l1.textContent = t1;
+    const l2 = mk('text', { x: nx - 34, y: ny - 14, 'class': 'runner-sub', 'text-anchor': 'end' }); l2.textContent = t2;
+    g.appendChild(l1); g.appendChild(l2);
+  }
+  /* the TRAVERSE bar — fixed to the window, not the plate, so it never pans away */
+  const vp = document.getElementById('vp');
+  const bar = document.createElement('div'); bar.className = 'traverse';
+  const cap = document.createElement('span'); cap.className = 'trv-cap'; cap.textContent = 'TRAVERSE'; bar.appendChild(cap);
+  const NOWI = j.legs.length;
+  let sel = NOWI;
+  const toks = [];
+  function paint() {
+    toks.forEach((t, i) => {
+      let c = 'trv-tok';
+      if (i === NOWI) c += ' now';
+      else if (i < sel) c += ' walked';
+      else if (i > sel) c += ' ahead';
+      if (i === sel) c += ' sel';
+      t.className = c;
+    });
+  }
+  function goTo(i) { sel = i; paint(); if (i === NOWI) render(NOWI, true); else render(i + 1, false); }
+  const back = document.createElement('button'); back.className = 'trv-step'; back.textContent = '◂';
+  back.addEventListener('click', () => goTo(Math.max(0, sel - 1)));
+  bar.appendChild(back);
+  j.legs.forEach((leg, i) => {
+    const t = document.createElement('button'); t.textContent = leg.n; t.title = leg.ground_name;
+    t.addEventListener('click', () => goTo(i)); bar.appendChild(t); toks.push(t);
+  });
+  const tn = document.createElement('button'); tn.textContent = 'NOW';
+  tn.addEventListener('click', () => goTo(NOWI)); bar.appendChild(tn); toks.push(tn);
+  const fwd = document.createElement('button'); fwd.className = 'trv-step'; fwd.textContent = '▸';
+  fwd.addEventListener('click', () => goTo(Math.min(NOWI, sel + 1)));
+  bar.appendChild(fwd);
+  vp.appendChild(bar);
+  goTo(NOWI);
+  /* ghost-dim the markers of ground not yet reached — the visited list is the narrator's dial.
+     Hovering an unreached marker raises the tether's own refusal. */
+  const visited = new Set(j.visited || []);
+  const tnote = document.createElement('div'); tnote.className = 'tether-notice';
+  tnote.innerHTML = 'NO WALKED GROUND ON FILE<div class="tn-sub"></div>';
+  document.body.appendChild(tnote);
+  let tries = 0;
+  (function applyVisited() {
+    const marked = document.querySelectorAll('#shapes [data-region]');
+    if (!marked.length) { if (++tries < 25) setTimeout(applyVisited, 200); return; }
+    marked.forEach(t => {
+      const id = t.dataset.region;
+      if (visited.has(id) || t.classList.contains('frame-shape')) return;
+      t.classList.add('unvisited');
+      t.addEventListener('mouseenter', () => {
+        const r = t.getBoundingClientRect();
+        tnote.querySelector('.tn-sub').textContent = (t.dataset.rname || id).toUpperCase() + ' · the tether has not reached this ground';
+        tnote.style.left = Math.max(8, Math.min(window.innerWidth - 300, r.left)) + 'px';
+        tnote.style.top = (r.bottom + 8) + 'px';
+        tnote.classList.add('show');
+      });
+      t.addEventListener('mouseleave', () => tnote.classList.remove('show'));
+    });
+  })();
+}).catch(() => { /* no journey dial on this build — the survey stands as before */ });
 fetch('map-state.json').then(x=>x.json()).then(st => {
   document.getElementById('clearance').textContent = 'CLEARANCE: ' + st.clearance;
   const g = document.getElementById('shapes');
@@ -534,6 +667,7 @@ fetch('map-state.json').then(x=>x.json()).then(st => {
       document.getElementById('zoom').classList.add('show'); } };
     if (r.point) SNAP_POINTS.push({ x: r.point[0], y: r.point[1], open: openRegion });
     for (const t of [el].concat(extra)) {
+      t.dataset.region = id; t.dataset.rname = r.name;
       t.addEventListener('mouseenter', () => show(r));
       t.addEventListener('click', openRegion);
     }

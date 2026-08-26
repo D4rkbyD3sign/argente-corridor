@@ -1,0 +1,149 @@
+{
+  "dim": 0.55,
+  "visited": [
+    "chaepstow",
+    "umbral-woods",
+    "tamgamis-spine",
+    "lolosia",
+    "yen-da-strait"
+  ],
+  "now": {
+    "position": [
+      770,
+      808
+    ],
+    "name": "open water — the Yen Da Strait",
+    "confidence": "estimated",
+    "after": "log-departure"
+  },
+  "legs": [
+    {
+      "n": "001",
+      "ground": [
+        1325,
+        939
+      ],
+      "ground_name": "Chaepstow",
+      "reveal": 130
+    },
+    {
+      "n": "002",
+      "ground": [
+        1585,
+        765
+      ],
+      "ground_name": "the Umbral Woods",
+      "reveal": 165,
+      "path": [
+        [
+          1325,
+          939
+        ],
+        [
+          1500,
+          845
+        ],
+        [
+          1585,
+          765
+        ]
+      ]
+    },
+    {
+      "n": "003",
+      "ground": [
+        1746,
+        703
+      ],
+      "ground_name": "Tamgami's Spine",
+      "reveal": 165,
+      "path": [
+        [
+          1585,
+          765
+        ],
+        [
+          1746,
+          703
+        ]
+      ]
+    },
+    {
+      "n": "004",
+      "ground": [
+        1325,
+        939
+      ],
+      "ground_name": "Chaepstow — the return",
+      "reveal": 130,
+      "path": [
+        [
+          1746,
+          703
+        ],
+        [
+          1620,
+          880
+        ],
+        [
+          1325,
+          939
+        ]
+      ]
+    },
+    {
+      "n": "005",
+      "ground": [
+        991,
+        691
+      ],
+      "ground_name": "Lolosia",
+      "reveal": 145,
+      "path": [
+        [
+          1325,
+          939
+        ],
+        [
+          1150,
+          830
+        ],
+        [
+          991,
+          691
+        ]
+      ]
+    },
+    {
+      "n": "006",
+      "ground": [
+        850,
+        800
+      ],
+      "ground_name": "the Yen Da Strait — outbound",
+      "reveal": 115,
+      "path": [
+        [
+          991,
+          691
+        ],
+        [
+          1000,
+          700
+        ],
+        [
+          950,
+          770
+        ],
+        [
+          850,
+          800
+        ],
+        [
+          770,
+          808
+        ]
+      ]
+    }
+  ]
+}
