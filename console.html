@@ -200,7 +200,11 @@
   @media (prefers-reduced-motion: reduce) { .qt-cursor, .qt-out .qt-refusal { animation: none; } }
 
   /* ===== accordion + QUERY > (L2 skin) ===== */
-  .sec-blurb { padding: 0.35rem 0.9rem 0.55rem; color: var(--dim); font-size: 0.82rem; line-height: 1.45; border-bottom: 1px dotted rgba(128,128,128,0.25); }
+  .sec-blurb-pop { position: fixed; z-index: 60; display: none; width: min(320px, 78vw); background: #0e0f13; border: 1px solid var(--bronze-deep); padding: 0.55rem 0.9rem 0.7rem; color: var(--dim); font-size: 0.82rem; line-height: 1.5; box-shadow: 0 8px 14px rgba(0,0,0,0.85), 0 3px 5px rgba(0,0,0,0.7), inset 0 1px 0 rgba(212,175,95,0.14); }
+  .sec-blurb-pop.show { display: block; }
+  .sec-blurb-pop .pop-tag { color: var(--bronze); font-size: 0.6rem; letter-spacing: 0.25em; margin-bottom: 0.35rem; }
+  .sec-head .brief { color: var(--dim); font-size: 0.62rem; letter-spacing: 0.05em; opacity: 0.7; }
+  .sec-head .brief:hover, .sec-head .brief.lit { color: var(--bronze); opacity: 1; }
   .dispatch[data-rec] { cursor: pointer; }
   .dispatch[data-rec]:hover b { text-decoration: underline dotted; }
   .query-line { display: flex; align-items: center; gap: 0.4rem; border: 1px solid var(--bronze-deep); background: #101114; padding: 0.35rem 0.5rem; margin-bottom: 0.7rem; }
@@ -859,6 +863,30 @@ if (INTAKE_URL) {
   }
   bindCommit();
 }
+/* the section brief pops OUT over the page — one shared card, fixed-positioned */
+const blurbPop = document.createElement('div'); blurbPop.className = 'sec-blurb-pop'; document.body.appendChild(blurbPop);
+let blurbPinnedBy = null;
+function popBlurb(head, g, sec, pin){
+  if (pin && blurbPinnedBy === g) { hideBlurbPop(true); return; }
+  if (blurbPinnedBy && !pin) return;
+  blurbPop.innerHTML = '<div class="pop-tag">SECTION BRIEF</div>';
+  blurbPop.appendChild(document.createTextNode(sec.blurb));
+  const r = head.getBoundingClientRect();
+  if (window.innerWidth > 860) { blurbPop.style.left = (r.right + 10) + 'px'; blurbPop.style.top = r.top + 'px'; }
+  else { blurbPop.style.left = r.left + 'px'; blurbPop.style.top = (r.bottom + 6) + 'px'; }
+  blurbPop.classList.add('show');
+  document.querySelectorAll('.sec-head .brief.lit').forEach(x => x.classList.remove('lit'));
+  blurbPinnedBy = pin ? g : null;
+  if (pin) g.classList.add('lit');
+}
+function hideBlurbPop(force){
+  if (blurbPinnedBy && !force) return;
+  blurbPop.classList.remove('show');
+  document.querySelectorAll('.sec-head .brief.lit').forEach(x => x.classList.remove('lit'));
+  blurbPinnedBy = null;
+}
+document.addEventListener('scroll', () => hideBlurbPop(true), true);
+document.addEventListener('click', e => { if (!e.target.closest('.brief')) hideBlurbPop(true); });
 const BANK_INDEX = {};
 function jumpToRecord(rid){
   const t = BANK_INDEX[rid]; if (!t) return;
@@ -875,10 +903,16 @@ fetch('banks.json').then(x=>x.json()).then(d => {
   d.sections.forEach((sec, si) => {
     const wrap = document.createElement('div'); wrap.className = 'sec' + (si === 0 ? ' open' : '');
     const head = document.createElement('button'); head.className = 'sec-head';
-    head.innerHTML = `<span class="chev">▸</span><span>${sec.title}</span><span class="count">${sec.records.length}</span>`;
+    head.innerHTML = `<span class="chev">▸</span><span>${sec.title}</span><span class="count">${sec.records.length}</span>` + (sec.blurb ? `<span class="brief" role="button" aria-label="section brief">[?]</span>` : '');
     head.addEventListener('click', () => wrap.classList.toggle('open'));
     const body = document.createElement('div'); body.className = 'sec-body';
-    if (sec.blurb) { const bl = document.createElement('div'); bl.className = 'sec-blurb'; bl.textContent = sec.blurb; body.appendChild(bl); }
+    wrap.appendChild(head);
+    if (sec.blurb) {
+      const g = head.querySelector('.brief');
+      head.addEventListener('mouseenter', () => popBlurb(head, g, sec, false));
+      head.addEventListener('mouseleave', () => hideBlurbPop(false));
+      g.addEventListener('click', e => { e.stopPropagation(); popBlurb(head, g, sec, true); });
+    }
     for (const r of sec.records) {
       const b = document.createElement('button');
       b.className = 'bank-item' + (r.locked ? ' locked' : '') + (r.focus === 'out' ? ' outfocus' : '');
@@ -888,7 +922,7 @@ fetch('banks.json').then(x=>x.json()).then(d => {
       if (r.id) BANK_INDEX[r.id] = { btn: b, wrap: wrap };
       body.appendChild(b);
     }
-    wrap.appendChild(head); wrap.appendChild(body); list.appendChild(wrap);
+    wrap.appendChild(body); list.appendChild(wrap);
   });
   document.getElementById('queryin').addEventListener('input', e => {
     const term = e.target.value.trim().toLowerCase();
