@@ -1,6 +1,6 @@
 {
   "bullion": {
-    "gp": 4890
+    "gp": 3404
   },
   "bearers": [
     {
@@ -577,6 +577,160 @@
       "qty": 1,
       "custody": "hold",
       "note": "Stowed. The walls can wait."
+    },
+    {
+      "id": "rune-ink",
+      "name": "RUNE INK VIALS",
+      "cls": "provision",
+      "qty": 6,
+      "custody": "hold",
+      "note": "Two each of fire, frost and storm. The ink remembers what it resists."
+    },
+    {
+      "id": "whisky-fireball",
+      "name": "WHISKY, FIREBALL BRAND",
+      "cls": "provision",
+      "qty": 1,
+      "custody": "hold",
+      "note": "Obsidian bottle, Embassy Isles make. Ten servings of dragon's breath."
+    },
+    {
+      "id": "potion-fire-res",
+      "name": "POTION OF FIRE RESISTANCE",
+      "cls": "provision",
+      "qty": 1,
+      "custody": "hold"
+    },
+    {
+      "id": "potion-barkskin",
+      "name": "POTION OF BARKSKIN",
+      "cls": "provision",
+      "qty": 1,
+      "custody": "hold"
+    },
+    {
+      "id": "timonium-bracelet",
+      "name": "TIMONIUM BRACELET",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "hold",
+      "note": "Set with blue crystal timonium pieces."
+    },
+    {
+      "id": "ring-necrotic",
+      "name": "RING OF RESISTANCE",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "hold",
+      "note": "Necrotic. The grave finds this finger dull."
+    },
+    {
+      "id": "ring-transposition",
+      "name": "RING OF SINISTER TRANSPOSITION",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "hold"
+    },
+    {
+      "id": "daikes-whistle",
+      "name": "DAIKE'S WHISTLE",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "hold",
+      "note": "It calls a guide from the spirit world. The register does not ask where the guide waits."
+    },
+    {
+      "id": "kirijo-silver-ring",
+      "name": "SILVER RING, SEAL OF KIRIJO",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "hold",
+      "note": "No cone of silence has held it yet."
+    },
+    {
+      "id": "drak-scale",
+      "name": "DRAK SCALE",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "hold"
+    },
+    {
+      "id": "chain-returning",
+      "name": "CHAIN OF RETURNING",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "hold",
+      "note": "Unappraised. The register lists what it is told."
+    },
+    {
+      "id": "cap-water",
+      "name": "CAP OF WATER BREATHING",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "hold"
+    },
+    {
+      "id": "crowleys-flail",
+      "name": "CROWLEY'S FLAIL",
+      "cls": "arms",
+      "qty": 1,
+      "custody": "hold",
+      "note": "Adamantine. The metal is the argument."
+    },
+    {
+      "id": "spell-scrolls",
+      "name": "SPELL SCROLLS",
+      "cls": "sundry",
+      "qty": 12,
+      "custody": "hold",
+      "note": "A bundle, cantrip to fourth circle."
+    },
+    {
+      "id": "rudolph-spellbook",
+      "name": "MAGIER RUDOLPH'S SPELLBOOK",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "hold",
+      "note": "His favourite workings, in his own hand. The hand is done writing."
+    },
+    {
+      "id": "arbiter-arms",
+      "name": "ARBITER ASPECT ARMS",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "hold",
+      "note": "Arms, without a head. The register declines to speculate on the set."
+    },
+    {
+      "id": "timonium-tubes",
+      "name": "TIMONIUM CRYSTAL TUBES",
+      "cls": "sundry",
+      "qty": 6,
+      "custody": "hold",
+      "note": "Shattered. Six of them."
+    },
+    {
+      "id": "kirijo-chest",
+      "name": "MISTRESS KIRIJO'S TREASURE CHEST",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "hold"
+    },
+    {
+      "id": "frost-locket",
+      "name": "FROST LOCKET, THE WINTER VIGIL",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "hold",
+      "note": "Cold answers to it. Ice answers for it."
+    },
+    {
+      "id": "sorcerer-spellbook",
+      "name": "SORCERER'S SPELLBOOK",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "hold",
+      "note": "First circle to sixth. The author is not named."
     }
   ]
 }
