@@ -223,6 +223,8 @@
   .mf-door button { background: none; color: var(--bronze); font-family: inherit; font-size: 0.66rem; letter-spacing: 0.14em; border: 1px solid var(--bronze-deep); padding: 0.3rem 0.6rem; cursor: pointer; }
   .mf-fig { filter: drop-shadow(0 0 14px rgba(127,212,224,0.35)); animation: mfsway 7s ease-in-out infinite; }
   .mf-fig svg { display: block; }
+  .mf-fig.plate { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .mf-photo { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: screen; display: block; }
   @keyframes mfsway { 0%, 100% { transform: perspective(600px) rotateY(-14deg); } 50% { transform: perspective(600px) rotateY(14deg); } }
   .mf-recon.cut > * { animation: mfcut 160ms steps(2, end); }
   @keyframes mfcut { 0% { opacity: 0.25; } 50% { opacity: 0.8; } 100% { opacity: 1; } }
@@ -1119,6 +1121,8 @@ const MF_VITRUVIAN =
   + '<text x="100" y="238" text-anchor="middle" font-size="9" fill="currentColor" stroke="none" opacity="0.7" letter-spacing="3">BEARER FRAME</text>'
   + '</svg>';
 fetch('ledger.json').then(x=>x.json()).then(d => { LEDGER = d; drawManifest(); }).catch(function(){});
+/* bearers with a reconstruction plate on file; the line-figure stands in for the rest */
+const MF_FRAMES = { zarek: 1, alecto: 1, turox: 1, eiliwyn: 1, ludrimein: 1, hesiod: 1 };
 function mfBearer(id){ return LEDGER.bearers.find(b => b.id === id); }
 function mfShowBearer(id){
   const rec = document.getElementById('mf-recon'), body = document.getElementById('mf-dbody');
@@ -1130,7 +1134,11 @@ function mfShowBearer(id){
   const b = mfBearer(id);
   const items = LEDGER.items.filter(it => it.custody === id);
   const pieces = items.reduce((n, it) => n + it.qty, 0);
-  rec.innerHTML = '<div class="scanl"></div><div class="mf-fig" style="color:' + b.hue + '">' + MF_VITRUVIAN + '</div>';
+  if (MF_FRAMES[id]) {
+    rec.innerHTML = '<div class="mf-fig plate"><img class="mf-photo" src="frames/' + id + '.png" alt=""></div><div class="scanl"></div>';
+  } else {
+    rec.innerHTML = '<div class="scanl"></div><div class="mf-fig" style="color:' + b.hue + '">' + MF_VITRUVIAN + '</div>';
+  }
   mfCut();
   body.innerHTML = '<div class="mf-dtitle" style="color:' + b.hue + '">' + b.name + '</div>'
     + (b.designation ? '<div class="mf-drow"><span class="k">DESIGNATION</span><span>' + b.designation + '</span></div>' : '')
@@ -1138,7 +1146,9 @@ function mfShowBearer(id){
     + '<div class="mf-drow"><span class="k">LEDGER ENTRIES</span><span>' + items.length + '</span></div>'
     + '<div class="mf-drow"><span class="k">PIECES CARRIED</span><span>' + pieces + '</span></div>'
     + (b.stats ? b.stats.map(s => '<div class="mf-drow"><span class="k">' + s.k + '</span><span>' + s.v + '</span></div>').join('') : '')
-    + '<div class="mf-dnote">The figure is an approximation held by the register. Higher fidelity waits on what the bearers commit.</div>';
+    + '<div class="mf-dnote">' + (MF_FRAMES[id]
+        ? 'Reconstruction on file. The optics hold what the machine has seen of the bearer.'
+        : 'The figure is an approximation held by the register. Higher fidelity waits on what the bearers commit.') + '</div>';
 }
 function mfCustodyLine(it){
   if (it.custody === 'hold') return 'IN THE HOLD';
