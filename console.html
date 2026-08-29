@@ -167,6 +167,68 @@
   /* ===== HULL SCHEMA — the runner's self-schema (blueprint register) ===== */
   #hull { flex: 1; display: none; overflow-y: auto; background: #07090d; }
   #hull.show { display: block; }
+  /* ===== THE MANIFEST — cargo & custody. the quartermaster's dial drives this pane. ===== */
+  #manifest { flex: 1; display: none; overflow-y: auto; background: #0c0d10; }
+  #manifest.show { display: block; }
+  .mf-inner { max-width: 1180px; margin: 0 auto; padding: 1.4rem 1.6rem 2.5rem; }
+  .mf-layout { display: grid; grid-template-columns: 1fr 300px; gap: 1.1rem; align-items: start; }
+  @media (max-width: 900px) { .mf-layout { grid-template-columns: 1fr; } }
+  .mf-rail { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0 0 1rem; }
+  .mf-chip { border: 1px solid var(--bronze-deep); color: var(--text); background: none; font-family: inherit; font-size: 0.68rem; letter-spacing: 0.14em; padding: 0.32rem 0.7rem; cursor: pointer; display: flex; gap: 0.45rem; align-items: center; transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; }
+  .mf-chip:hover { border-color: var(--bronze); box-shadow: var(--elev-low), var(--elev-light); transform: translateY(-1px); }
+  .mf-chip:active { transform: translateY(0); }
+  .mf-chip .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .mf-chip.active { border-color: var(--bronze); color: var(--witnessed); box-shadow: var(--elev-light); }
+  .mf-chip.oof { opacity: 0.55; }
+  .mf-chip .oof-tag { color: var(--corrupted); font-size: 0.6rem; }
+  .mf-panel { background: var(--panel); border: 1px solid var(--line); box-shadow: var(--elev-lower), var(--elev-light); padding: 0.9rem 1rem 1rem; margin-bottom: 1.1rem; }
+  .mf-sec-title { color: var(--bronze); letter-spacing: 0.26em; font-size: 0.74rem; margin-bottom: 0.7rem; display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
+  .mf-sec-title .tag { color: var(--dim); letter-spacing: 0.1em; font-size: 0.64rem; }
+  .mf-bullion { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+  .mf-odo { display: flex; gap: 0.25rem; }
+  .mf-odo .digit { background: #101115; border: 1px solid var(--bronze-deep); color: var(--witnessed); font-size: 1.5rem; padding: 0.25rem 0.55rem; box-shadow: inset 0 2px 6px rgba(0,0,0,0.7); }
+  .mf-unit { color: var(--bronze); letter-spacing: 0.2em; font-size: 0.7rem; margin-top: 0.4rem; }
+  .mf-bullion .note { color: var(--dim); font-size: 0.68rem; max-width: 24rem; line-height: 1.5; }
+  .mf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 0.55rem; }
+  .mf-cell { position: relative; aspect-ratio: 1; border: 1px solid var(--bronze-deep); background: #14161a; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.3rem; padding: 0.4rem; transition: box-shadow 0.15s, border-color 0.15s, transform 0.15s; animation: mfcellin 220ms ease-out both; }
+  @keyframes mfcellin { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+  .mf-cell::before, .mf-cell::after { content: ""; position: absolute; width: 9px; height: 9px; border-color: var(--bronze); border-style: solid; }
+  .mf-cell::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+  .mf-cell::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+  .mf-cell:hover { border-color: var(--bronze); box-shadow: var(--elev-mid), var(--elev-light); transform: translateY(-2px); }
+  .mf-cell:hover .bstrip { height: 4px; filter: brightness(1.25); }
+  .mf-cell:active { transform: translateY(0); box-shadow: var(--elev-lower); }
+  .mf-cell.sel { border-color: var(--crystal); }
+  .mf-cell.oof { opacity: 0.45; filter: saturate(0.5); }
+  .mf-cell .glyph { color: var(--crystal); }
+  .mf-cell .glyph svg { display: block; }
+  .mf-cell .iname { font-size: 0.56rem; letter-spacing: 0.06em; text-align: center; color: var(--text); line-height: 1.25; }
+  .mf-cell .qty { position: absolute; right: 4px; bottom: 3px; font-size: 0.6rem; color: var(--witnessed); }
+  .mf-cell .cls { position: absolute; left: 5px; top: 4px; width: 7px; height: 7px; }
+  .mf-cell .bstrip { position: absolute; left: -1px; right: -1px; bottom: -1px; height: 3px; }
+  .mf-cell .setmark { position: absolute; right: 4px; top: 3px; font-size: 0.6rem; color: var(--bronze); }
+  .mf-legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.7rem; }
+  .mf-legend span { font-size: 0.62rem; letter-spacing: 0.16em; color: var(--dim); display: flex; align-items: center; gap: 0.35rem; }
+  .mf-legend i { width: 8px; height: 8px; display: inline-block; }
+  .mf-detail { position: sticky; top: 1rem; }
+  .mf-recon { border: 1px solid var(--line); background: #14161a; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: var(--elev-mid); overflow: hidden; }
+  .mf-recon .scanl { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(127,212,224,0.045) 3px 4px); }
+  .mf-recon .holo { color: var(--crystal); filter: drop-shadow(0 0 12px rgba(127,212,224,0.45)); transform: scale(2.4); }
+  .mf-recon .pend { color: var(--dim); font-size: 0.66rem; letter-spacing: 0.24em; text-align: center; }
+  .mf-dtitle { color: var(--witnessed); letter-spacing: 0.16em; font-size: 0.8rem; margin-top: 0.7rem; }
+  .mf-drow { display: flex; justify-content: space-between; border-bottom: 1px dotted #2c2e33; padding: 0.32rem 0; font-size: 0.7rem; gap: 0.6rem; }
+  .mf-drow .k { color: var(--dim); letter-spacing: 0.12em; }
+  .mf-dnote { color: var(--dim); font-size: 0.68rem; line-height: 1.6; margin-top: 0.6rem; }
+  .mf-door { margin-top: 0.6rem; }
+  .mf-door button { background: none; color: var(--bronze); font-family: inherit; font-size: 0.66rem; letter-spacing: 0.14em; border: 1px solid var(--bronze-deep); padding: 0.3rem 0.6rem; cursor: pointer; }
+  .mf-fig { filter: drop-shadow(0 0 14px rgba(127,212,224,0.35)); animation: mfsway 7s ease-in-out infinite; }
+  .mf-fig svg { display: block; }
+  @keyframes mfsway { 0%, 100% { transform: perspective(600px) rotateY(-14deg); } 50% { transform: perspective(600px) rotateY(14deg); } }
+  .mf-recon.cut > * { animation: mfcut 160ms steps(2, end); }
+  @keyframes mfcut { 0% { opacity: 0.25; } 50% { opacity: 0.8; } 100% { opacity: 1; } }
+  .mf-door button { transition: color 0.15s, border-color 0.15s, box-shadow 0.15s; }
+  .mf-door button:hover { color: var(--witnessed); border-color: var(--bronze); box-shadow: var(--elev-lower), var(--elev-light); }
+  @media (prefers-reduced-motion: reduce) { .mf-fig { animation: none; } .mf-cell { animation: none; } .mf-recon.cut > * { animation: none; } .mf-cell:hover, .mf-chip:hover { transform: none; } }
   .hull-inner { max-width: 1150px; margin: 1.6rem auto; padding: 0 1.2rem 2.5rem; }
   .hull-frame { position: relative; border: 2px solid var(--bronze-deep); background:
     linear-gradient(rgba(127,212,224,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(127,212,224,0.045) 1px, transparent 1px), #05070c;
@@ -243,9 +305,11 @@
   header .clearance { margin-left: auto; color: var(--corrupted); font-size: 0.7rem; letter-spacing: 0.12em; }
 
   nav { display: flex; border-bottom: 1px solid var(--bronze-deep); background: var(--panel); }
-  nav button { background: none; border: none; border-right: 1px solid var(--bronze-deep); color: var(--dim); font: inherit; font-size: 0.72rem; letter-spacing: 0.22em; padding: 0.5rem 1.4rem; cursor: pointer; }
+  nav button { background: none; border: none; border-right: 1px solid var(--bronze-deep); color: var(--dim); font: inherit; font-size: 0.72rem; letter-spacing: 0.22em; padding: 0.5rem 1.4rem; cursor: pointer; transition: color 0.15s, background 0.15s, box-shadow 0.15s; }
+  nav button:hover:not(.locked):not(.active) { color: var(--text); background: #202127; box-shadow: var(--elev-light); }
+  nav button:active:not(.locked) { background: #26221a; }
   nav button.active { color: var(--bronze); background: #26221a; box-shadow: inset 0 -2px 0 var(--bronze); }
-  nav button.locked { color: #55503f; }
+  nav button.locked { color: #55503f; transition: none; }
 
   main { flex: 1; display: grid; grid-template-columns: 240px 1fr 250px; min-height: 0; }
   .rail { background: var(--panel); border-right: 1px solid var(--bronze-deep); padding: 0.8rem; overflow-y: auto; font-size: 0.72rem; }
@@ -360,7 +424,7 @@
 
   /* ===== THE LIVE PASS — the machine settles what it renders; nothing snaps ===== */
   @keyframes materialize { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-  #banks.show, #commit.show, #optic.show, #hull.show { animation: materialize 300ms ease-out; }
+  #banks.show, #commit.show, #optic.show, #hull.show, #manifest.show { animation: materialize 300ms ease-out; }
   .rec-head, .rec-body { animation: materialize 300ms ease-out; }
   .bank-item { transition: color 300ms ease, transform 300ms ease; }
   .bank-item:hover { transform: translateX(3px); }
@@ -371,7 +435,7 @@
     animation: surveysweep 47s linear infinite; mix-blend-mode: screen; }
   @keyframes surveysweep { to { transform: rotate(360deg); } }
   @media (prefers-reduced-motion: reduce) {
-    #banks.show, #commit.show, #optic.show, #hull.show, .rec-head, .rec-body { animation: none; }
+    #banks.show, #commit.show, #optic.show, #hull.show, #manifest.show, .rec-head, .rec-body { animation: none; }
     .bank-item { transition: color 300ms ease; }
     .bank-item:hover { transform: none; }
     .survey-sweep { display: none; }
@@ -383,6 +447,24 @@
   #denial { position: fixed; z-index: 35; }
   #denial .deny { max-width: 46rem; text-align: center; line-height: 2; }
   .overlay-msg.show { display: flex; }
+
+  /* ===== the hand of the querent — the console draws its own cursor ===== */
+  body, #boot, #gate {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M4 2 L4 19 L9 14.5 L12.5 21 L15.5 19.5 L12 13 L19 12.5 Z' fill='%237fd4e0' stroke='%230a0c10' stroke-width='1.4'/%3E%3C/svg%3E") 3 2, auto;
+  }
+  button, nav button, .recon-nav button, .rec-warning button, .optic-cams button, .mf-door button,
+  .bank-item, .mf-cell, .mf-chip, .hs-sphere, .qt-opt, .dispatch[data-rec], .sec-head,
+  .region-shape, .poi-dot, .poi-label, .water-line, .trv-tok, .trv-step, .overlay-msg {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Ccircle cx='13' cy='13' r='7' fill='none' stroke='%23b08d57' stroke-width='1.5'/%3E%3Ccircle cx='13' cy='13' r='1.8' fill='%237fd4e0'/%3E%3Cpath d='M13 1 V6 M13 20 V25 M1 13 H6 M20 13 H25' stroke='%237fd4e0' stroke-width='1.5'/%3E%3C/svg%3E") 13 13, pointer;
+  }
+  input, textarea { cursor: text; }
+  /* the survey pans under a crystal pan-cross; the closed variant marks the held drag */
+  .viewport svg {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M14 2 L11 6 H17 Z M14 26 L11 22 H17 Z M2 14 L6 11 V17 Z M26 14 L22 11 V17 Z' fill='%237fd4e0'/%3E%3Ccircle cx='14' cy='14' r='2.2' fill='none' stroke='%23b08d57' stroke-width='1.4'/%3E%3C/svg%3E") 14 14, grab;
+  }
+  .viewport svg.dragging {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M14 4 L12 7 H16 Z M14 24 L12 21 H16 Z M4 14 L7 12 V16 Z M24 14 L21 12 V16 Z' fill='%23b08d57'/%3E%3Ccircle cx='14' cy='14' r='2.2' fill='%237fd4e0'/%3E%3C/svg%3E") 14 14, grabbing;
+  }
   .overlay-msg .deny { color: var(--corrupted); font-size: 1rem; letter-spacing: 0.3em; text-shadow: 0 0 16px rgba(160,92,80,0.5); }
   .overlay-msg .rune { color: var(--crystal); opacity: 0.5; font-size: 0.8rem; }
   #zoom img { max-width: 92%; max-height: 86%; border: 2px solid var(--bronze-deep); }
@@ -428,6 +510,7 @@
   <button id="tab-banks">MEMORY BANKS</button>
   <button id="tab-optic">EXTERNAL OPTIC</button>
   <button id="tab-hull">HULL SCHEMA</button>
+  <button id="tab-manifest">THE MANIFEST</button>
   <button class="locked" onclick="deny('ACCESS DENIED — AWAITING ENGINEER CLEARANCE')">RAIL NETWORK</button>
   <button class="locked" onclick="deny('THE LOG ROOM IS DARK. RESTORE CORE CAPACITY AND THE BANKS WILL LIGHT IT.')">THE LOG ROOM</button>
   <button class="locked" id="tab-commit" onclick="deny('INTAKE OFFLINE. THE BANKS WILL SOON ACCEPT WHAT BEARERS CARRY. PREPARE WHAT YOU DO NOT WISH TO LOSE.')">COMMIT A MEMORY</button>
@@ -499,6 +582,37 @@
       <div class="hull-block">CASA DOREZZAN · HULL SCHEMA<br>THE ARGENTE CORRIDORE<br><span id="hull-core"></span></div>
     </div>
     <div id="hull-detail"><div class="hs-hint">SELECT A SEGMENT — THE MACHINE WILL SAY WHAT IT REMEMBERS.</div></div>
+  </div>
+</div>
+
+<div id="manifest">
+  <div class="mf-inner">
+    <div class="rec-head"><div class="rec-title">THE MANIFEST — CARGO &amp; CUSTODY</div>
+    <div class="rec-kv">quartermaster register · stores sphere · the register declines what is not cargo.</div></div>
+    <div class="mf-rail" id="mf-rail"></div>
+    <div class="mf-layout">
+      <div>
+        <div class="mf-panel">
+          <div class="mf-sec-title">BULLION ON BOARD <span class="tag">STRONGBOX · SURVEYED BY COUNT</span></div>
+          <div class="mf-bullion">
+            <div><div class="mf-odo" id="mf-odo"></div><div class="mf-unit">GOLD PIECES · PARTY STRONGBOX</div></div>
+            <div class="note">The strongbox count stands as declared. The register keeps the running total. The arithmetic is the machine's.</div>
+          </div>
+        </div>
+        <div class="mf-panel">
+          <div class="mf-sec-title">THE HOLD <span class="tag" id="mf-count"></span></div>
+          <div class="mf-grid" id="mf-grid"></div>
+          <div class="mf-legend" id="mf-legend"></div>
+        </div>
+      </div>
+      <aside class="mf-detail">
+        <div class="mf-panel">
+          <div class="mf-sec-title">RECONSTRUCTION</div>
+          <div class="mf-recon" id="mf-recon"><div class="scanl"></div><span class="pend">SELECT CARGO FOR<br>RECONSTRUCTION</span></div>
+          <div id="mf-dbody"></div>
+        </div>
+      </aside>
+    </div>
   </div>
 </div>
 
@@ -966,14 +1080,141 @@ function showTab(which){
   commitEl.classList.toggle('show', which === 'commit');
   opticEl.classList.toggle('show', which === 'optic');
   hullEl.classList.toggle('show', which === 'hull');
+  manifestEl.classList.toggle('show', which === 'manifest');
   tabSurvey.classList.toggle('active', which === 'survey');
   tabBanks.classList.toggle('active', which === 'banks');
   tabCommit.classList.toggle('active', which === 'commit');
   tabOptic.classList.toggle('active', which === 'optic');
   tabHull.classList.toggle('active', which === 'hull');
+  tabManifest.classList.toggle('active', which === 'manifest');
 }
 tabSurvey.addEventListener('click', () => showTab('survey'));
 tabBanks.addEventListener('click', () => showTab('banks'));
+
+/* ===== THE MANIFEST — cargo & custody. the quartermaster's dial drives this pane. ===== */
+const manifestEl = document.getElementById('manifest');
+const tabManifest = document.getElementById('tab-manifest');
+let LEDGER = null, MF_FILTER = 'all', MF_SEL = null;
+const MF_CLS = { relic: '#d4af5f', arms: '#7fd4e0', sundry: '#9aa3ad', provision: '#b8a27a', bullion: '#b08d57' };
+const MF_GLYPHS = {
+  relic: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2l2.6 6.2L21 9l-5 4.6L17.2 21 12 17.4 6.8 21 8 13.6 3 9l6.4-0.8z"/></svg>',
+  arms: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 20l10-10m0 0l5-7 2 2-7 5M8 16l-2 2m-1 3l-2-2 2-1 1-2 2 2-1 2-2 1z"/></svg>',
+  sundry: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="4" y="7" width="16" height="13"/><path d="M4 11h16M12 7v13M4 7l2-3h12l2 3"/></svg>',
+  provision: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M10 3h4v4l3 8a4 4 0 01-4 5h-2a4 4 0 01-4-5l3-8z"/><path d="M9 13h6"/></svg>'
+};
+const MF_VITRUVIAN =
+  '<svg width="150" height="190" viewBox="0 0 200 250" fill="none" stroke="currentColor">'
+  + '<rect x="30" y="35" width="140" height="140" stroke-opacity="0.35" stroke-width="0.8"/>'
+  + '<circle cx="100" cy="105" r="70" stroke-opacity="0.35" stroke-width="0.8" stroke-dasharray="3 4"/>'
+  + '<circle cx="100" cy="55" r="12" stroke-width="1.3"/>'
+  + '<path d="M100 67 L100 130" stroke-width="1.3"/>'
+  + '<path d="M100 82 L45 82 M100 82 L155 82" stroke-width="1.3"/>'
+  + '<path d="M100 82 L52 55 M100 82 L148 55" stroke-width="0.8" stroke-opacity="0.4"/>'
+  + '<path d="M100 130 L75 195 M100 130 L125 195" stroke-width="1.3"/>'
+  + '<path d="M100 130 L60 185 M100 130 L140 185" stroke-width="0.8" stroke-opacity="0.4"/>'
+  + '<circle cx="100" cy="82" r="2.5"/><circle cx="45" cy="82" r="2.5"/><circle cx="155" cy="82" r="2.5"/>'
+  + '<circle cx="100" cy="130" r="2.5"/><circle cx="75" cy="195" r="2.5"/><circle cx="125" cy="195" r="2.5"/>'
+  + '<path d="M14 220 L186 220" stroke-opacity="0.5" stroke-width="0.8"/>'
+  + '<path d="M14 214 L14 226 M186 214 L186 226" stroke-opacity="0.5" stroke-width="0.8"/>'
+  + '<text x="100" y="238" text-anchor="middle" font-size="9" fill="currentColor" stroke="none" opacity="0.7" letter-spacing="3">BEARER FRAME</text>'
+  + '</svg>';
+fetch('ledger.json').then(x=>x.json()).then(d => { LEDGER = d; drawManifest(); }).catch(function(){});
+function mfBearer(id){ return LEDGER.bearers.find(b => b.id === id); }
+function mfShowBearer(id){
+  const rec = document.getElementById('mf-recon'), body = document.getElementById('mf-dbody');
+  if (id === 'all' || id === 'hold') {
+    rec.innerHTML = '<div class="scanl"></div><span class="pend">SELECT CARGO FOR<br>RECONSTRUCTION</span>';
+    body.innerHTML = '';
+    return;
+  }
+  const b = mfBearer(id);
+  const items = LEDGER.items.filter(it => it.custody === id);
+  const pieces = items.reduce((n, it) => n + it.qty, 0);
+  rec.innerHTML = '<div class="scanl"></div><div class="mf-fig" style="color:' + b.hue + '">' + MF_VITRUVIAN + '</div>';
+  mfCut();
+  body.innerHTML = '<div class="mf-dtitle" style="color:' + b.hue + '">' + b.name + '</div>'
+    + (b.designation ? '<div class="mf-drow"><span class="k">DESIGNATION</span><span>' + b.designation + '</span></div>' : '')
+    + '<div class="mf-drow"><span class="k">FOCUS</span><span>' + (b.focus === 'out' ? 'OUT OF FOCUS' : 'IN FOCUS') + '</span></div>'
+    + '<div class="mf-drow"><span class="k">LEDGER ENTRIES</span><span>' + items.length + '</span></div>'
+    + '<div class="mf-drow"><span class="k">PIECES CARRIED</span><span>' + pieces + '</span></div>'
+    + (b.stats ? b.stats.map(s => '<div class="mf-drow"><span class="k">' + s.k + '</span><span>' + s.v + '</span></div>').join('') : '')
+    + '<div class="mf-dnote">The figure is an approximation held by the register. Higher fidelity waits on what the bearers commit.</div>';
+}
+function mfCustodyLine(it){
+  if (it.custody === 'hold') return 'IN THE HOLD';
+  const b = mfBearer(it.custody);
+  return 'ON THE PERSON OF ' + b.name + (b.focus === 'out' ? ' [OUT OF FOCUS]' : '');
+}
+function drawManifest(){
+  const rail = document.getElementById('mf-rail');
+  rail.innerHTML = '';
+  const chips = [{ id: 'all', name: 'ALL CARGO', hue: 'var(--bronze)' }].concat(LEDGER.bearers);
+  chips.forEach(b => {
+    const c = document.createElement('button');
+    c.className = 'mf-chip' + (b.focus === 'out' ? ' oof' : '') + (MF_FILTER === b.id ? ' active' : '');
+    c.innerHTML = '<span class="dot" style="background:' + b.hue + '"></span>' + b.name
+      + (b.focus === 'out' ? ' <span class="oof-tag">OUT OF FOCUS</span>' : '');
+    c.addEventListener('click', () => { MF_FILTER = b.id; MF_SEL = null; drawManifest(); mfShowBearer(b.id); });
+    rail.appendChild(c);
+  });
+  const odo = document.getElementById('mf-odo');
+  odo.innerHTML = '';
+  String(LEDGER.bullion.gp).split('').forEach(ch => {
+    const s = document.createElement('span'); s.className = 'digit'; s.textContent = ch; odo.appendChild(s);
+  });
+  const grid = document.getElementById('mf-grid');
+  grid.innerHTML = '';
+  const items = LEDGER.items.filter(it => MF_FILTER === 'all' || it.custody === MF_FILTER);
+  items.forEach((it, idx) => {
+    const b = mfBearer(it.custody);
+    const d = document.createElement('div');
+    d.className = 'mf-cell' + (b && b.focus === 'out' ? ' oof' : '') + (MF_SEL === it.id ? ' sel' : '');
+    d.style.animationDelay = Math.min(idx * 12, 420) + 'ms';
+    d.innerHTML = '<span class="cls" style="background:' + MF_CLS[it.cls] + '"></span>'
+      + (it.set ? '<span class="setmark">✦</span>' : '')
+      + '<span class="glyph">' + MF_GLYPHS[it.cls] + '</span>'
+      + '<span class="iname">' + it.name + '</span>'
+      + (it.qty > 1 ? '<span class="qty">×' + it.qty + '</span>' : '')
+      + '<span class="bstrip" style="background:' + (b ? b.hue : 'var(--bronze-deep)') + '"></span>';
+    d.addEventListener('click', () => mfSelect(it, d));
+    grid.appendChild(d);
+  });
+  document.getElementById('mf-count').textContent =
+    items.length + ' OF ' + LEDGER.items.length + ' ENTRIES · NO FIXED CAPACITY DECLARED';
+  const leg = document.getElementById('mf-legend');
+  leg.innerHTML = '';
+  Object.keys(MF_CLS).forEach(k => {
+    if (k === 'bullion') return;
+    const s = document.createElement('span');
+    s.innerHTML = '<i style="background:' + MF_CLS[k] + '"></i>' + k.toUpperCase();
+    leg.appendChild(s);
+  });
+}
+function mfCut(){
+  const rec = document.getElementById('mf-recon');
+  rec.classList.remove('cut'); void rec.offsetWidth;
+  rec.classList.add('cut');
+  setTimeout(() => rec.classList.remove('cut'), 200);
+}
+function mfSelect(it, el){
+  MF_SEL = it.id;
+  /* selection only retargets; the catalogue re-indexes on a custody-chip change, never on a cell click */
+  document.querySelectorAll('#mf-grid .mf-cell.sel').forEach(c => c.classList.remove('sel'));
+  if (el) el.classList.add('sel');
+  document.getElementById('mf-recon').innerHTML =
+    '<div class="scanl"></div><span class="holo">' + MF_GLYPHS[it.cls] + '</span>';
+  mfCut();
+  const b = mfBearer(it.custody);
+  document.getElementById('mf-dbody').innerHTML =
+    '<div class="mf-dtitle">' + it.name + '</div>'
+    + '<div class="mf-drow"><span class="k">CLASS</span><span style="color:' + MF_CLS[it.cls] + '">' + it.cls.toUpperCase() + '</span></div>'
+    + '<div class="mf-drow"><span class="k">CUSTODY</span><span style="color:' + (b ? b.hue : 'var(--text)') + '">' + mfCustodyLine(it) + '</span></div>'
+    + '<div class="mf-drow"><span class="k">QUANTITY</span><span>' + it.qty + '</span></div>'
+    + (it.set ? '<div class="mf-drow"><span class="k">SET</span><span>ONE OF A MATCHED FIVE</span></div>' : '')
+    + (it.note ? '<div class="mf-dnote">' + it.note + '</div>' : '')
+    + (it.xref ? '<div class="mf-door"><button onclick="jumpToRecord(\'' + it.xref + '\')">OPEN RECORD · THE BANKS</button></div>' : '');
+}
+tabManifest.addEventListener('click', () => showTab('manifest'));
 /* ===== EXTERNAL OPTIC — the Runner's Eye. The feed state is the keeper's dial. ===== */
 const opticEl = document.getElementById('optic');
 const tabOptic = document.getElementById('tab-optic');

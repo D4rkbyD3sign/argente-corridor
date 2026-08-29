@@ -1,0 +1,582 @@
+{
+  "bullion": {
+    "gp": 4890
+  },
+  "bearers": [
+    {
+      "id": "hold",
+      "name": "THE HOLD",
+      "hue": "#4a4d55",
+      "focus": "in"
+    },
+    {
+      "id": "zarek",
+      "name": "ZAREK",
+      "hue": "#9a7fd4",
+      "focus": "in",
+      "designation": "WARLOCK · LEVEL 8"
+    },
+    {
+      "id": "alecto",
+      "name": "ALECTO",
+      "hue": "#d47f9e",
+      "focus": "in",
+      "designation": "MONSTER HUNTER · LEVEL 8"
+    },
+    {
+      "id": "turox",
+      "name": "TUROX",
+      "hue": "#c9764a",
+      "focus": "in",
+      "designation": "ELDRITCH KNIGHT · LEVEL 8"
+    },
+    {
+      "id": "eiliwyn",
+      "name": "EILIWYN",
+      "hue": "#8fbf6f",
+      "focus": "in",
+      "designation": "TWILIGHT CLERIC · LEVEL 8"
+    },
+    {
+      "id": "ludrimein",
+      "name": "LUDRIMEIN",
+      "hue": "#5f9bc9",
+      "focus": "in",
+      "designation": "PSION"
+    },
+    {
+      "id": "hesiod",
+      "name": "HESIOD",
+      "hue": "#8a8272",
+      "focus": "out"
+    },
+    {
+      "id": "zaeus",
+      "name": "ZAEUS",
+      "hue": "#8a8272",
+      "focus": "out"
+    }
+  ],
+  "items": [
+    {
+      "id": "soul-lantern",
+      "name": "THE SOUL LANTERN",
+      "cls": "relic",
+      "qty": 1,
+      "custody": "eiliwyn",
+      "note": "Relic of the Ascended. Dead flame; the glass wakes near spirits.",
+      "xref": "relics-nine"
+    },
+    {
+      "id": "blindfold",
+      "name": "THE BLINDFOLD OF EQUILIBRIUM",
+      "cls": "relic",
+      "qty": 1,
+      "custody": "ludrimein",
+      "note": "Relic of the Ascended. White cloth, silver thread.",
+      "xref": "relics-nine"
+    },
+    {
+      "id": "seers-quill",
+      "name": "THE SEER'S QUILL",
+      "cls": "relic",
+      "qty": 1,
+      "custody": "turox",
+      "note": "Relic of the Ascended. Frosted silver. Always cold.",
+      "xref": "relics-nine"
+    },
+    {
+      "id": "verdant-root",
+      "name": "THE VERDANT ROOT",
+      "cls": "relic",
+      "qty": 1,
+      "custody": "hesiod",
+      "note": "Relic of the Ascended. Petrified, green pulse. Custody rides with a bearer out of focus.",
+      "xref": "relics-nine"
+    },
+    {
+      "id": "one-key",
+      "name": "ALMIRIAN CLOCKWORK ONE KEY",
+      "cls": "relic",
+      "qty": 1,
+      "custody": "ludrimein",
+      "note": "Almirian make. A key that has not met a lock it did not already know.",
+      "xref": "relics-nine"
+    },
+    {
+      "id": "cloak-band-zarek",
+      "name": "CLOAK OF THE BAND",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "zarek",
+      "set": "band",
+      "note": "One of a matched set. The Band wears its name. Stronger within thirty feet of another."
+    },
+    {
+      "id": "cloak-band-alecto",
+      "name": "CLOAK OF THE BAND",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "alecto",
+      "set": "band",
+      "note": "One of a matched set."
+    },
+    {
+      "id": "cloak-band-turox",
+      "name": "CLOAK OF THE BAND",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "turox",
+      "set": "band",
+      "note": "One of a matched set."
+    },
+    {
+      "id": "cloak-band-eiliwyn",
+      "name": "CLOAK OF THE BAND",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "eiliwyn",
+      "set": "band",
+      "note": "One of a matched set."
+    },
+    {
+      "id": "cloak-band-ludrimein",
+      "name": "CLOAK OF THE BAND",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "ludrimein",
+      "set": "band",
+      "note": "One of a matched set."
+    },
+    {
+      "id": "rod-pact-keeper",
+      "name": "ROD OF THE PACT KEEPER +2",
+      "cls": "arms",
+      "qty": 1,
+      "custody": "zarek"
+    },
+    {
+      "id": "ring-spell-storing",
+      "name": "RING OF SPELL STORING",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "zarek"
+    },
+    {
+      "id": "gem-chromatic",
+      "name": "GEM OF THE CHROMATIC",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "zarek"
+    },
+    {
+      "id": "bead-time-stop",
+      "name": "BEAD OF TIME STOP",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "zarek",
+      "note": "One object. The register has heard it called both bead and marble, and files it once."
+    },
+    {
+      "id": "cloak-fashions",
+      "name": "CLOAK OF MANY FASHIONS",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "zarek"
+    },
+    {
+      "id": "spellbook-wizard",
+      "name": "MAGICAL SPELL BOOK",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "zarek",
+      "note": "A wizard's book, gifted. Not of his own craft."
+    },
+    {
+      "id": "stone-good-luck",
+      "name": "STONE OF GOOD LUCK",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "zarek"
+    },
+    {
+      "id": "potion-max-power",
+      "name": "POTION OF MAXIMUM POWER",
+      "cls": "provision",
+      "qty": 1,
+      "custody": "zarek"
+    },
+    {
+      "id": "recipe-max-power",
+      "name": "RECIPE OF MAXIMUM POWER",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "zarek",
+      "note": "The making of the potion, written down."
+    },
+    {
+      "id": "crest-astravia",
+      "name": "CREST OF ASTRAVIA",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "zarek"
+    },
+    {
+      "id": "heirloom-kirijo",
+      "name": "HEIRLOOM OF HOUSE KIRIJO",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "zarek"
+    },
+    {
+      "id": "letter-cain",
+      "name": "LETTER OF INTRODUCTION",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "zarek",
+      "note": "From Mr Cain."
+    },
+    {
+      "id": "health-potion-zarek",
+      "name": "HEALTH POTION",
+      "cls": "provision",
+      "qty": 2,
+      "custody": "zarek"
+    },
+    {
+      "id": "greater-healing-zarek",
+      "name": "GREATER HEALING POTION",
+      "cls": "provision",
+      "qty": 1,
+      "custody": "zarek"
+    },
+    {
+      "id": "severance",
+      "name": "SEVERANCE",
+      "cls": "arms",
+      "qty": 1,
+      "custody": "alecto",
+      "note": "The hunter's own blade. It has opinions about spellcasters."
+    },
+    {
+      "id": "cloak-protection",
+      "name": "CLOAK OF PROTECTION",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "alecto"
+    },
+    {
+      "id": "amulet-health",
+      "name": "AMULET OF HEALTH",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "alecto"
+    },
+    {
+      "id": "behir-heart",
+      "name": "BEHIR HEART",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "alecto"
+    },
+    {
+      "id": "dawn-drinker",
+      "name": "DAWN DRINKER'S STOMACH",
+      "cls": "sundry",
+      "qty": 2,
+      "custody": "alecto"
+    },
+    {
+      "id": "lifes-liquor",
+      "name": "LIFE'S LIQUOR",
+      "cls": "provision",
+      "qty": 1,
+      "custody": "alecto"
+    },
+    {
+      "id": "health-potion-alecto",
+      "name": "HEALTH POTION",
+      "cls": "provision",
+      "qty": 10,
+      "custody": "alecto"
+    },
+    {
+      "id": "greater-healing-alecto",
+      "name": "GREATER HEALING POTION",
+      "cls": "provision",
+      "qty": 1,
+      "custody": "alecto"
+    },
+    {
+      "id": "weapon-warning",
+      "name": "WEAPON OF WARNING",
+      "cls": "arms",
+      "qty": 1,
+      "custody": "turox",
+      "note": "The sabre that does not sleep."
+    },
+    {
+      "id": "ring-protection",
+      "name": "RING OF PROTECTION",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "turox"
+    },
+    {
+      "id": "pearl-power",
+      "name": "PEARL OF POWER",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "turox"
+    },
+    {
+      "id": "cloak-elvenkind",
+      "name": "CLOAK OF ELVENKIND",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "turox"
+    },
+    {
+      "id": "glamoured-leather",
+      "name": "GLAMOURED STUDDED LEATHER",
+      "cls": "arms",
+      "qty": 1,
+      "custody": "turox"
+    },
+    {
+      "id": "black-iron-dagger",
+      "name": "BLACK IRON DAGGER",
+      "cls": "arms",
+      "qty": 1,
+      "custody": "turox",
+      "note": "No enchantment. The material is the point."
+    },
+    {
+      "id": "adamantine-dagger",
+      "name": "ADAMANTINE DAGGER",
+      "cls": "arms",
+      "qty": 1,
+      "custody": "turox",
+      "note": "No enchantment. Adamantine needs none."
+    },
+    {
+      "id": "cube-force",
+      "name": "CUBE OF FORCE",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "turox",
+      "note": "Thirty-six charges held at last count."
+    },
+    {
+      "id": "gem-fortitude",
+      "name": "GEM OF FORTITUDE",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "turox"
+    },
+    {
+      "id": "mithril-tonic",
+      "name": "MITHRIL TONIC",
+      "cls": "provision",
+      "qty": 1,
+      "custody": "turox"
+    },
+    {
+      "id": "legnog",
+      "name": "LEGNOG",
+      "cls": "provision",
+      "qty": 2,
+      "custody": "turox"
+    },
+    {
+      "id": "armour-film-turox",
+      "name": "MAGICAL ARMOUR FILM",
+      "cls": "provision",
+      "qty": 1,
+      "custody": "turox",
+      "note": "A sheet, applied to arms or armour. One mark better, eight hours."
+    },
+    {
+      "id": "fey-ender-shield",
+      "name": "FEY ENDER SHIELD",
+      "cls": "arms",
+      "qty": 1,
+      "custody": "eiliwyn",
+      "note": "A shield two marks better than its make."
+    },
+    {
+      "id": "mithral-plate",
+      "name": "MITHRAL PLATE",
+      "cls": "arms",
+      "qty": 1,
+      "custody": "eiliwyn"
+    },
+    {
+      "id": "mask-many-faces",
+      "name": "MASK OF MANY FACES",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "eiliwyn"
+    },
+    {
+      "id": "amulet-devout",
+      "name": "AMULET OF THE DEVOUT",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "eiliwyn"
+    },
+    {
+      "id": "ring-evasion",
+      "name": "RING OF EVASION",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "eiliwyn"
+    },
+    {
+      "id": "ring-psychic",
+      "name": "RING OF PSYCHIC RESISTANCE",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "eiliwyn"
+    },
+    {
+      "id": "prayer-beads",
+      "name": "NECKLACE OF PRAYER BEADS",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "eiliwyn"
+    },
+    {
+      "id": "wand-magic-missiles",
+      "name": "WAND OF MAGIC MISSILES",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "eiliwyn"
+    },
+    {
+      "id": "anti-magic-manacles",
+      "name": "ANTI-MAGIC MANACLES",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "eiliwyn",
+      "note": "Almirian make. The register recognises the toolmarks."
+    },
+    {
+      "id": "helm-languages",
+      "name": "HELM OF COMPREHENDING LANGUAGES",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "eiliwyn"
+    },
+    {
+      "id": "periapt-poison",
+      "name": "PERIAPT OF PROOF AGAINST POISON",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "eiliwyn"
+    },
+    {
+      "id": "sending-stone",
+      "name": "SENDING STONE",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "eiliwyn",
+      "note": "Paired. The other stone no longer answers."
+    },
+    {
+      "id": "gruzor-hairtie",
+      "name": "GRUZOR TOOTH HAIRTIE",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "eiliwyn"
+    },
+    {
+      "id": "vial-drummer",
+      "name": "VIAL OF DRUMMER BLOOD",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "eiliwyn",
+      "note": "Old blood, older story. The register does not ask twice."
+    },
+    {
+      "id": "spellbook-adimonde",
+      "name": "SPELLBOOK OF ADIMONDE'S CULTIST",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "eiliwyn"
+    },
+    {
+      "id": "guild-signet",
+      "name": "SAPPHIRE GEM GUILD SIGNET",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "eiliwyn"
+    },
+    {
+      "id": "platinum-ring",
+      "name": "PLATINUM RING",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "eiliwyn"
+    },
+    {
+      "id": "healing-potion-eiliwyn",
+      "name": "STANDARD HEALING POTION",
+      "cls": "provision",
+      "qty": 6,
+      "custody": "eiliwyn"
+    },
+    {
+      "id": "arbiter-head",
+      "name": "CYBERNETIC HEAD OF THE ARBITER",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "ludrimein",
+      "note": "A head, without its verdicts. The register files it and says nothing further."
+    },
+    {
+      "id": "mantle-spell-res",
+      "name": "MANTLE OF SPELL RESISTANCE",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "ludrimein"
+    },
+    {
+      "id": "ring-mind-shield",
+      "name": "RING OF MIND SHIELDING",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "ludrimein"
+    },
+    {
+      "id": "armour-sheet-ludrimein",
+      "name": "MAGICAL ARMOUR SHEET",
+      "cls": "provision",
+      "qty": 1,
+      "custody": "ludrimein",
+      "note": "A sheet, applied to arms or armour. One mark better, eight hours."
+    },
+    {
+      "id": "vial-humanoid",
+      "name": "VIAL OF HUMANOID BLOOD",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "ludrimein"
+    },
+    {
+      "id": "greater-healing-ludrimein",
+      "name": "POTION OF GREATER HEALING",
+      "cls": "provision",
+      "qty": 1,
+      "custody": "ludrimein"
+    },
+    {
+      "id": "slippers-climbing",
+      "name": "SLIPPERS OF CLIMBING",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "hold",
+      "note": "Stowed. The walls can wait."
+    }
+  ]
+}
