@@ -1123,7 +1123,7 @@ const MF_VITRUVIAN =
   + '</svg>';
 fetch('ledger.json').then(x=>x.json()).then(d => { LEDGER = d; drawManifest(); }).catch(function(){});
 /* bearers with a reconstruction plate on file; the line-figure stands in for the rest */
-const MF_FRAMES = { zarek: 1, alecto: 1, turox: 1, eiliwyn: 1, ludrimein: 1, hesiod: 1 };
+const MF_FRAMES = { zarek: 1, alecto: 1, turox: 1, eiliwyn: 1, ludrimein: 1, hesiod: 1, zaeus: 1 };
 function mfBearer(id){ return LEDGER.bearers.find(b => b.id === id); }
 function mfShowBearer(id){
   const rec = document.getElementById('mf-recon'), body = document.getElementById('mf-dbody');
