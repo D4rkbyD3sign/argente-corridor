@@ -24,19 +24,19 @@
       "pods": [
         {
           "pod": 1,
-          "bearer": null
+          "bearer": "EILIWYN"
         },
         {
           "pod": 2,
-          "bearer": null
+          "bearer": "TUROX"
         },
         {
           "pod": 3,
-          "bearer": null
+          "bearer": "LUDRIMEIN"
         },
         {
           "pod": 4,
-          "bearer": null
+          "bearer": "ALECTO"
         },
         {
           "pod": 5,
@@ -44,7 +44,7 @@
         },
         {
           "pod": 6,
-          "bearer": null,
+          "bearer": "ZAREK",
           "dark": true
         }
       ]
