@@ -1,6 +1,6 @@
 {
   "bullion": {
-    "gp": 3404
+    "gp": 3399
   },
   "bearers": [
     {
@@ -42,7 +42,7 @@
       "name": "LUDRIMEIN",
       "hue": "#5f9bc9",
       "focus": "in",
-      "designation": "PSION"
+      "designation": "PSION · LEVEL 8"
     },
     {
       "id": "hesiod",
@@ -731,6 +731,37 @@
       "qty": 1,
       "custody": "hold",
       "note": "First circle to sixth. The author is not named."
+    },
+    {
+      "id": "rations-two-weeks",
+      "name": "SHIP'S RATIONS, TWO WEEKS",
+      "cls": "provision",
+      "qty": 1,
+      "custody": "hold",
+      "note": "Taken on mid-strait, by trade."
+    },
+    {
+      "id": "cooked-meals",
+      "name": "COOKED MEALS",
+      "cls": "provision",
+      "qty": 5,
+      "custody": "hold"
+    },
+    {
+      "id": "barrel",
+      "name": "BARREL",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "hold",
+      "note": "A barrel. The register does not open cargo."
+    },
+    {
+      "id": "cookbook",
+      "name": "COOKBOOK",
+      "cls": "sundry",
+      "qty": 1,
+      "custody": "hold",
+      "note": "The galley is now armed."
     }
   ]
 }

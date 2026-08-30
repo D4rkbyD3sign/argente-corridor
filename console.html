@@ -223,14 +223,15 @@
   .mf-door button { background: none; color: var(--bronze); font-family: inherit; font-size: 0.66rem; letter-spacing: 0.14em; border: 1px solid var(--bronze-deep); padding: 0.3rem 0.6rem; cursor: pointer; }
   .mf-fig { filter: drop-shadow(0 0 14px rgba(127,212,224,0.35)); animation: mfsway 7s ease-in-out infinite; }
   .mf-fig svg { display: block; }
-  .mf-fig.plate { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .mf-fig.plate { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; animation: none; transition: transform 160ms ease; will-change: transform; }
   .mf-photo { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: screen; display: block; }
+  .mf-recon.plated { background: #000; }
   @keyframes mfsway { 0%, 100% { transform: perspective(600px) rotateY(-14deg); } 50% { transform: perspective(600px) rotateY(14deg); } }
   .mf-recon.cut > * { animation: mfcut 160ms steps(2, end); }
   @keyframes mfcut { 0% { opacity: 0.25; } 50% { opacity: 0.8; } 100% { opacity: 1; } }
   .mf-door button { transition: color 0.15s, border-color 0.15s, box-shadow 0.15s; }
   .mf-door button:hover { color: var(--witnessed); border-color: var(--bronze); box-shadow: var(--elev-lower), var(--elev-light); }
-  @media (prefers-reduced-motion: reduce) { .mf-fig { animation: none; } .mf-cell { animation: none; } .mf-recon.cut > * { animation: none; } .mf-cell:hover, .mf-chip:hover { transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .mf-fig { animation: none; } .mf-fig.plate { transition: none; } .mf-cell { animation: none; } .mf-recon.cut > * { animation: none; } .mf-cell:hover, .mf-chip:hover { transform: none; } }
   .hull-inner { max-width: 1150px; margin: 1.6rem auto; padding: 0 1.2rem 2.5rem; }
   .hull-frame { position: relative; border: 2px solid var(--bronze-deep); background:
     linear-gradient(rgba(127,212,224,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(127,212,224,0.045) 1px, transparent 1px), #05070c;
@@ -1127,6 +1128,7 @@ function mfBearer(id){ return LEDGER.bearers.find(b => b.id === id); }
 function mfShowBearer(id){
   const rec = document.getElementById('mf-recon'), body = document.getElementById('mf-dbody');
   if (id === 'all' || id === 'hold') {
+    rec.classList.remove('plated');
     rec.innerHTML = '<div class="scanl"></div><span class="pend">SELECT CARGO FOR<br>RECONSTRUCTION</span>';
     body.innerHTML = '';
     return;
@@ -1135,8 +1137,10 @@ function mfShowBearer(id){
   const items = LEDGER.items.filter(it => it.custody === id);
   const pieces = items.reduce((n, it) => n + it.qty, 0);
   if (MF_FRAMES[id]) {
+    rec.classList.add('plated');
     rec.innerHTML = '<div class="mf-fig plate"><img class="mf-photo" src="frames/' + id + '.png" alt=""></div><div class="scanl"></div>';
   } else {
+    rec.classList.remove('plated');
     rec.innerHTML = '<div class="scanl"></div><div class="mf-fig" style="color:' + b.hue + '">' + MF_VITRUVIAN + '</div>';
   }
   mfCut();
@@ -1225,6 +1229,25 @@ function mfSelect(it, el){
     + (it.xref ? '<div class="mf-door"><button onclick="jumpToRecord(\'' + it.xref + '\')">OPEN RECORD · THE BANKS</button></div>' : '');
 }
 tabManifest.addEventListener('click', () => showTab('manifest'));
+/* the projection answers the eye: a shallow parallax tilt on plated reconstructions. */
+(function(){
+  const rec = document.getElementById('mf-recon');
+  if (!rec) return;
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)');
+  rec.addEventListener('mousemove', e => {
+    if (still.matches) return;
+    const fig = rec.querySelector('.mf-fig.plate');
+    if (!fig) return;
+    const r = rec.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    fig.style.transform = 'perspective(700px) rotateY(' + (x * 10).toFixed(2) + 'deg) rotateX(' + (-y * 7).toFixed(2) + 'deg) scale(1.05)';
+  });
+  rec.addEventListener('mouseleave', () => {
+    const fig = rec.querySelector('.mf-fig.plate');
+    if (fig) fig.style.transform = '';
+  });
+})();
 /* ===== EXTERNAL OPTIC — the Runner's Eye. The feed state is the keeper's dial. ===== */
 const opticEl = document.getElementById('optic');
 const tabOptic = document.getElementById('tab-optic');
