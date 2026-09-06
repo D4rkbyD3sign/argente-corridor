@@ -386,6 +386,9 @@
   .walk-dim { pointer-events: none; }
   .walk-line-under { fill: none; stroke: rgba(212,175,95,0.28); stroke-width: 16; stroke-linejoin: round; stroke-linecap: round; pointer-events: none; }
   .walk-line { fill: none; stroke: #d4af5f; stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; opacity: 0.9; pointer-events: none; }
+  /* the Runner's own glide wears crystal, dashed like a wake — bearer steps stay gold */
+  .glide-line-under { fill: none; stroke: rgba(127,212,224,0.22); stroke-width: 16; stroke-linejoin: round; stroke-linecap: round; pointer-events: none; }
+  .glide-line { fill: none; stroke: var(--crystal); stroke-width: 4.5; stroke-dasharray: 16 12; stroke-linejoin: round; stroke-linecap: round; opacity: 0.85; pointer-events: none; }
   .runner-core { fill: var(--crystal); stroke: #06222b; stroke-width: 2.5; pointer-events: none; }
   .runner-pulse { fill: none; stroke: var(--crystal); stroke-width: 3; opacity: 0.7; transform-box: fill-box; transform-origin: center; animation: runnerpulse 2.8s ease-out infinite; pointer-events: none; }
   @keyframes runnerpulse { 0% { transform: scale(0.35); opacity: 0.8; } 70% { transform: scale(1.7); opacity: 0; } 100% { transform: scale(1.7); opacity: 0; } }
@@ -424,6 +427,13 @@
   .survey-note { position: fixed; z-index: 60; display: none; background: #0e0f13; border: 1px solid var(--bronze-deep); padding: 0.45rem 0.8rem 0.55rem; color: var(--bronze); font-size: 0.68rem; letter-spacing: 0.18em; box-shadow: var(--elev-mid), var(--elev-light); pointer-events: none; }
   .survey-note.show { display: block; }
   .survey-note .sn-sub { color: var(--dim); letter-spacing: 0.08em; margin-top: 0.3rem; font-size: 0.66rem; }
+  /* every name the console speaks is a door — cross-refs read as data, crystal, quiet */
+  .xref { color: var(--crystal); border-bottom: 1px dotted rgba(127,212,224,0.4); cursor: pointer; }
+  .xref:hover { color: #a9e4ee; border-bottom: 1px solid var(--crystal); }
+  /* the terrain frame — a region may carry a survey visual; the box waits for the keeper's plates */
+  .terrain-frame { margin-top: 0.8rem; border: 1px solid var(--bronze-deep); background: #0d0e11; box-shadow: var(--elev-low), var(--elev-light); }
+  .terrain-frame img { width: 100%; display: block; opacity: 0.92; }
+  .terrain-cap { font-size: 0.6rem; letter-spacing: 0.16em; color: var(--dim); padding: 0.35rem 0.5rem 0.4rem; border-top: 1px solid var(--bronze-deep); }
 
   /* ===== THE LIVE PASS — the machine settles what it renders; nothing snaps ===== */
   @keyframes materialize { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
@@ -682,7 +692,9 @@ function show(r){
     <div class="kv">designation: ${r.kind}<br>
     survey: ${r.confidence.toUpperCase()}<br>
     memory: <span class="badge ${r.memory}">${r.memory.toUpperCase()}</span><br>
-    ${r.superzoom ? '<br>[ CLICK TARGET FOR HIGH-FIDELITY MEMORY ]' : ''}</div>`;
+    ${r.superzoom ? '<br>[ CLICK TARGET FOR HIGH-FIDELITY MEMORY ]' : ''}</div>` +
+    (r.terrain ? `<div class="terrain-frame"><img src="${r.terrain}" alt="terrain survey">` +
+      `<div class="terrain-cap">TERRAIN SURVEY · ${(r.confidence || 'briefing').toUpperCase()}</div></div>` : '');
 }
 /* THE ECHO-TETHER — the journey dial belongs to the narrator; the survey draws what it says and nothing it does not.
    The TRAVERSE bar scrubs the tether: each token re-renders line, dim and Runner from that stage's ground. */
@@ -714,10 +726,25 @@ fetch('journey-state.json').then(x=>x.json()).then(j => {
     defs.appendChild(mask);
     g.appendChild(defs);
     g.appendChild(mk('rect', { x: 0, y: 0, width: 2304, height: 1313, fill: 'black', opacity: j.dim != null ? j.dim : 0.55, mask: 'url(#walkmask)', 'class': 'walk-dim' }));
-    /* the line walked */
-    if (pts.length > 1) {
-      g.appendChild(mk('polyline', { points: ptStr, 'class': 'walk-line-under' }));
-      g.appendChild(mk('polyline', { points: ptStr, 'class': 'walk-line' }));
+    /* the line walked — bearer steps and the Runner's glide wear different metals (leg.mode: foot | runner) */
+    const drawSeg = (seg, mode) => {
+      if (seg.length < 2) return;
+      const s = seg.map(p => p.join(',')).join(' ');
+      const cls = mode === 'runner' ? 'glide-line' : 'walk-line';
+      g.appendChild(mk('polyline', { points: s, 'class': cls + '-under' }));
+      g.appendChild(mk('polyline', { points: s, 'class': cls }));
+    };
+    for (let i = 0; i < n; i++) {
+      const lg = j.legs[i];
+      let seg = legPath(lg).slice();
+      if (i > 0) { const prev = j.legs[i - 1].ground;
+        if (!seg.length || seg[0][0] !== prev[0] || seg[0][1] !== prev[1]) seg.unshift(prev); }
+      drawSeg(seg, lg.mode);
+    }
+    if (atNow && n > 0) {
+      const lastG = j.legs[n - 1].ground, np = j.now.position;
+      if (lastG[0] !== np[0] || lastG[1] !== np[1])
+        drawSeg([lastG, np], j.now.mode || j.legs[n - 1].mode);
     }
     /* the Runner */
     const nx = runnerPos[0], ny = runnerPos[1];
@@ -1364,6 +1391,41 @@ function hideBlurbPop(force){
 document.addEventListener('scroll', () => hideBlurbPop(true), true);
 document.addEventListener('click', e => { if (!e.target.closest('.brief')) hideBlurbPop(true); });
 const BANK_INDEX = {};
+/* every name the console speaks is a door — the banks index their own aliases and
+   record prose answers with cross-references. One pass, longest name wins. */
+let XREF_RE = null; const XREF_MAP = new Map();
+function buildXrefs(){
+  const stop = new Set(['territory', 'rumour', 'anomaly', 'recovered fragment', 'self-query', 'intake log',
+    'survey index', 'the frame', 'what are you', 'register of the ascended', 'survey addendum']);
+  for (const [id, t] of Object.entries(BANK_INDEX)) {
+    const aliases = new Set(t.rec.aka || []);
+    for (let seg of (t.rec.title || '').split(' — ')) {
+      seg = seg.trim();
+      if (!seg || stop.has(seg.toLowerCase()) || /^(koz-ma|codex entry|memory( \d+)?$)/i.test(seg)) continue;
+      const named = seg.match(/^([^,]+),\s*[“"](.+)[”"]\s*$/);
+      if (named) { aliases.add(named[1].trim()); aliases.add(named[2].trim()); }
+      else aliases.add(seg);
+      const piece = seg.match(/^The Piece Called (.+)$/i);
+      if (piece) aliases.add(piece[1].trim());
+      const pair = seg.match(/^(\w[\w']+) and (\w[\w']+)$/);
+      if (pair) { aliases.add(pair[1]); aliases.add(pair[2]); }
+    }
+    for (const a of aliases) {
+      const k = a.toLowerCase();
+      if (a.length >= 4 && !stop.has(k) && !XREF_MAP.has(k)) XREF_MAP.set(k, id);
+    }
+  }
+  const parts = [...XREF_MAP.keys()].sort((a, b) => b.length - a.length)
+    .map(a => a.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  XREF_RE = parts.length ? new RegExp('\\b(' + parts.join('|') + ')\\b', 'gi') : null;
+}
+function linkifyLine(text, selfId){
+  if (!XREF_RE) return text;
+  return text.replace(XREF_RE, m => {
+    const id = XREF_MAP.get(m.toLowerCase());
+    return (id && id !== selfId) ? `<span class="xref" data-rid="${id}">${m}</span>` : m;
+  });
+}
 function jumpToRecord(rid){
   const t = BANK_INDEX[rid]; if (!t) return;
   showTab('banks');
@@ -1427,6 +1489,12 @@ fetch('banks.json').then(x=>x.json()).then(d => {
       if (term) { sec.classList.toggle('open', hits > 0); sec.style.display = hits ? '' : 'none'; }
       else { sec.style.display = ''; }
     });
+  });
+  buildXrefs();
+  /* a cross-reference answers the hand the way any door does */
+  document.getElementById('bankview').addEventListener('click', e => {
+    const x = e.target.closest('.xref');
+    if (x) jumpToRecord(x.dataset.rid);
   });
 });
 /* the RECONSTRUCTION pane — fidelity IS integrity; corrupted records render degraded */
@@ -1533,11 +1601,11 @@ function showRecord(r, btn, force){
         '</tbody></table></div>';
     }
     else if (line.startsWith('## ')) html += `<h3>${line.slice(3)}</h3>`;
-    else if (line.startsWith('> ')) html += `<p class="q">${line.slice(2)}</p>`;
-    else if (line.startsWith('-- ')) html += `<p class="dimline">${line.slice(3)}</p>`;
+    else if (line.startsWith('> ')) html += `<p class="q">${linkifyLine(line.slice(2), r.id)}</p>`;
+    else if (line.startsWith('-- ')) html += `<p class="dimline">${linkifyLine(line.slice(3), r.id)}</p>`;
     else if (line.startsWith('SEALED: ')) html += `<p class="sealedline">▓ ${line.slice(8)}</p>`;
     else if (line.includes('[CORRUPTED]')) html += `<p class="corrupt">${line}</p>`;
-    else html += `<p>${line}</p>`;
+    else html += `<p>${linkifyLine(line, r.id)}</p>`;
   }
   if (r.focus === 'out' && r.focus_note) html += `<p class="focusline">-- ${r.focus_note}</p>`;
   document.getElementById('bankview').innerHTML = html + '</div>';
