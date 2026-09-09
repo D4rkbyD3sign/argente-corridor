@@ -198,6 +198,7 @@
     "umbral-woods": {
       "name": "Umbral Woods",
       "kind": "forest",
+      "terrain": "terrain-umbral-woods.jpg",
       "confidence": "stone",
       "memory": "recovered",
       "polygon": [
@@ -226,6 +227,7 @@
     "tamgamis-spine": {
       "name": "Tamgami's Spine",
       "kind": "mountains",
+      "terrain": "terrain-tamgamis-spine.jpg",
       "confidence": "stone",
       "memory": "recovered",
       "polygon": [
@@ -254,6 +256,7 @@
     "buchlita-slopes": {
       "name": "Buchlita Slopes",
       "kind": "hills",
+      "terrain": "terrain-buchlita-slopes.jpg",
       "confidence": "stone",
       "memory": "recovered",
       "polygon": [
