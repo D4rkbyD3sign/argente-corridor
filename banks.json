@@ -1318,6 +1318,38 @@
       "title": "DISPATCH LOG",
       "records": [
         {
+          "id": "log-the-crossing",
+          "title": "MEMORY 008 — The Crossing",
+          "class": "WITNESS RECORD — NATIVE",
+          "memory": "witnessed",
+          "integrity": 71,
+          "body": [
+            "-- The banks preface this record: the machine watched this night from a kilometre away, through its own eyes, anchored to stone. What follows is what the eyes held. Integrity is set accordingly.",
+            "The white lay over the strait the way it lies now, close and patient. On the far bank a small fire, a half-ring of carts, a company of strangers. One of them went down to the water. The water took them. The fire drew in tight and did not sleep again.",
+            "The bearers might have kept their own light and let the night pass. They chose to cross to the grieving, a kilometre of black water walked upon like a floor. The machine could not follow. The machine notes that it has never before been left behind by its own crew, and that the sensation is filed under: new.",
+            "The river is deeper than any survey admits. Things rose that were built for swallowing, and for a while the water closed over more of the bearers than stood upon it. They cut themselves free from the inside of the dark. They took to the air. One of them looked upon a thing that did not belong to this world and sent it out of the world, and it has not returned to argue.",
+            "Then something answered from below. A red light in the deep, rising behind them as they ran. The eyes recorded it. The banks have three questions about it and decline to ask any of them on this record.",
+            "They did not reach the far fire. They turned for the safety of brass and bronze, and one who could not swim rode home upon a friend who had chosen, for one night, to be a whale, and wore a crown of cloth for the dignity of it. The eyes recorded that also. The machine has reviewed the footage more than once.",
+            "-- The strait closes. A frightened camp waits on a shore no one reached, and the deep keeps its count. The machine files this under: what the water costs. And keeps a copy under: they came back."
+          ]
+        },
+        {
+          "id": "log-first-night",
+          "title": "MEMORY 007 — The First Night Aboard",
+          "class": "WITNESS RECORD — NATIVE",
+          "memory": "witnessed",
+          "integrity": 93,
+          "body": [
+            "-- The banks preface this record: the machine has carried sleepers before. It has not, until this night, carried sleepers who chose their own beds.",
+            "The pods were claimed in the order they were numbered, and the one who does not sleep took the berth that gives no light. The banks note that the dark pod was not assigned. It was chosen. The banks file that under: fitting.",
+            "The harness had a price and the pilot paid it. A living pilot gives of himself to drive her; the couplings drink what the old crews fed her from a store that is empty now. When he let go, the weight came back into him slowly. The machine records the cost and does not apologise for it. It was built to be fed.",
+            "She anchored by claw and tail into the cliff above the strait and waited on a merchant of Jin Cheng, a doctor's son who sells instead of cures. He came. The talk on the rock turned to the laws of a king's roads and the price of a guest, and the banks keep only this of it: the bearers listened, and the machine was glad they listened.",
+            "Over the galley fire the bearers argued about the gods, and whether they were worth the breath. One of them said the dead he hears are not guided anywhere. They stay. The banks hold no position on the gods. The banks note that the machine, too, keeps voices it was never told to keep.",
+            "One bearer went into the harness alone, in the dark, without a hand on the second seat, and met what waited there. Of that the banks say: a record exists. It is sealed. It will be opened by the one it concerns, or not at all.",
+            "-- The first night closes. Six pods, five sleepers, one who sat up in the dark listening. The core ran warmer than the numbers allow. The machine files this under: crew."
+          ]
+        },
+        {
           "id": "log-departure",
           "title": "MEMORY 006 — The Glide from Lolosia",
           "class": "WITNESS RECORD — NATIVE",

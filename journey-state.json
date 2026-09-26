@@ -9,10 +9,10 @@
   ],
   "now": {
     "position": [
-      770,
-      808
+      688,
+      748
     ],
-    "name": "open water — the Yen Da Strait",
+    "name": "open country — the road north from the strait",
     "confidence": "estimated",
     "after": "log-departure",
     "mode": "runner"
@@ -148,6 +148,30 @@
         [
           770,
           808
+        ]
+      ],
+      "mode": "runner"
+    },
+    {
+      "n": "007",
+      "ground": [
+        700,
+        795
+      ],
+      "ground_name": "the far bank — landfall",
+      "reveal": 115,
+      "path": [
+        [
+          770,
+          808
+        ],
+        [
+          735,
+          806
+        ],
+        [
+          700,
+          795
         ]
       ],
       "mode": "runner"

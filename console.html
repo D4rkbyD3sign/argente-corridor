@@ -158,11 +158,14 @@
   .optic-cams button { background: none; border: 1px solid var(--bronze-deep); color: var(--dim); font: inherit; font-size: 0.62rem; letter-spacing: 0.18em; padding: 0.3rem 0.7rem; cursor: pointer; }
   .optic-cams button.active { color: var(--bronze); border-color: var(--bronze); }
   .optic-cams button:hover { color: var(--text); }
-  .optic-wrap.waking img { animation: opticflicker 1.1s steps(1,end) 2; }
+  /* the drift — the eye is on a moving machine: a slow pan and breathe on every scene, so the country passes (26 Sep) */
+  .optic-wrap.open .optic-view img { animation: opticdrift 38s ease-in-out infinite alternate; transform-origin: 50% 55%; will-change: transform; }
+  @keyframes opticdrift { 0% { transform: scale(1.03) translate(0.7%, 0.4%); } 50% { transform: scale(1.08) translate(-0.9%, -0.5%); } 100% { transform: scale(1.04) translate(0.5%, -0.7%); } }
+  .optic-wrap.waking img { animation: opticflicker 1.1s steps(1,end) 2, opticdrift 38s ease-in-out infinite alternate; }
   @keyframes opticflicker { 0%,100% { opacity: 1; } 25% { opacity: 0.15; } 40% { opacity: 0.9; } 65% { opacity: 0.35; } 80% { opacity: 1; } }
   .optic-cap { display: flex; justify-content: space-between; gap: 1rem; color: var(--dim); font-size: 0.66rem; letter-spacing: 0.22em; margin-top: 0.6rem; line-height: 1.8; flex-wrap: wrap; }
   .optic-cap .live-dot { color: var(--witnessed); }
-  @media (prefers-reduced-motion: reduce) { .optic-wrap.open .optic-view, .optic-wrap.open.cut .optic-view { animation: none; } .optic-wrap.waking img, .optic-wrap.live .sweep { animation: none; } }
+  @media (prefers-reduced-motion: reduce) { .optic-wrap.open .optic-view, .optic-wrap.open.cut .optic-view { animation: none; } .optic-wrap.waking img, .optic-wrap.live .sweep, .optic-wrap.open .optic-view img { animation: none; } }
 
   /* ===== HULL SCHEMA — the runner's self-schema (blueprint register) ===== */
   #hull { flex: 1; display: none; overflow-y: auto; background: #07090d; }
@@ -533,6 +536,8 @@
 <main>
   <aside class="rail">
     <h2>DISPATCHES</h2>
+    <div class="dispatch" data-rec="log-the-crossing" onclick="jumpToRecord('log-the-crossing')"><b>MEMORY 008 — BANKED</b><br>the crossing · integrity 71% · NATIVE</div>
+    <div class="dispatch" data-rec="log-first-night" onclick="jumpToRecord('log-first-night')"><b>MEMORY 007 — BANKED</b><br>the first night aboard · integrity 93% · NATIVE</div>
     <div class="dispatch" data-rec="log-departure" onclick="jumpToRecord('log-departure')"><b>MEMORY 006 — BANKED</b><br>the glide from lolosia · integrity 96% · NATIVE</div>
     <div class="dispatch" data-rec="log-sword-on-the-chalk" onclick="jumpToRecord('log-sword-on-the-chalk')"><b>MEMORY 005 — BANKED</b><br>the sword laid on the chalk · integrity 78% · WITNESSED</div>
     <div class="dispatch" data-rec="log-confrontation-jewel" onclick="jumpToRecord('log-confrontation-jewel')"><b>MEMORY 004 — BANKED</b><br>the confrontation at the jewel · integrity 66% · WITNESSED</div>
@@ -1676,7 +1681,7 @@ addEventListener('keydown', e => {
   buf = (buf + e.key.toLowerCase()).slice(-10);
   if (buf.endsWith('lumen')) { document.body.classList.remove('lumen-glow'); void document.body.offsetWidth; document.body.classList.add('lumen-glow'); }
   if (!opticEl.classList.contains('show')) return;
-  for (const code of ['river', 'land', 'rail']) {
+  for (const code of ['river', 'land', 'rail', 'shore', 'rise', 'smoke']) {
     if (buf.endsWith(code)) { blinkTo(code); buf = ''; break; }
   }
 });

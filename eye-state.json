@@ -1,5 +1,5 @@
 {
-  "current": "water",
+  "current": "rise",
   "scenes": {
     "water": {
       "views": [
@@ -31,6 +31,44 @@
       "image": "optic/grassland-exit.jpg",
       "designation": "SURFACE EXIT — THE MINTED MOUND GRASSLANDS",
       "condition": "FEED LIVE · OPEN SKY · LIGHT: NOT THE RUNNER'S OWN"
+    },
+    "rise": {
+      "views": [
+        {
+          "label": "COMMAND",
+          "image": "optic/kreuzung-rise-motion.webp",
+          "designation": "COMMAND SPHERE — THROUGH THE PILOT’S EYES · OPEN COUNTRY, KREUZUNG AMBIT",
+          "condition": "FEED LIVE · MOTION STEADY · GROUND FIRM · THE SKY IS RED"
+        },
+        {
+          "label": "BOW",
+          "image": "optic/kreuzung-rise-bow.jpg",
+          "designation": "OVER THE DOME — OPEN COUNTRY, KREUZUNG AMBIT",
+          "condition": "FEED LIVE · CREST CLEAR · DUST ON THE CRYSTAL · THE SKY IS RED"
+        },
+        {
+          "label": "STILL",
+          "image": "optic/kreuzung-rise.jpg",
+          "designation": "COMMAND SPHERE — HELD FRAME · OPEN COUNTRY, KREUZUNG AMBIT",
+          "condition": "FEED HELD · THE EYE KEEPS ONE FRAME · THE SKY IS RED"
+        }
+      ]
+    },
+    "smoke": {
+      "views": [
+        {
+          "label": "COMMAND",
+          "image": "optic/buchlita-burn.jpg",
+          "designation": "COMMAND SPHERE — THROUGH THE PILOT’S EYES · FOOT OF THE BUCHLITA TERRACES",
+          "condition": "FEED LIVE · SMOKE ON THE OPTIC · LIGHT FAILING · THE EYE HOLDS ON THE FIRE"
+        },
+        {
+          "label": "BOW",
+          "image": "optic/buchlita-burn-bow.jpg",
+          "designation": "OVER THE DOME — FOOT OF THE BUCHLITA TERRACES",
+          "condition": "FEED LIVE · SMOKE ON THE OPTIC · THE CRYSTAL HOLDS THE FIRE · LIGHT FAILING"
+        }
+      ]
     }
   }
 }
