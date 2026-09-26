@@ -489,6 +489,10 @@
   footer { border-top: 2px solid var(--bronze-deep); background: var(--panel); overflow: hidden; white-space: nowrap; }
   footer .tick { display: inline-block; padding: 0.35rem 0; color: var(--dim); font-size: 0.68rem; letter-spacing: 0.1em; animation: tick 57s linear infinite; }
   @keyframes tick { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
+  .integ.settling { color: var(--bronze); }
+  /* LIFE — one corner murmur per session, the machine talking to itself (26 Sep) */
+  #murmur { position: fixed; right: 1.1rem; bottom: 2.4rem; color: var(--dim); font-size: 0.62rem; letter-spacing: 0.2em; opacity: 0; pointer-events: none; transition: opacity 900ms ease; z-index: 30; }
+  #murmur.on { opacity: 0.75; }
   @media (prefers-reduced-motion: reduce) { footer .tick { animation: none; padding-left: 1rem; } }
 
   body.lumen-glow::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 60;
@@ -659,7 +663,8 @@
   </aside>
 </div>
 
-<footer><div class="tick">LOLOSIA EXCHANGE: saffron ↑ 3gp/dr · dye-lots holding · gold soft against timomium a third straight month; the Minted Mound lists no new lots · DISPATCH: Lolosia signs historic trade accord with the Mercurial King, Qin Shi Huang of Jin Cheng: the free city chooses its current · GUILD NOTICE: caravan escort tenders close moonday · GUILD NOTICE: Rex Armada's Rune Smithy declares its GRAND RE-OPENING: the runesmith returns from what she calls her well-deserved sick leave; prices adjusted accordingly · RUMOUR (UNVERIFIED): strange blue metals and materials surfacing in the lower markets; assay pending, provenance undeclared · YEN DA TOLL: unchanged · CIVIC NOTICE: the square at the Jewel reopens on new stone; the children have already chalked it · GUILD NOTICE: the Firestorm Onslaught extends its watch contract; Embersea reds walk the walls until further notice · RUMOUR (UNVERIFIED): lights over the Umbral canopy · BUCHLITA ROAD: open, watch posted · THE ROW: two tables free at the Rusty Spoon</div></footer>
+<div id="murmur" aria-hidden="true"></div>
+<footer><div class="tick">LOLOSIA EXCHANGE: saffron ↑ 3gp/dr · dye-lots holding · gold soft against timomium a third straight month; the Minted Mound lists no new lots · DISPATCH: Lolosia signs historic trade accord with the Mercurial King, Qin Shi Huang of Jin Cheng: the free city chooses its current · GUILD NOTICE: caravan escort tenders close moonday · GUILD NOTICE: Rex Armada's Rune Smithy declares its GRAND RE-OPENING: the runesmith returns from what she calls her well-deserved sick leave; prices adjusted accordingly · RUMOUR (UNVERIFIED): strange blue metals and materials surfacing in the lower markets; assay pending, provenance undeclared · YEN DA TOLL: unchanged · CIVIC NOTICE: the square at the Jewel reopens on new stone; the children have already chalked it · GUILD NOTICE: the Firestorm Onslaught extends its watch contract; Embersea reds walk the walls until further notice · RUMOUR (UNVERIFIED): lights over the Umbral canopy · DISPATCH: the first silver chairs of Jin Cheng stand on the Lolosia docks; quicksilver, silk and physic against saffron, dye and the Row's steel: the accord's first exchange lands · RUMOUR (UNVERIFIED): a bronze thing the length of two wagons walked out of the Yen Da Strait at red dawn; the fishers on the far bank swear it had legs · ASTRAVIAN BORDER: Imperial customs on the north road refuse Lolosian seals since the Shield went home; carts turned back, no reason given · RUMOUR (UNVERIFIED): no tea has come down from the Buchlita terraces this month; the slopes sent word they are seeing to their dead · BUCHLITA ROAD: open; caravans move by daylight only and camp inside the fire, by order of the watch · THE ROW: two tables free at the Rusty Spoon</div></footer>
 
 <script>
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -795,6 +800,26 @@ fetch('journey-state.json').then(x=>x.json()).then(j => {
   bar.appendChild(fwd);
   vp.appendChild(bar);
   goTo(NOWI);
+  /* MOVEMENT — once per session, on first open, the marker walks the machine's own legs to NOW (26 Sep) */
+  (function walkTheLastLegs(){
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (sessionStorage.getItem('corridore-walked')) return;
+    const runnerLegs = j.legs.filter(l => l.mode === 'runner'); if (!runnerLegs.length) return;
+    const pts = []; for (const lg of runnerLegs) for (const p of legPath(lg)) { const q = pts[pts.length - 1]; if (!q || q[0] !== p[0] || q[1] !== p[1]) pts.push(p); }
+    const np = j.now.position; if (np) { const q = pts[pts.length - 1]; if (!q || q[0] !== np[0] || q[1] !== np[1]) pts.push(np); }
+    if (pts.length < 2) return;
+    const segs = []; let total = 0; for (let i = 1; i < pts.length; i++) { const d = Math.hypot(pts[i][0] - pts[i-1][0], pts[i][1] - pts[i-1][1]); segs.push(d); total += d; }
+    const core = g.querySelector('.runner-core'), pulse = g.querySelector('.runner-pulse'), l1 = g.querySelector('.runner-lbl'), l2 = g.querySelector('.runner-sub');
+    if (!core || !pulse) return;
+    const endX = +core.getAttribute('cx'), endY = +core.getAttribute('cy');
+    const DUR = 6500; let t0 = null; /* the clock starts on the first frame the eye actually gets, not at load: a background tab plays the walk when first looked at */
+    function at(dist){ let acc = 0; for (let i = 0; i < segs.length; i++) { if (dist <= acc + segs[i]) { const f = segs[i] ? (dist - acc) / segs[i] : 1; return [pts[i][0] + (pts[i+1][0] - pts[i][0]) * f, pts[i][1] + (pts[i+1][1] - pts[i][1]) * f]; } acc += segs[i]; } return pts[pts.length - 1]; }
+    function place(x, y){ core.setAttribute('cx', x); core.setAttribute('cy', y); pulse.setAttribute('cx', x); pulse.setAttribute('cy', y); if (l1) { l1.setAttribute('x', x - 34); l1.setAttribute('y', y - 40); } if (l2) { l2.setAttribute('x', x - 34); l2.setAttribute('y', y - 14); } }
+    if (l1) l1.textContent = 'THE RUNNER · REPLAY'; if (l2) l2.textContent = 'the glide, as the banks hold it';
+    function frame(now){ if (t0 === null) t0 = now; const k = Math.min(1, (now - t0) / DUR); const e = k < 0.5 ? 2*k*k : 1 - Math.pow(-2*k + 2, 2) / 2; const [x, y] = at(e * total); place(x, y);
+      if (k < 1) requestAnimationFrame(frame); else { place(endX, endY); if (l1) l1.textContent = 'THE RUNNER · NOW'; if (l2) l2.textContent = 'position ' + (j.now.confidence || 'estimated').toUpperCase() + ' · narrator confirms'; sessionStorage.setItem('corridore-walked', '1'); } }
+    place(pts[0][0], pts[0][1]); requestAnimationFrame(frame);
+  })();
   /* ghost-dim the markers of ground not yet reached — the visited list is the narrator's dial.
      Hovering an unreached marker raises the tether's own refusal. */
   const visited = new Set(j.visited || []);
@@ -1591,13 +1616,13 @@ function showRecord(r, btn, force){
     updateRecon(null);
     document.getElementById('bankview').innerHTML =
       `<div class="rec-head"><div class="rec-title${r.anomaly?' anomaly':''}">${r.title.toUpperCase()}</div>
-       <div class="rec-kv">designation: ${r.class} · memory: <span class="badge ${r.memory}">${r.memory.toUpperCase()}</span> · integrity ${r.integrity}%</div></div>
+       <div class="rec-kv">designation: ${r.class} · memory: <span class="badge ${r.memory}">${r.memory.toUpperCase()}</span> · integrity <span class="integ" data-v="${r.integrity}">${r.integrity}</span>%</div></div>
        <div class="rec-warning"><div class="deny-line">${r.warning}</div>
        <button onclick="retrieveAnyway()">[ RETRIEVE ANYWAY ]</button></div>`;
     return;
   }
   let html = `<div class="rec-head"><div class="rec-title${r.anomaly?' anomaly':''}">${r.title.toUpperCase()}</div>
-    <div class="rec-kv">designation: ${r.class} · memory: <span class="badge ${r.memory}">${r.memory.toUpperCase()}</span> · integrity ${r.integrity}%${r.focus === 'out' ? ' · <span class="badge outfocus">OUT OF FOCUS</span>' : ''}</div></div><div class="rec-body">`;
+    <div class="rec-kv">designation: ${r.class} · memory: <span class="badge ${r.memory}">${r.memory.toUpperCase()}</span> · integrity <span class="integ" data-v="${r.integrity}">${r.integrity}</span>%${r.focus === 'out' ? ' · <span class="badge outfocus">OUT OF FOCUS</span>' : ''}</div></div><div class="rec-body">`;
   for (const line of r.body) {
     if (line === '{{TABLE}}' && r.table) {
       html += '<div class="rec-tablewrap"><table class="rec-table"><thead><tr>' +
@@ -1685,6 +1710,24 @@ addEventListener('keydown', e => {
     if (buf.endsWith(code)) { blinkTo(code); buf = ''; break; }
   }
 });
+/* ===== FLUX — a number that refuses to sit still: integrity settles on record open (26 Sep) ===== */
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const bv = document.getElementById('bankview'); if (!bv) return;
+  function settle(el){
+    const v = parseInt(el.dataset.v, 10); if (isNaN(v)) return;
+    const steps = [[v - 1, 140], [v, 220], [v - 1, 90], [v, 0]];
+    let t = 260; for (const [val, hold] of steps) { setTimeout(() => { el.textContent = val; el.classList.toggle('settling', val !== v); }, t); t += hold; }
+  }
+  new MutationObserver(() => { bv.querySelectorAll('.integ:not([data-settled])').forEach(el => { el.dataset.settled = '1'; settle(el); }); }).observe(bv, { childList: true, subtree: true });
+})();
+/* ===== LIFE — once a night, not once a minute: a murmur in the corner, 75 s after the banks remember you ===== */
+(function(){
+  if (sessionStorage.getItem('corridore-murmured')) return;
+  const LINES = ['re-indexing ARCHIVES \u2026 3 fragments unresolved', 'core tick 23% \u2026 holding', 'pod six: no light. noted.', 'the eye blinked. nothing was there.'];
+  const el = document.getElementById('murmur'); if (!el) return;
+  setTimeout(() => { if (!sessionStorage.getItem('corridore-keyed')) return; el.textContent = LINES[Math.floor(Math.random() * LINES.length)]; el.classList.add('on'); sessionStorage.setItem('corridore-murmured', '1'); setTimeout(() => el.classList.remove('on'), 7000); }, 75000);
+})();
 </script>
 </body>
 </html>
