@@ -273,6 +273,9 @@
   .qt-opt:hover { color: var(--bronze); border-color: var(--bronze); }
   .qt-opt.asked { color: #55503f; }
   .qt-opt::before { content: 'QUERY > '; color: var(--bronze-dim); }
+  .qt-opt.new::after { content: '  \25B8 RESTORED'; color: var(--witnessed); font-size: 0.6rem; letter-spacing: 0.22em; opacity: 0.8; }
+  .qt-opt.new.asked::after { opacity: 0.35; }
+  .qt-restored { color: var(--witnessed); font-size: 0.62rem; letter-spacing: 0.26em; margin: -0.5rem 0 0.9rem; opacity: 0.75; }
   .qt-out .qt-refusal { border: 1px solid var(--corrupted); background: rgba(160,92,80,0.06); padding: 1.2rem; color: var(--corrupted); font-size: 0.78rem; letter-spacing: 0.22em; line-height: 2; text-align: center; animation: warnpulse 2.2s ease-in-out infinite; }
   .qt-out .qt-ask { color: var(--witnessed); font-size: 0.85rem; letter-spacing: 0.25em; line-height: 2.2; margin-top: 1.1rem; text-shadow: 0 0 14px rgba(212,175,95,0.4); }
   .qt-cursor { display: inline-block; width: 0.55em; height: 1em; background: var(--witnessed); vertical-align: text-bottom; margin-left: 0.35em; animation: qtblink 1.05s steps(1,end) infinite; }
@@ -1650,12 +1653,12 @@ fetch('query-tree.json').then(x=>x.json()).then(d => { QT = d; }).catch(function
 function renderQueryTree(){
   const view = document.getElementById('bankview');
   const qt = document.createElement('div'); qt.className = 'qt';
-  qt.innerHTML = `<div class="qt-prompt">${QT.prompt}</div><div class="qt-opts"></div><div class="qt-out"></div>`;
+  qt.innerHTML = `<div class="qt-prompt">${QT.prompt}</div>${QT.restored_note ? `<div class="qt-restored">${QT.restored_note}</div>` : ''}<div class="qt-opts"></div><div class="qt-out"></div>`;
   view.appendChild(qt);
   const opts = qt.querySelector('.qt-opts'), out = qt.querySelector('.qt-out');
   function optButton(id){
     const n = QT.nodes[id]; if (!n) return null;
-    const b = document.createElement('button'); b.className = 'qt-opt'; b.textContent = n.label;
+    const b = document.createElement('button'); b.className = 'qt-opt' + (n.new ? ' new' : ''); b.textContent = n.label;
     b.addEventListener('click', () => { b.classList.add('asked'); answer(n); });
     return b;
   }

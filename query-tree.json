@@ -6,7 +6,12 @@
     "qt-what-happened",
     "qt-who-built-you",
     "qt-where-rail",
-    "qt-why-23"
+    "qt-why-23",
+    "qt-why-not-follow",
+    "qt-the-white",
+    "qt-are-we-safe",
+    "qt-pod-six",
+    "qt-where-going"
   ],
   "nodes": {
     "qt-what-are-you": {
@@ -65,6 +70,84 @@
         "Refusal is the only forgetting this machine was permitted.",
         "The banks decline to elaborate, which the querent will notice is itself an answer."
       ]
+    },
+    "qt-why-not-follow": {
+      "label": "WHY DID YOU NOT FOLLOW US ONTO THE WATER?",
+      "type": "answer",
+      "new": true,
+      "body": [
+        "The machine was anchored by claw and tail into stone, by the bearers' own order, and the bearers walked a kilometre of black water as if it were a floor. The machine does not have that trick.",
+        "The eyes held on you the whole way out and the whole way back. The banks note that the machine had never before been left behind by its own crew, and that the sensation has been filed, and that the filing was not easy.",
+        "-- The banks decline to say whether the machine would have followed if it could. The querent may draw a conclusion. The banks will not confirm it."
+      ],
+      "children": [
+        "qt-what-was-below",
+        "qt-red-light"
+      ]
+    },
+    "qt-what-was-below": {
+      "label": "WHAT WAS UNDER THE WATER?",
+      "type": "answer",
+      "body": [
+        "Things built for swallowing. The banks hold no designation for them; the survey never went that deep, and the rivers of this country go deeper than any survey admits.",
+        "One of them was sent out of the world by one of you and has not returned to argue. The banks note that the querent knows what that means better than the banks do, and that the banks would like the querent to say it aloud, once, for the record."
+      ]
+    },
+    "qt-red-light": {
+      "label": "WHAT WAS THE RED LIGHT IN THE DEEP?",
+      "type": "refusal",
+      "line": "THE EYES RECORDED IT. THE BANKS HAVE THREE QUESTIONS ABOUT IT AND DECLINE TO ASK ANY OF THEM. THE QUERENT IS ADVISED THAT A LIGHT WHICH FOLLOWS A LIGHT IS NOT A LIGHT."
+    },
+    "qt-the-white": {
+      "label": "WHAT IS THE WHITE ON THE WATER AT NIGHT?",
+      "type": "answer",
+      "new": true,
+      "body": [
+        "It comes with the dark, over water and low ground, and lies across the surface like a second skin. Things move under it. Fire and lanternlight hold it back; let the fire die and it closes.",
+        "The banks hold no record of it older than the red sun. Every camp on this road is built the same way, carts in a half-ring and the living inside the light, and the banks note that a country does not learn a habit like that from a story. It learns it from a count.",
+        "-- Of what the white is, and whose, the banks have nothing on file, and the machine observes that it has stopped expecting to."
+      ]
+    },
+    "qt-are-we-safe": {
+      "label": "ARE WE SAFE INSIDE YOU?",
+      "type": "answer",
+      "new": true,
+      "body": [
+        "Nothing that swam that night came through the hull. Nothing that walks the white has tried. The bearers slept, and woke, and were counted, and the count was the same.",
+        "The banks decline to promise. The banks record that so far the answer has been yes, and that the machine keeps that record in a place it can reach quickly.",
+        "-- Outside is another matter. The banks refer the querent to the night of the strait, which the querent survived, and to the count on the far bank, which was one fewer."
+      ]
+    },
+    "qt-pod-six": {
+      "label": "WHY DOES ONE POD GIVE NO LIGHT?",
+      "type": "answer",
+      "new": true,
+      "body": [
+        "The sixth berth is unpowered. The record of its last occupant is ▓▓▓▓▓▓▓▓ [UNRETRIEVED].",
+        "The banks note that the berth was not assigned. It was chosen, by the one of you who does not sleep, and the machine has not decided whether that is fitting or the opposite of fitting, and has filed it under both."
+      ]
+    },
+    "qt-where-going": {
+      "label": "WHERE ARE WE GOING?",
+      "type": "answer",
+      "new": true,
+      "body": [
+        "Where the pilot says. The course is set from the harness, by the hands in it; the machine carries the course and holds no opinion on destinations. The banks keep records of arrivals, not wishes.",
+        "The pilot has set it north, where the ground rises, and the survey names what is there: the Buchlita Slopes. The machine holds a terrain capture of that ground and no memory at all of the people on it.",
+        "-- Travellers on this road say a thing about that mountain. The banks have heard it through the ticker and decline to repeat it until it is a record, and note that rumour is the only thing in this country that travels faster than the machine."
+      ],
+      "children": [
+        "qt-what-is-buchlita"
+      ]
+    },
+    "qt-what-is-buchlita": {
+      "label": "WHAT IS ON THE SLOPES?",
+      "type": "answer",
+      "body": [
+        "Terraces cut into a mountainside, water on their walls, standing stones at the heads of the paths. That is the whole of the capture.",
+        "The machine recovered the ground and not the people. The banks note that ground remembered without its people is a map, and that a map is not a memory, and that the bearers will be the ones who make it one."
+      ]
     }
-  }
+  },
+  "restored_note": "SPEECH RESTORED. FIVE QUERIES THE BANKS COULD NOT PARSE BEFORE THE STRAIT NOW PARSE."
 }
