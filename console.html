@@ -58,6 +58,15 @@
   .rec-body .dimline { color: var(--dim); }
   .rec-body h3 { color: var(--bronze); font-size: 0.72rem; letter-spacing: 0.3em; margin: 1.5rem 0 0.8rem; font-weight: normal; }
   .rec-body .sealedline { color: #55503f; letter-spacing: 0.15em; font-size: 0.72rem; margin-bottom: 0.5rem; }
+  /* THE FOG — a block that exists, the shape of prose, blurred past reading; the JSON never holds the text */
+  .rec-body .veil { position: relative; margin: 0.9rem 0 1.1rem; padding: 0.7rem 0.9rem 0.6rem; border: 1px dashed var(--bronze-deep); background: rgba(127,212,224,0.025); cursor: not-allowed; user-select: none; }
+  .rec-body .veil-cap { color: var(--witnessed); font-size: 0.6rem; letter-spacing: 0.24em; margin-bottom: 0.45rem; opacity: 0.8; }
+  .rec-body .veil.refused .veil-cap { color: var(--corrupted); }
+  .rec-body .veil-row { color: var(--dim); font-size: 0.86rem; line-height: 1.7; letter-spacing: 0.06em; filter: blur(3.2px); opacity: 0.55; white-space: nowrap; overflow: hidden; animation: veildrift 9s ease-in-out infinite alternate; }
+  .rec-body .veil-row:nth-child(odd) { animation-duration: 11s; }
+  @keyframes veildrift { from { filter: blur(3.2px); opacity: 0.5; } to { filter: blur(2.6px); opacity: 0.62; } }
+  @media (prefers-reduced-motion: reduce) { .rec-body .veil-row { animation: none; } }
+
   .rec-warning { border: 1px solid var(--corrupted); background: rgba(160,92,80,0.06); padding: 2.2rem; margin-top: 2rem; text-align: center; max-width: 74ch; }
   .rec-warning .deny-line { color: var(--corrupted); font-size: 0.82rem; letter-spacing: 0.25em; line-height: 2.1; margin-bottom: 1.6rem; text-shadow: 0 0 14px rgba(160,92,80,0.4); animation: warnpulse 2.2s ease-in-out infinite; }
   @keyframes warnpulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
@@ -1624,6 +1633,7 @@ function showRecord(r, btn, force){
        <button onclick="retrieveAnyway()">[ RETRIEVE ANYWAY ]</button></div>`;
     return;
   }
+  let veilSeq = 0;
   let html = `<div class="rec-head"><div class="rec-title${r.anomaly?' anomaly':''}">${r.title.toUpperCase()}</div>
     <div class="rec-kv">designation: ${r.class} · memory: <span class="badge ${r.memory}">${r.memory.toUpperCase()}</span> · integrity <span class="integ" data-v="${r.integrity}">${r.integrity}</span>%${r.focus === 'out' ? ' · <span class="badge outfocus">OUT OF FOCUS</span>' : ''}</div></div><div class="rec-body">`;
   for (const line of r.body) {
@@ -1636,6 +1646,7 @@ function showRecord(r, btn, force){
     else if (line.startsWith('## ')) html += `<h3>${line.slice(3)}</h3>`;
     else if (line.startsWith('> ')) html += `<p class="q">${linkifyLine(line.slice(2), r.id)}</p>`;
     else if (line.startsWith('-- ')) html += `<p class="dimline">${linkifyLine(line.slice(3), r.id)}</p>`;
+    else if (line.startsWith('VEILED: ')) html += veilBlock(line.slice(8), r.id, veilSeq++);
     else if (line.startsWith('SEALED: ')) html += `<p class="sealedline">▓ ${line.slice(8)}</p>`;
     else if (line.includes('[CORRUPTED]')) html += `<p class="corrupt">${line}</p>`;
     else html += `<p>${linkifyLine(line, r.id)}</p>`;
@@ -1731,6 +1742,19 @@ addEventListener('keydown', e => {
   const el = document.getElementById('murmur'); if (!el) return;
   setTimeout(() => { if (!sessionStorage.getItem('corridore-keyed')) return; el.textContent = LINES[Math.floor(Math.random() * LINES.length)]; el.classList.add('on'); sessionStorage.setItem('corridore-murmured', '1'); setTimeout(() => el.classList.remove('on'), 7000); }, 75000);
 })();
+/* ===== THE FOG — memory not yet recovered. The shape of what the banks hold, never the substance (26 Sep) ===== */
+const VEIL_GLYPHS = '\u16A0\u16A2\u16A6\u16B1\u16B7\u16BE\u16C1\u16C7\u16CA\u16D6\u16D7\u16DA\u16DE\u16DF\u16E0\u16E3\u16E6\u16EB\u2591\u2592\u2593';
+function veilNoise(seed, len){ let h = 2166136261; for (const c of seed) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619) >>> 0; }
+  let out = ''; for (let i = 0; i < len; i++) { h = Math.imul(h ^ (h >>> 13), 1274126177) >>> 0; const k = h % 97; out += (k < 14) ? ' ' : VEIL_GLYPHS[h % VEIL_GLYPHS.length]; } return out; }
+function veilBlock(spec, rid, seq){
+  const parts = spec.split(' \u00B7 '); const n = Math.max(1, Math.min(12, parseInt(parts[0], 10) || 1)); const head = (parts[1] || '').trim();
+  let rows = ''; for (let i = 0; i < n; i++) { const len = 46 + ((seq * 7 + i * 11 + rid.length) % 5) * 9 + (i === n - 1 ? -18 : 0); rows += `<div class="veil-row">${veilNoise(rid + ':' + seq + ':' + i, Math.max(22, len))}</div>`; }
+  return `<div class="veil" tabindex="0" data-n="${n}"><div class="veil-cap">\u2593 MEMORY NOT YET RECOVERED${head ? ' \u00B7 ' + head.toUpperCase() : ''} \u00B7 ${n} ${n === 1 ? 'LINE' : 'LINES'} HELD</div>${rows}</div>`;
+}
+document.addEventListener('click', e => { const v = e.target.closest && e.target.closest('.veil'); if (!v) return;
+  const cap = v.querySelector('.veil-cap'); if (!cap) return; const was = cap.textContent; v.classList.add('refused');
+  cap.textContent = 'RETRIEVAL REFUSED. INTEGRITY BELOW THRESHOLD FOR THIS FIELD. THE SHAPE IS ALL THE BANKS CAN SHOW.';
+  setTimeout(() => { cap.textContent = was; v.classList.remove('refused'); }, 2600); });
 </script>
 </body>
 </html>
