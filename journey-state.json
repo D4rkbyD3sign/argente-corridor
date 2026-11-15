@@ -9,10 +9,10 @@
   ],
   "now": {
     "position": [
-      688,
-      748
+      705,
+      698
     ],
-    "name": "open country — the road north from the strait",
+    "name": "the last rise — smoke over the lowland, the terraces beyond",
     "confidence": "estimated",
     "after": "log-departure",
     "mode": "runner"
@@ -172,6 +172,50 @@
         [
           700,
           795
+        ]
+      ],
+      "mode": "runner"
+    },
+    {
+      "n": "008",
+      "ground": [
+        660,
+        705
+      ],
+      "ground_name": "the road north — Kreuzung country",
+      "reveal": 115,
+      "path": [
+        [
+          688,
+          748
+        ],
+        [
+          672,
+          728
+        ],
+        [
+          660,
+          705
+        ]
+      ],
+      "mode": "runner"
+    },
+    {
+      "n": "009",
+      "ground": [
+        705,
+        698
+      ],
+      "ground_name": "the last rise — smoke ahead",
+      "reveal": 115,
+      "path": [
+        [
+          660,
+          705
+        ],
+        [
+          705,
+          698
         ]
       ],
       "mode": "runner"
